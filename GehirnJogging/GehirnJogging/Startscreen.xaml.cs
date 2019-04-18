@@ -24,9 +24,6 @@ namespace GehirnJogging
         public MainWindow()
         {
             InitializeComponent();
-            SoundPlayer player = new SoundPlayer(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Tamilsong.wav");
-            player.Load();
-            player.Play();
         }
 
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)

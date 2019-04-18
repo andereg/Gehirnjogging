@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Media;
+
+namespace GehirnJogging
+{
+    class Music
+    {
+        MediaPlayer player = new MediaPlayer();
+
+
+
+        public void playTheme()
+        {
+            player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Tamilsong.wav"));
+            player.Play();
+        }
+
+        public void resumeTheme()
+        {
+            player.Play();
+        }
+
+        public void stopTheme()
+        {
+            player.Pause();
+        }
+
+        public void quiter()
+        {
+        }
+
+
+    }
+}
