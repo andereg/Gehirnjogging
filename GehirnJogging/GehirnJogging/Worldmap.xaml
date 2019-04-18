@@ -7,86 +7,101 @@
         mc:Ignorable="d"
         Title="Worldmap" Height="1080" Width="1920">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="13*"/>
-            <RowDefinition Height="14*"/>
-        </Grid.RowDefinitions>
+
         <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Startscreen – 1.png" Stretch="Fill" Grid.RowSpan="2"/>
-        <Button x:Name="btnnewGame" Content="Charakterverbesserung" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="119,434,0,0" VerticalAlignment="Top" Width="595" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Grid.Row="1" />
-        <Button x:Name="btnnewGame_Copy" Content="Charakter" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="749,434,0,0" VerticalAlignment="Top" Width="301" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold"  Grid.Row="1" />
-        <Button x:Name="btnnewGame_Copy1" Content="Shop" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1093,434,0,0" VerticalAlignment="Top" Width="301" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold"  Grid.Row="1" />
-        <Frame x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="185" Margin="1500,365,0,0" VerticalAlignment="Top" Width="350" RenderTransformOrigin="3.63,-1.54" Grid.Row="1">
+        <Button x:Name="btnnewGame" Content="Charakterverbesserung" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="99,934,0,0" VerticalAlignment="Top" Width="595" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" />
+        <Button x:Name="btnnewGame_Copy" Content="Charakter" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="725,934,0,0" VerticalAlignment="Top" Width="301" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" />
+        <Button x:Name="btnnewGame_Copy1" Content="Shop" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1061,934,0,0" VerticalAlignment="Top" Width="301" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" />
+        <Frame x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="185" Margin="1430,835,29,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54">
             <Frame.Content>
-                <Button x:Name="btnnewGame_Copy2" Content="lvl starten" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="10,38,0,0" Click="BtnStartLevel" />
+                <Button x:Name="btnnewGame_Copy2" Content="Level starten" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="93,40,0,0" Click="BtnStartLevel" />
             </Frame.Content>
         </Frame>
-        <Button x:Name="btnnewGame_Copy3" Content="zurück" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="47,72,0,0" VerticalAlignment="Top" Width="269" Height="76" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnback" />
-        <Image x:Name="image" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="53" Margin="1017,276,0,0" Grid.Row="1" VerticalAlignment="Top" Width="57"/>
-        <Image x:Name="image_Copy" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="53" Margin="907,269,0,0" Grid.Row="1" VerticalAlignment="Top" Width="57"/>
-        <Image x:Name="image_Copy1" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="907,480,0,0" VerticalAlignment="Top" Width="57" RenderTransformOrigin="0.702,-1.566" Grid.RowSpan="2"/>
-        <Image x:Name="image_Copy2" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="800,453,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566"/>
-        <Image x:Name="image_Copy3" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="800,42,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
-        <Image x:Name="image_Copy4" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="578,42,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
-        <Image x:Name="image_Copy5" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="578,331,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566"/>
-        <Image x:Name="image_Copy6" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="796,331,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566"/>
-        <Image x:Name="image_Copy7" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="796,222,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566"/>
-        <Image x:Name="image_Copy8" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="1123,222,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566"/>
-        <Image x:Name="image_Copy9" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="1123,42,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
-        <Image x:Name="image_Copy10" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="1017,42,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
-        <Image x:Name="image_Copy11" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="52" Margin="1017,480,0,0" VerticalAlignment="Top" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.RowSpan="2"/>
-        <Image Margin="1017,276,0,0">
-            <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
-                                                   Duration="0:0:0.8">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe1.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe2.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe3.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe4.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe5.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe6.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe7.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe8.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Image.Triggers>
-        </Image>
+        <Frame x:Name="lvlinfo"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="150" Margin="1414,652,29,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54">
 
+        </Frame>
+        <Button x:Name="back" Content="zurück" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="47,72,0,0" VerticalAlignment="Top" Width="269" Height="76" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnback" />
+        <Image x:Name="lvl1" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="1030,0,0,212" Grid.Row="1" VerticalAlignment="Bottom" Width="57"/>
+        <Image x:Name="lvl2" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="907,0,0,212" Grid.Row="1" VerticalAlignment="Bottom" Width="57" RenderTransformOrigin="0.675,-0.488"/>
+        <Image x:Name="lvl3" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="907,0,0,516" VerticalAlignment="Bottom" Width="57" RenderTransformOrigin="0.702,-1.566" Grid.RowSpan="2"/>
+        <Image x:Name="lvl4" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="800,0,0,531" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.RowSpan="2"/>
+        <Image x:Name="lvl5" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="796,0,0,446" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
+        <Image x:Name="lvl6" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="578,0,0,446" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
+        <Image x:Name="lvl7" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="578,0,0,663" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566"/>
+        <Image x:Name="lvl8" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="796,0,0,663" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566"/>
+        <Image x:Name="lvl9" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="796,0,0,769" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566"/>
+        <Image x:Name="lvl13" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="1017,0,0,526" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566"/>
+        <Image x:Name="lvl11" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="1123,0,0,446" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
+        <Image x:Name="lvl12" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="1017,0,0,446" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566" Grid.Row="1"/>
+        <Image x:Name="lvl10"  Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Shield.png" HorizontalAlignment="Left" Height="80" Margin="1123,0,0,769" VerticalAlignment="Bottom" Width="56" RenderTransformOrigin="0.702,-1.566"/>
+        <Button x:Name="ArrowUp" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,848,0,0" VerticalAlignment="Top" Width="73" Height="73" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowUp_Click" >
+            <Button.Background>
+                <ImageBrush ImageSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\ArrowUp.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="ArrowUp_Copy" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,926,0,0" VerticalAlignment="Top" Width="73" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowUp_Copy_Click" RenderTransformOrigin="0.671,1.781" >
+            <Button.Background>
+                <ImageBrush ImageSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\ArrowDown.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lblleveltext" Content="Level" HorizontalAlignment="Left" Margin="1430,664,0,0" VerticalAlignment="Top" Width="114" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
+        <Label x:Name="lbllevel" Content="1" HorizontalAlignment="Left" Margin="1544,664,0,0" VerticalAlignment="Top" Width="136" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
+        <Label x:Name="lblSchwierigkeitText" Content="Schwierigkeit:" HorizontalAlignment="Left" Margin="1430,725,0,0" VerticalAlignment="Top" Width="344" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" RenderTransformOrigin="-0.147,0.48"/>
+        <Label x:Name="lblSchwierigkeit" Content="Easy" HorizontalAlignment="Left" Margin="1708,725,0,0" VerticalAlignment="Top" Width="175" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
+        <Border BorderThickness="2, 0, 0, 5">
+            <Image Name="Character" HorizontalAlignment="Left" Margin="1030,0,0,212" VerticalAlignment="Bottom"  Height="88" Width="70" >
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.8">
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe1.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe2.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe3.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe4.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe5.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe6.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe7.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe8.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+        </Border>
     </Grid>
 </Window>
