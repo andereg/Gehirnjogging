@@ -78,15 +78,15 @@
         </Button>
         <Grid Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,379,0,-116" Click="BtnMusicOnOFf_Click" />
-            <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,487,0,-224" Click="BtnSoundsOnOff_Click" />
+            <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="BtnMusicOnOFf_Click" />
+            <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="981,495,0,-232" Click="BtnSoundsOnOff_Click" RenderTransformOrigin="0.555,0.535" />
             <Button x:Name="btnSoundsOnOff_Copy" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,606,0,-343" Click="BtnResume" />
-            <Slider x:Name="sliderSounds" HorizontalAlignment="Left" Margin="926,527,0,-202" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="SliderSounds_ValueChanged" Maximum="8" Value="4"/>
-            <Slider x:Name="sliderMusic" HorizontalAlignment="Left" Margin="926,420,0,-95" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="SliderMusic_ValueChanged" Maximum="8" Value="4"/>
+            <Slider x:Name="sliderMusic" HorizontalAlignment="Left" Margin="926,420,0,-95" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="SliderMusic_ValueChanged" Value="100" Maximum="8" />
             <Button x:Name="btnBack" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="957,606,0,-343" Click="BtnBack_Click" />
+            <Label x:Name="label" Content="Musicvolume:" HorizontalAlignment="Left" Margin="581,393,0,-113" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
 
-       
+
     </Grid>
-    
+
 </Window>

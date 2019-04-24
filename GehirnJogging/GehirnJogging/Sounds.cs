@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,8 @@ namespace GehirnJogging
 {
     class Sounds
     {
-
         MediaPlayer player = new MediaPlayer();
-
-
-
+               
         public void playHover()
         {
             player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Hoversound.wav"));
@@ -24,6 +22,11 @@ namespace GehirnJogging
         {
             player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Clicksound.wav"));
             player.Play();
+        }
+
+        public void decreaseVolume()
+        {
+            player.Volume = -10;
         }
 
     }

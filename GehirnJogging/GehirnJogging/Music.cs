@@ -29,8 +29,9 @@ namespace GehirnJogging
             player.Pause();
         }
 
-        public void quiter()
+        public void decreaseVolume(double Value)
         {
+            player.Volume = Value;
         }
 
 

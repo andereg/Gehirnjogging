@@ -38,12 +38,8 @@ namespace GehirnJogging
 
         private void SliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
-        }
-
-        private void SliderSounds_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
+            music.decreaseVolume(sliderMusic.Value/10);
+            
         }
 
         private void BtnMusicOnOFf_Click(object sender, RoutedEventArgs e)
