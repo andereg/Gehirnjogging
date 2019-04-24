@@ -17,7 +17,7 @@
         <Style TargetType="Button">
             <Style.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
-                    <SoundPlayerAction Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Hoversound.wav" />
+                    <SoundPlayerAction Source="Sounds\Hoversound.wav" />
                     <!--<x:Code>
                         <![CDATA[
                     sound.playHover();
@@ -25,7 +25,7 @@
                         </x:Code>-->
                 </EventTrigger>
                 <EventTrigger RoutedEvent="PreviewMouseDown">
-                    <SoundPlayerAction Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Clicksound.wav" />
+                    <SoundPlayerAction Source="Sounds\Clicksound.wav" />
                     <!--<x:Code>
                     <![CDATA[
                     sound.playClick();

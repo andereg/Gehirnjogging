@@ -17,7 +17,7 @@
             <RowDefinition Height="349*"/>
             <RowDefinition Height="700*"/>
         </Grid.RowDefinitions>
-        <Image x:Name="Backgroundimage" Margin="-122,0,-3795,0" Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\environment-preview.png"  Grid.RowSpan="2"/>
+        <Image x:Name="Backgroundimage" Margin="-122,0,-3795,0" Source="Images\environment-preview.png"  Grid.RowSpan="2"/>
         <Image Name="Character" Margin="186,351,1498,88" Grid.Row="1">
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
@@ -27,42 +27,42 @@
                                                    Duration="0:0:0.8">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe1.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe1.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe2.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe2.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe3.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe3.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe4.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe4.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe5.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe5.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe6.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe6.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe7.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe7.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\santawalking\transparentframe8.png"/>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe8.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
@@ -73,7 +73,7 @@
         </Image>
         <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="BtnPause_Click">
             <Button.Background>
-                <ImageBrush ImageSource="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Images\Pause.png"/>
+                <ImageBrush ImageSource="Images\Pause.png"/>
             </Button.Background>
         </Button>
         <Grid Name="GridPause" Visibility="Hidden">

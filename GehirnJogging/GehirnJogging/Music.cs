@@ -15,7 +15,7 @@ namespace GehirnJogging
 
         public void playTheme()
         {
-            player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Tamilsong.wav"));
+            player.Open(new Uri(@"Sounds\Tamilsong.wav"));
             player.Play();
         }
 

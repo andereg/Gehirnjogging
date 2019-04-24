@@ -10,7 +10,7 @@
     
 
     <Grid>
-        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Startscreen – 1.png" Stretch="Fill"/>
+        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Startscreen – 1.png" Stretch="Fill"/>
         <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,316,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnnewGame_Click" />
         <Button x:Name="btnuserdefinedGame" Content="Benutzerdefiniertes Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,473,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnuserdefinedGame_Click"/>
         <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,646,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnloadGame_Click" />

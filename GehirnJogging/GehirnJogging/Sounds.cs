@@ -14,13 +14,13 @@ namespace GehirnJogging
                
         public void playHover()
         {
-            player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Hoversound.wav"));
+            player.Open(new Uri("@Sounds/Hoversound.wav"));
             player.Play();
         }
 
         public void playClick()
         {
-            player.Open(new Uri(@"D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Clicksound.wav"));
+            player.Open(new Uri("@Sounds/Clicksound.wav"));
             player.Play();
         }
 

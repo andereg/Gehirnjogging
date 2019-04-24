@@ -27,6 +27,7 @@ namespace GehirnJogging
         {
             InitializeComponent();
             music.playTheme();
+
         }
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
