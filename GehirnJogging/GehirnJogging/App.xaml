@@ -1,0 +1,38 @@
+﻿<Application x:Class="GehirnJogging.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GehirnJogging"
+             StartupUri="Startscreen.xaml">
+
+    <!--<x:Code>
+        <![CDATA[
+                    Sounds sound = new Sound();
+                    ]]>
+    </x:Code>-->
+
+    <Application.Resources>
+        <Style TargetType="Image">
+                <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+            </Style>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <SoundPlayerAction Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Hoversound.wav" />
+                    <!--<x:Code>
+                        <![CDATA[
+                    sound.playHover();
+                    ]]>
+                        </x:Code>-->
+                </EventTrigger>
+                <EventTrigger RoutedEvent="PreviewMouseDown">
+                    <SoundPlayerAction Source="D:\Users\bander\IdeaProjects\gehirn-jogging\GehirnJogging\Sounds\Clicksound.wav" />
+                    <!--<x:Code>
+                    <![CDATA[
+                    sound.playClick();
+                    ]]>
+                    </x:Code>-->
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Application.Resources>
+</Application>
