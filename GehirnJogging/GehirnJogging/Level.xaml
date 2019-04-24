@@ -5,20 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GehirnJogging"
         mc:Ignorable="d"
-        Title="Level" Height="1080" Width="1920">
+        Title="Level" Height="1080" Width="1920"
+        WindowState="Maximized" WindowStyle="None"
+        KeyDown="keyDown">
 
     <Window.Resources>
         <Style TargetType="Image">
             <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid KeyDown="keyDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="349*"/>
             <RowDefinition Height="700*"/>
         </Grid.RowDefinitions>
         <Image x:Name="Backgroundimage" Margin="-122,0,-3795,0" Source="Images\environment-preview.png"  Grid.RowSpan="2"/>
-        <Image Name="Character" Margin="186,351,1498,88" Grid.Row="1">
+        <Image Name="Character" Margin="193,352,1501,88" Grid.Row="1">
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
@@ -85,6 +87,16 @@
             <Button x:Name="btnBack" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="957,606,0,-343" Click="BtnBack_Click" />
             <Label x:Name="label" Content="Musicvolume:" HorizontalAlignment="Left" Margin="581,393,0,-113" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
+        <Button x:Name="KeyLeft" HorizontalAlignment="Left" Margin="1380,516,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyLeft_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\ArrowKeys\KeyLeft.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="KeyRight" HorizontalAlignment="Left" Margin="1587,516,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyRight_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
 
 
     </Grid>

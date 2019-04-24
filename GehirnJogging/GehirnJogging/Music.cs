@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace GehirnJogging
 
         public void playTheme()
         {
-            player.Open(new Uri(@"Sounds\Tamilsong.wav"));
+            player.Open(new Uri(@"Sounds/Tamilsong.wav", UriKind.Relative));
             player.Play();
         }
 

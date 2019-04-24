@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GehirnJogging"
         mc:Ignorable="d"
-        Title="Worldmap" Height="1080" Width="1920">
+        Title="Worldmap" Height="1080" Width="1920"
+        WindowState="Maximized" WindowStyle="None"
+        KeyDown="keyEvent">
+
     <Grid>
 
         <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Startscreen – 1.png" Stretch="Fill" Grid.RowSpan="2"/>
@@ -39,7 +42,7 @@
                 <ImageBrush ImageSource="Images\ArrowUp.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ArrowUp_Copy" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,926,0,0" VerticalAlignment="Top" Width="73" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowUp_Copy_Click" RenderTransformOrigin="0.671,1.781" >
+        <Button x:Name="ArrowUp_Copy" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,926,0,0" VerticalAlignment="Top" Width="73" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowDown_Click" RenderTransformOrigin="0.671,1.781" >
             <Button.Background>
                 <ImageBrush ImageSource="Images\ArrowDown.png"/>
             </Button.Background>

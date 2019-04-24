@@ -31,7 +31,6 @@ namespace GehirnJogging
             Worldmap map = new Worldmap();
             this.Close();
             map.Show();
-
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)
@@ -51,5 +50,12 @@ namespace GehirnJogging
         {
 
         }
+
+        private void EndGame(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
     }
 }

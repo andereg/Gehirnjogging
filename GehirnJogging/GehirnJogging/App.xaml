@@ -25,7 +25,7 @@
                         </x:Code>-->
                 </EventTrigger>
                 <EventTrigger RoutedEvent="PreviewMouseDown">
-                    <SoundPlayerAction Source="Sounds\Clicksound.wav" />
+                    <SoundPlayerAction  Source="Sounds\Clicksound.wav" />
                     <!--<x:Code>
                     <![CDATA[
                     sound.playClick();

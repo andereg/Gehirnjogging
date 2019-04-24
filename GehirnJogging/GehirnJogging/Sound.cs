@@ -8,7 +8,7 @@ using System.Windows.Media;
 
 namespace GehirnJogging
 {
-    class Sounds
+    class Sound
     {
         MediaPlayer player = new MediaPlayer();
                
@@ -20,7 +20,13 @@ namespace GehirnJogging
 
         public void playClick()
         {
-            player.Open(new Uri("@Sounds/Clicksound.wav"));
+            player.Open(new Uri("Sounds/Clicksound.wav"));
+            player.Play();
+        }
+
+        public void playRunning()
+        {
+            player.Open(new Uri(@"Sounds/Runningsound.wav", UriKind.Relative));
             player.Play();
         }
 

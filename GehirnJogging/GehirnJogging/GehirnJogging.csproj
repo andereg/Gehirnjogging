@@ -58,7 +58,7 @@
     <Compile Include="Level.xaml.cs">
       <DependentUpon>Level.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sounds.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Worldmap.xaml.cs">
       <DependentUpon>Worldmap.xaml</DependentUpon>
@@ -146,11 +146,17 @@
     <Resource Include="Images\Weiholmir Standard\Weiholmir Standard\Weiholmir_numbers_sheet.png" />
     <Resource Include="Images\Weiholmir Standard\Weiholmir Standard\Weiholmir_specialcharacters_sheet.png" />
     <Resource Include="Images\Weiholmir Standard\Weiholmir Standard\Weiholmir_uppercase_sheet.png" />
+    <Resource Include="Images\ArrowKeys\AllKeys.png" />
+    <Resource Include="Images\ArrowKeys\KeyLeft.png" />
+    <Resource Include="Images\ArrowKeys\KeyRight.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Hoversound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Runningsound.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Sounds\Tamilsong.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

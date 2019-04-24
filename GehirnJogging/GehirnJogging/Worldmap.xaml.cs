@@ -24,6 +24,7 @@ namespace GehirnJogging
     {
         int currentlvl = 1;
         int goallvl = 1;
+        bool animationCompleted = true;
         public Worldmap()
         {
             InitializeComponent();
@@ -36,10 +37,6 @@ namespace GehirnJogging
             startscreen.Show();
         }
 
-        private void BtnnewGame_Copy4_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void BtnStartLevel(object sender, RoutedEventArgs e)
         {
@@ -50,7 +47,8 @@ namespace GehirnJogging
 
         private void ArrowUp_Click(object sender, RoutedEventArgs e)
         {
-            if(goallvl != 13)
+            if (!animationCompleted) return;
+            if (goallvl != 13)
             {
                 goallvl = goallvl + 1;
                 MoveTo(currentlvl, goallvl);
@@ -59,6 +57,9 @@ namespace GehirnJogging
 
         public void MoveTo(int target, int Goal)
         {
+            if (!animationCompleted) return;
+            animationCompleted = false;
+
             lbllevel.Content = goallvl;
             if(goallvl< 4)
             {
@@ -117,7 +118,7 @@ namespace GehirnJogging
             }
         }
 
-        private void FrameByFrame(Image Goallvl)
+        private async void FrameByFrame(Image Goallvl)
         {
 
             Thickness thicknessCharakter = Character.Margin;
@@ -126,21 +127,35 @@ namespace GehirnJogging
             double differenceBottom = thicknessCharakter.Bottom - thicknessLvl.Bottom;
             for (int i = 0; i < 10; i++)
             {
+                await Task.Delay(100);
                 thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 10);
                 thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 10);
                 Character.Margin = thicknessCharakter;
             }
-            
+            animationCompleted = true;
         }
 
-        private void ArrowUp_Copy_Click(object sender, RoutedEventArgs e)
+        private void ArrowDown_Click(object sender, RoutedEventArgs e)
         {
-            if(goallvl != 1)
+            if (!animationCompleted) return;
+            if (goallvl != 1)
             {
                 goallvl = goallvl - 1;
                 MoveTo(currentlvl, goallvl);
             }
+        }
 
+        private void keyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                ArrowUp_Click(sender, e);
+            }
+
+            if (e.Key == Key.Down)
+            {
+                ArrowDown_Click(sender, e);
+            }
         }
     }
 }
