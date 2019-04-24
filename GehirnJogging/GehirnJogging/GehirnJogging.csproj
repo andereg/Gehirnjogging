@@ -149,6 +149,11 @@
     <Resource Include="Images\ArrowKeys\AllKeys.png" />
     <Resource Include="Images\ArrowKeys\KeyLeft.png" />
     <Resource Include="Images\ArrowKeys\KeyRight.png" />
+    <Resource Include="Images\Santathrowing\Frame1.png" />
+    <Resource Include="Images\Santathrowing\Frame2.png" />
+    <Resource Include="Images\Santathrowing\Frame3.png" />
+    <Resource Include="Images\Santathrowing\Frame4.png" />
+    <Resource Include="Images\Santathrowing\Frame5.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

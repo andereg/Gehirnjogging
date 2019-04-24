@@ -20,7 +20,7 @@
             <RowDefinition Height="700*"/>
         </Grid.RowDefinitions>
         <Image x:Name="Backgroundimage" Margin="-122,0,-3795,0" Source="Images\environment-preview.png"  Grid.RowSpan="2"/>
-        <Image Name="Character" Margin="193,352,1501,88" Grid.Row="1">
+        <Image Name="Character" Margin="193,352,1501,88" Grid.Row="1" >
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
@@ -97,6 +97,47 @@
                 <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Button x:Name="Attack" HorizontalAlignment="Left" Background="Red" Margin="1478,352,0,0" Grid.Row="1" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="Attack_Click">
+        </Button>
+
+        <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.8">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
 
 
     </Grid>

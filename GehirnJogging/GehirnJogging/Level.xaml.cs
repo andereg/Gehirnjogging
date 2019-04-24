@@ -180,5 +180,20 @@ namespace GehirnJogging
             }
             else MoveBackground(moveAmount);
         }
+
+        private async void Attack_Click(object sender, RoutedEventArgs e)
+        {
+            Character.Visibility = Visibility.Hidden;
+            CharacterAttack.Visibility = Visibility.Visible;
+            Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            MarginAttackAnimation.Left = Character.Margin.Left;
+            MarginAttackAnimation.Right = Character.Margin.Right;
+
+            CharacterAttack.Margin = MarginAttackAnimation;
+
+            await Task.Delay(1000);
+            Character.Visibility = Visibility.Visible;
+            CharacterAttack.Visibility = Visibility.Hidden;
+        }
     }
 }
