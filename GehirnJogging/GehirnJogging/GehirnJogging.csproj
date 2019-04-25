@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Worldmap.xaml.cs">
       <DependentUpon>Worldmap.xaml</DependentUpon>
     </Compile>
@@ -154,6 +155,16 @@
     <Resource Include="Images\Santathrowing\Frame3.png" />
     <Resource Include="Images\Santathrowing\Frame4.png" />
     <Resource Include="Images\Santathrowing\Frame5.png" />
+    <Resource Include="Images\MinotaurusStanding\Frame1.png" />
+    <Resource Include="Images\MinotaurusStanding\Frame2.png" />
+    <Resource Include="Images\MinotaurusStanding\Frame3.png" />
+    <Resource Include="Images\MinotaurusStanding\Frame4.png" />
+    <Resource Include="Images\MinotaurusStanding\Frame5.png" />
+    <Resource Include="Images\AttackObject\Frame1.png" />
+    <Resource Include="Images\AttackObject\Frame2.png" />
+    <Resource Include="Images\AttackObject\Frame3.png" />
+    <Resource Include="Images\AttackObject\Frame4.png" />
+    <Resource Include="Images\AttackObject\Frame5.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

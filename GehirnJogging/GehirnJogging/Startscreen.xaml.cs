@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
-    /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -26,11 +23,14 @@ namespace GehirnJogging
             InitializeComponent();
         }
 
+        Player player = new Player();
+
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)
         {
             Worldmap map = new Worldmap();
             this.Close();
             map.Show();
+            player.PlayerName = nameinputtext.Text;
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)

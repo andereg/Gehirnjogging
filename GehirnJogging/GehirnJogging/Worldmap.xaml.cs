@@ -25,9 +25,14 @@ namespace GehirnJogging
         int currentlvl = 1;
         int goallvl = 1;
         bool animationCompleted = true;
+        Sound sound = new Sound();
+        Player player = new Player();
+        
         public Worldmap()
         {
             InitializeComponent();
+            sound.loadRunning();
+            Charactername.Content = player.PlayerName;
         }
 
         private void btnback(object sender, RoutedEventArgs e)
@@ -125,14 +130,16 @@ namespace GehirnJogging
             Thickness thicknessLvl = Goallvl.Margin;
             double differenceLeft = thicknessCharakter.Left - thicknessLvl.Left;
             double differenceBottom = thicknessCharakter.Bottom - thicknessLvl.Bottom;
-            for (int i = 0; i < 10; i++)
+            sound.resumeRunning();
+            for (int i = 0; i < 100; i++)
             {
-                await Task.Delay(100);
-                thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 10);
-                thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 10);
+                await Task.Delay(10);
+                thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 100);
+                thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 100);
                 Character.Margin = thicknessCharakter;
             }
             animationCompleted = true;
+            sound.stopRunning();
         }
 
         private void ArrowDown_Click(object sender, RoutedEventArgs e)

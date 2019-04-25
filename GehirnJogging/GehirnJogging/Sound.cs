@@ -24,9 +24,26 @@ namespace GehirnJogging
             player.Play();
         }
 
-        public void playRunning()
+        public void loadRunning()
         {
             player.Open(new Uri(@"Sounds/Runningsound.wav", UriKind.Relative));
+        }
+
+
+        public void stopRunning()
+        {
+            player.Pause();
+        }
+        public void resumeRunning()
+        {
+            player.Play();
+            player.MediaEnded += new EventHandler(Media_Ended);
+
+        }
+
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            player.Position = TimeSpan.Zero;
             player.Play();
         }
 

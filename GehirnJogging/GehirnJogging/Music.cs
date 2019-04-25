@@ -16,7 +16,7 @@ namespace GehirnJogging
 
         public void playTheme()
         {
-            player.Open(new Uri(@"Sounds/Tamilsong.wav", UriKind.Relative));
+            //player.Open(new Uri(@"Sounds/Tamilsong.wav", UriKind.Relative));
             player.Play();
         }
 

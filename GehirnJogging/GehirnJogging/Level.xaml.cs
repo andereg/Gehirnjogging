@@ -24,13 +24,15 @@ namespace GehirnJogging
         Sound sounds = new Sound();
         bool isMusicPlaying = true;
         bool isSoundOn = true;
-        int moveAmount = 10;
+        int moveAmount = 5;
         bool animationCompleted = true;
+        bool enemyDefeated = true;
 
         public Level()
         {
             InitializeComponent();
             music.playTheme();
+            sounds.loadRunning();
 
         }
 
@@ -99,6 +101,7 @@ namespace GehirnJogging
             this.Close();
             music.stopTheme();
             map.Show();
+            sounds.stopRunning();
         }
 
         private void KeyRight_Click(object sender, RoutedEventArgs e)
@@ -113,8 +116,6 @@ namespace GehirnJogging
 
         private async void MoveBackground(int amount)
         {
-
-
             Thickness MarginBackground = Backgroundimage.Margin;
             if(MarginBackground.Right < -200 && animationCompleted)
             {
@@ -124,9 +125,15 @@ namespace GehirnJogging
                     MarginBackground.Left = MarginBackground.Left - amount;
                     MarginBackground.Right = MarginBackground.Right + amount;
                     Backgroundimage.Margin = MarginBackground;
-                    await Task.Delay(100);
+                    await Task.Delay(10);
                 }
                 animationCompleted = true;
+                sounds.stopRunning();
+            }
+
+            if(MarginBackground.Left < -1000)
+            {
+                ShowEnemy();
             }
         }
 
@@ -136,18 +143,19 @@ namespace GehirnJogging
             if (e.Key == Key.Left)
             {
                     MoveLeft();
-                    sounds.playRunning();
+                    sounds.resumeRunning();
             }
 
             if (e.Key == Key.Right)
             {
                     MoveRight();
-                    sounds.playRunning();
+                    sounds.resumeRunning();
             }
         }
 
         private async void MoveLeft()
         {
+            if (!enemyDefeated) return;
             Thickness MarginCharacter = Character.Margin;
             if (MarginCharacter.Left > 180 && animationCompleted)
             {
@@ -157,14 +165,16 @@ namespace GehirnJogging
                     MarginCharacter.Left = MarginCharacter.Left - moveAmount;
                     MarginCharacter.Right = MarginCharacter.Right + moveAmount;
                     Character.Margin = MarginCharacter;
-                    await Task.Delay(100);
+                    await Task.Delay(10);
                 }
                 animationCompleted = true;
+                sounds.stopRunning();
             }
         }
 
         private async void MoveRight()
         {
+            if (!enemyDefeated) return;
             Thickness MarginCharacter = Character.Margin;
             if (MarginCharacter.Left < 500 && animationCompleted)
             {
@@ -174,15 +184,21 @@ namespace GehirnJogging
                     MarginCharacter.Left = MarginCharacter.Left + moveAmount;
                     MarginCharacter.Right = MarginCharacter.Right - moveAmount;
                     Character.Margin = MarginCharacter;
-                    await Task.Delay(100);
+                    await Task.Delay(10);
                 }
                 animationCompleted = true;
+                sounds.stopRunning();
             }
             else MoveBackground(moveAmount);
         }
 
         private async void Attack_Click(object sender, RoutedEventArgs e)
         {
+            do
+            {
+                await Task.Delay(1);
+            } while (animationCompleted == false);
+            animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
             Thickness MarginAttackAnimation = CharacterAttack.Margin;
@@ -191,9 +207,36 @@ namespace GehirnJogging
 
             CharacterAttack.Margin = MarginAttackAnimation;
 
-            await Task.Delay(1000);
+            await Task.Delay(600);
+            AttackAnimation.Visibility = Visibility.Visible;
+
+            await Task.Delay(400);
             Character.Visibility = Visibility.Visible;
             CharacterAttack.Visibility = Visibility.Hidden;
+
+            await Task.Delay(600);
+            AttackAnimation.Visibility = Visibility.Hidden;
+            animationCompleted = true;
         }
+
+        public void ShowEnemy()
+        {
+            KeyRight.Visibility = Visibility.Hidden;
+            KeyLeft.Visibility = Visibility.Hidden;
+            Attack.Visibility = Visibility.Visible;
+            enemyDefeated = false;
+            Minotaurus.Visibility = Visibility.Visible;
+        }
+
+        public void DefeatEnemy()
+        {
+            KeyRight.Visibility = Visibility.Visible;
+            KeyLeft.Visibility = Visibility.Visible;
+            Minotaurus.Visibility = Visibility.Hidden;
+            enemyDefeated = true;
+        }
+
+
+
     }
 }
