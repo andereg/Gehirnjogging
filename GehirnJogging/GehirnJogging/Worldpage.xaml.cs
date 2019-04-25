@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,43 +9,43 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
     /// <summary>
-    /// Interaktionslogik für Worldmap.xaml
+    /// Interaktionslogik für Worldpage.xaml
     /// </summary>
-    public partial class Worldmap : Window
+    public partial class Worldpage : Page
     {
+        public Worldpage()
+        {
+            InitializeComponent();
+            Startscreen.GetNavigationService().Navigated += OnNavigated;
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            Charactername.Content = Player.GetInstance().PlayerName;
+            sound.loadRunning();
+        }
+
         int currentlvl = 1;
         int goallvl = 1;
         bool animationCompleted = true;
         Sound sound = new Sound();
-        Player player = new Player();
-        
-        public Worldmap()
-        {
-            InitializeComponent();
-            sound.loadRunning();
-
-        }
 
         private void btnback(object sender, RoutedEventArgs e)
         {
-            MainWindow startscreen = new MainWindow();
-            this.Close();
-            startscreen.Show();
-        }
+            Startscreen.NavigateTo("startpage");
 
+        }
 
         private void BtnStartLevel(object sender, RoutedEventArgs e)
         {
-            Level level = new Level();
-            this.Close();
-            level.Show();
+            Startscreen.NavigateTo("level");
         }
 
         private void ArrowUp_Click(object sender, RoutedEventArgs e)
@@ -66,7 +64,7 @@ namespace GehirnJogging
             animationCompleted = false;
 
             lbllevel.Content = goallvl;
-            if(goallvl< 4)
+            if (goallvl < 4)
             {
                 lblSchwierigkeit.Content = "Easy";
             }
@@ -137,6 +135,7 @@ namespace GehirnJogging
                 thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 100);
                 thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 100);
                 Character.Margin = thicknessCharakter;
+                Charactername.Margin = thicknessCharakter;
             }
             animationCompleted = true;
             sound.stopRunning();
@@ -166,3 +165,4 @@ namespace GehirnJogging
         }
     }
 }
+

@@ -9,17 +9,31 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
     /// <summary>
-    /// Interaktionslogik für Level.xaml
+    /// Interaktionslogik für LevelPage.xaml
     /// </summary>
-    public partial class Level : Window
+    public partial class LevelPage : Page
     {
+        public LevelPage()
+        {
+            InitializeComponent();
+            Startscreen.GetNavigationService().Navigated += OnNavigated;
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            label.Content = Player.GetInstance().PlayerName;
+            music.playTheme();
+            sounds.loadRunning();
+        }
+
+
         Music music = new Music();
         Sound sounds = new Sound();
         bool isMusicPlaying = true;
@@ -28,25 +42,17 @@ namespace GehirnJogging
         bool animationCompleted = true;
         bool enemyDefeated = true;
 
-        public Level()
-        {
-            InitializeComponent();
-            music.playTheme();
-            sounds.loadRunning();
-
-        }
-
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
             btnPause.Visibility = Visibility.Hidden;
             GridPause.Visibility = Visibility.Visible;
-            
+
         }
 
         private void SliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            music.decreaseVolume(sliderMusic.Value/10);
-            
+            music.decreaseVolume(sliderMusic.Value / 10);
+
         }
 
         private void BtnMusicOnOFf_Click(object sender, RoutedEventArgs e)
@@ -97,11 +103,9 @@ namespace GehirnJogging
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-            Worldmap map = new Worldmap();
-            this.Close();
             music.stopTheme();
-            map.Show();
             sounds.stopRunning();
+            Startscreen.NavigateTo("worldmap");
         }
 
         private void KeyRight_Click(object sender, RoutedEventArgs e)
@@ -117,10 +121,10 @@ namespace GehirnJogging
         private async void MoveBackground(int amount)
         {
             Thickness MarginBackground = Backgroundimage.Margin;
-            if(MarginBackground.Right < -200 && animationCompleted)
+            if (MarginBackground.Right < -200 && animationCompleted)
             {
                 animationCompleted = false;
-                for(int i = 0; i<10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     MarginBackground.Left = MarginBackground.Left - amount;
                     MarginBackground.Right = MarginBackground.Right + amount;
@@ -131,7 +135,7 @@ namespace GehirnJogging
                 sounds.stopRunning();
             }
 
-            if(MarginBackground.Left < -1000)
+            if (MarginBackground.Left < -1000)
             {
                 ShowEnemy();
             }
@@ -139,17 +143,17 @@ namespace GehirnJogging
 
         private void keyDown(object sender, KeyEventArgs e)
         {
-            
+
             if (e.Key == Key.Left)
             {
-                    MoveLeft();
-                    sounds.resumeRunning();
+                MoveLeft();
+                sounds.resumeRunning();
             }
 
             if (e.Key == Key.Right)
             {
-                    MoveRight();
-                    sounds.resumeRunning();
+                MoveRight();
+                sounds.resumeRunning();
             }
         }
 
@@ -179,7 +183,7 @@ namespace GehirnJogging
             if (MarginCharacter.Left < 500 && animationCompleted)
             {
                 animationCompleted = false;
-                for (int i = 0; i< 10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     MarginCharacter.Left = MarginCharacter.Left + moveAmount;
                     MarginCharacter.Right = MarginCharacter.Right - moveAmount;
@@ -235,8 +239,6 @@ namespace GehirnJogging
             Minotaurus.Visibility = Visibility.Hidden;
             enemyDefeated = true;
         }
-
-
-
     }
 }
+

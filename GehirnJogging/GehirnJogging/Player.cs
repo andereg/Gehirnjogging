@@ -6,28 +6,29 @@ using System.Threading.Tasks;
 
 namespace GehirnJogging
 {
-    class Player
+    public class Player
     {
 
-        private string _playerName;
-        public string PlayerName
+        private static Player _player;
+
+        private Player()
         {
-            get { return _playerName; }
-            set
-            {
-                _playerName = value;
-            }
+
         }
 
-        private double _health = 100;
-        public double Health
+        public static Player GetInstance()
         {
-            get { return _health; }
-            set
+            if(_player == null)
             {
-                _health = value;
+                _player = new Player();
             }
+            return _player;
         }
+
+        public string PlayerName { get; set; }
+
+        public double Health { get; set; }
+
 
     }
 }
