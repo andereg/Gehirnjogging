@@ -32,7 +32,7 @@ namespace GehirnJogging
         {
             InitializeComponent();
             sound.loadRunning();
-            Charactername.Content = player.PlayerName;
+
         }
 
         private void btnback(object sender, RoutedEventArgs e)
