@@ -58,6 +58,9 @@
     <Compile Include="LevelPage.xaml.cs">
       <DependentUpon>LevelPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Loadingpage.xaml.cs">
+      <DependentUpon>Loadingpage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Loadscreen.xaml.cs">
       <DependentUpon>Loadscreen.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,9 @@
     <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Startpage.xaml.cs">
       <DependentUpon>Startpage.xaml</DependentUpon>
     </Compile>
@@ -77,11 +83,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Loadingpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Loadscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Start.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

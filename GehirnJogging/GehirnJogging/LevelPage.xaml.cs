@@ -23,7 +23,7 @@ namespace GehirnJogging
         public LevelPage()
         {
             InitializeComponent();
-            Startscreen.GetNavigationService().Navigated += OnNavigated;
+            Start.GetNavigationService().Navigated += OnNavigated;
         }
 
         private void OnNavigated(object sender, NavigationEventArgs e)
@@ -105,7 +105,7 @@ namespace GehirnJogging
         {
             music.stopTheme();
             sounds.stopRunning();
-            Startscreen.NavigateTo("worldmap");
+            Start.NavigateTo("worldmap");
         }
 
         private void KeyRight_Click(object sender, RoutedEventArgs e)

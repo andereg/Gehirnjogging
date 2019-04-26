@@ -25,12 +25,13 @@ namespace GehirnJogging
         public Startpage()
         {
             InitializeComponent();
+            //Start.NavigateTo("worldmap");
         }     
 
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)
         {
             Player.GetInstance().PlayerName = nameinputtext.Text;
-            Startscreen.NavigateTo("worldmap");
+            Start.NavigateTo("worldmap");
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)

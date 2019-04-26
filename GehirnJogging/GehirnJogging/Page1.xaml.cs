@@ -23,7 +23,7 @@ namespace GehirnJogging
         public Page1()
         {
             InitializeComponent();
-            Startscreen.GetNavigationService().Navigated += OnNavigated;
+            Start.GetNavigationService().Navigated += OnNavigated;
         }
 
         private void OnNavigated(object sender, NavigationEventArgs e)

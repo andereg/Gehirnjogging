@@ -10,13 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
-    public partial class Loadscreen : Window
+    /// <summary>
+    /// Interaktionslogik für Loadingpage.xaml
+    /// </summary>
+    public partial class Loadingpage : Page
     {
-        public Loadscreen()
+        public Loadingpage()
         {
             InitializeComponent();
             ProgressAnimation();
@@ -30,7 +34,5 @@ namespace GehirnJogging
                 await Task.Delay(10);
             } while (Progress.Value < 100);
         }
-
     }
 }
-

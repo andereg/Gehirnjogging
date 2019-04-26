@@ -23,7 +23,7 @@ namespace GehirnJogging
         public Worldpage()
         {
             InitializeComponent();
-            Startscreen.GetNavigationService().Navigated += OnNavigated;
+            Start.GetNavigationService().Navigated += OnNavigated;
         }
 
         private void OnNavigated(object sender, NavigationEventArgs e)
@@ -39,13 +39,13 @@ namespace GehirnJogging
 
         private void btnback(object sender, RoutedEventArgs e)
         {
-            Startscreen.NavigateTo("startpage");
+            Start.NavigateTo("startpage");
 
         }
 
         private void BtnStartLevel(object sender, RoutedEventArgs e)
         {
-            Startscreen.NavigateTo("level");
+            Start.NavigateTo("level");
         }
 
         private void ArrowUp_Click(object sender, RoutedEventArgs e)
