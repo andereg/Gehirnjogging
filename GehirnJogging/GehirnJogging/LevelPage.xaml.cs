@@ -41,6 +41,7 @@ namespace GehirnJogging
         int moveAmount = 5;
         bool animationCompleted = true;
         bool enemyDefeated = true;
+        Random random = new Random();
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -105,7 +106,7 @@ namespace GehirnJogging
         {
             music.stopTheme();
             sounds.stopRunning();
-            Start.NavigateTo("worldmap");
+            Start.NavigateTo("worldpage");
         }
 
         private void KeyRight_Click(object sender, RoutedEventArgs e)
@@ -220,6 +221,7 @@ namespace GehirnJogging
 
             await Task.Delay(600);
             AttackAnimation.Visibility = Visibility.Hidden;
+            HurtEnemy();
             animationCompleted = true;
         }
 
@@ -230,6 +232,35 @@ namespace GehirnJogging
             Attack.Visibility = Visibility.Visible;
             enemyDefeated = false;
             Minotaurus.Visibility = Visibility.Visible;
+            PBarLifeEnemy.Visibility = Visibility.Visible;
+            Enemy.GetInstance().Health = 100;
+        }
+
+        public async void HurtEnemy()
+        {
+            int damage = random.Next(7, 30);
+            int rotating = random.Next(-30, 30);
+
+            Enemy.GetInstance().Health = Enemy.GetInstance().Health - damage;
+            if (Enemy.GetInstance().Health < 1) DefeatEnemy();
+
+            PBarLifeEnemy.Value = PBarLifeEnemy.Value - damage;
+
+            AttackDamage.Content = damage;
+            AttackDamage.Visibility = Visibility.Visible;
+      
+            RotateTransform rotateTransform1 = new RotateTransform(rotating);
+            AttackDamage.RenderTransform = rotateTransform1;
+
+            Thickness attackDamage = new Thickness();
+            attackDamage.Left = AttackDamage.Margin.Left - random.Next(-30, 30);
+            attackDamage.Right = AttackDamage.Margin.Right - random.Next(-30, 30);
+            attackDamage.Top = AttackDamage.Margin.Top - random.Next(-30, 30);
+            attackDamage.Bottom = AttackDamage.Margin.Bottom - random.Next(-30, 30);
+
+            await Task.Delay(400);
+            AttackDamage.Visibility = Visibility.Hidden;
+
         }
 
         public void DefeatEnemy()
@@ -237,6 +268,7 @@ namespace GehirnJogging
             KeyRight.Visibility = Visibility.Visible;
             KeyLeft.Visibility = Visibility.Visible;
             Minotaurus.Visibility = Visibility.Hidden;
+            PBarLifeEnemy.Visibility = Visibility.Hidden;
             enemyDefeated = true;
         }
     }

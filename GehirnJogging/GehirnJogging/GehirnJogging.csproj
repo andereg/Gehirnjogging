@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Enemy.cs" />
     <Compile Include="LevelPage.xaml.cs">
       <DependentUpon>LevelPage.xaml</DependentUpon>
     </Compile>
@@ -63,9 +64,6 @@
     </Compile>
     <Compile Include="Loadscreen.xaml.cs">
       <DependentUpon>Loadscreen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
@@ -88,10 +86,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Loadscreen.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -203,6 +197,9 @@
     <Content Include="Sounds\Tamilsong.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Patterns\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

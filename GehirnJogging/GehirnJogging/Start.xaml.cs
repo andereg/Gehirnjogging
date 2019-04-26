@@ -29,9 +29,8 @@ namespace GehirnJogging
             InitializeComponent();
             _frame = MainFrame;
 
-
             _pages.Add("startpage", new Startpage());
-            _pages.Add("level",new LevelPage());
+            _pages.Add("levelpage",new LevelPage());
             _pages.Add("worldpage", new Worldpage());
 
             MainFrame.NavigationService.Navigate(_pages["startpage"]);
@@ -39,14 +38,18 @@ namespace GehirnJogging
         }
 
         public static void NavigateTo(string destinationPage)
-        {
+        { 
             _frame.NavigationService.Navigate(_pages[destinationPage]);
 
         }
-
         public static NavigationService GetNavigationService()
         {
             return _frame.NavigationService;
         }
+
+        //public void CloseApplication()
+        //{
+        //    this.Close();
+        //}
     }
 }

@@ -209,6 +209,12 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <Label Name="AttackDamage" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  Margin="1325,214,520,451" Grid.Row="1">
+            <Label.RenderTransform>
+                <RotateTransform Angle="3"></RotateTransform>
+            </Label.RenderTransform>
+        </Label>
+        <ProgressBar Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
 
 
     </Grid>

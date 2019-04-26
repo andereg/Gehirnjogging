@@ -45,7 +45,7 @@ namespace GehirnJogging
 
         private void BtnStartLevel(object sender, RoutedEventArgs e)
         {
-            Start.NavigateTo("level");
+            Start.NavigateTo("levelpage");
         }
 
         private void ArrowUp_Click(object sender, RoutedEventArgs e)
