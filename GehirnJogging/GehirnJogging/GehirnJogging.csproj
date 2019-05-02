@@ -193,6 +193,19 @@
     <Resource Include="Images\Enemy\MinotaurusAttack\Frame6.png" />
     <Resource Include="Images\Enemy\MinotaurusAttack\Frame7.png" />
     <Resource Include="Images\Enemy\MinotaurusAttack\Frame8.png" />
+    <Resource Include="Images\Character\SantaDies\Frame1.png" />
+    <Resource Include="Images\Character\SantaDies\Frame2.png" />
+    <Resource Include="Images\Character\SantaDies\Frame3.png" />
+    <Resource Include="Images\Character\SantaDies\Frame4.png" />
+    <Resource Include="Images\Character\SantaDies\Frame5.png" />
+    <Resource Include="Images\Character\SantaDies\Frame6.png" />
+    <Resource Include="Images\Character\SantaDies\Frame7.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame1.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame2.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame3.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame4.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame5.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame6.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

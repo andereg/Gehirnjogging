@@ -33,6 +33,7 @@ namespace GehirnJogging
             sounds.loadRunning();
             Player.GetInstance().Health = 20;
             PBarCharacterHealth.Value = Player.GetInstance().Health;
+            PBarCharacterHealth.Maximum = Player.GetInstance().Health;
         }
 
         Music music = new Music();
@@ -110,6 +111,7 @@ namespace GehirnJogging
             music.stopTheme();
             sounds.stopRunning();
             Start.NavigateTo("worldpage");
+            Start.resetPage("levelpage");
         }
 
         private void KeyRight_Click(object sender, RoutedEventArgs e)
@@ -293,18 +295,26 @@ namespace GehirnJogging
             AttackDamageEnemy.Visibility = Visibility.Hidden;
         }
 
-        public void DefeatEnemy()
+        public async void DefeatEnemy()
         {
             KeyRight.Visibility = Visibility.Visible;
             KeyLeft.Visibility = Visibility.Visible;
             EnemyStanding.Visibility = Visibility.Hidden;
             PBarLifeEnemy.Visibility = Visibility.Hidden;
+
+            EnemyDies.Margin = EnemyStanding.Margin;
+            EnemyDies.Visibility = Visibility.Visible;
+            await Task.Delay(600);
+            EnemyDies.Visibility = Visibility.Hidden;
             enemyDefeated = true;
         }
 
         public void DefeatCharacter()
         {
+            Character.Visibility = Visibility.Hidden;
             GridGameOver.Visibility = Visibility.Visible;
+            CharacterDies.Margin = Character.Margin;
+            CharacterDies.Visibility = Visibility.Visible;
         }
 
         private async void EnemyAttack_Click(object sender, RoutedEventArgs e)

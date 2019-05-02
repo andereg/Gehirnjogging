@@ -2,7 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GehirnJogging"
-             StartupUri="Start.xaml">
+             StartupUri="Start.xaml"
+
+>
 
     <!--<x:Code>
         <![CDATA[
