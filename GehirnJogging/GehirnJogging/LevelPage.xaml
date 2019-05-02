@@ -223,6 +223,46 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+
+        <Image Name="EnemyWalking" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.5">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusWalks\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusWalks\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusWalks\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusWalks\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusWalks\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+
         <Image Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1"/>
 
         <Image Name="EnemyDies" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >

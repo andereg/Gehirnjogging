@@ -267,7 +267,7 @@ namespace GehirnJogging
             attackDamage.Bottom = AttackDamageCharacter.Margin.Bottom - random.Next(-30, 30);
 
             await Task.Delay(400);
-            AttackDamageCharacter.Visibility = Visibility.Hidden;
+            fadeLabel(AttackDamageCharacter);
         }
 
         public async void HurtCharacter()
@@ -284,7 +284,7 @@ namespace GehirnJogging
             AttackDamageEnemy.Visibility = Visibility.Visible;
 
             RotateTransform rotateTransform1 = new RotateTransform(rotating);
-            AttackDamageCharacter.RenderTransform = rotateTransform1;
+            AttackDamageEnemy.RenderTransform = rotateTransform1;
             Thickness attackDamage = new Thickness();
             attackDamage.Left = Character.Margin.Left - random.Next(-30, 30);
             attackDamage.Right = Character.Margin.Right - random.Next(-30, 30);
@@ -292,7 +292,7 @@ namespace GehirnJogging
             attackDamage.Bottom = AttackDamageEnemy.Margin.Bottom - random.Next(-30, 30);
 
             await Task.Delay(400);
-            AttackDamageEnemy.Visibility = Visibility.Hidden;
+            fadeLabel(AttackDamageEnemy);
         }
 
         public async void DefeatEnemy()
@@ -329,18 +329,18 @@ namespace GehirnJogging
 
         private async void EnemyAttack_Click(object sender, RoutedEventArgs e)
         {
+            EnemyStanding.Visibility = Visibility.Hidden;
             MoveEnemy(true);
             do
             {
                 await Task.Delay(10);
             } while (animationCompleted == false);
-            await Task.Delay(750);
+            await Task.Delay(1000);
             animationCompleted = false;
-            EnemyStanding.Visibility = Visibility.Hidden;
+            EnemyWalking.Visibility = Visibility.Hidden;
             EnemyAttackAnimation.Visibility = Visibility.Visible;
             await Task.Delay(800);
             EnemyAttackAnimation.Visibility = Visibility.Hidden;
-            EnemyStanding.Visibility = Visibility.Visible;
             HurtCharacter();
             animationCompleted = true;
             MoveEnemy(false);
@@ -349,6 +349,7 @@ namespace GehirnJogging
         private async void MoveEnemy(bool forward)
         {
             animationCompleted = false;
+            EnemyWalking.Visibility = Visibility.Visible;
             Thickness thicknessCharakter = new Thickness();
             if (forward)
             {
@@ -356,7 +357,7 @@ namespace GehirnJogging
                 _differenceEnemyToCharacter = 400;
             }
             else _differenceEnemyToCharacter = -400;
-            Thickness thicknessEnemy = EnemyStanding.Margin;
+            Thickness thicknessEnemy = EnemyWalking.Margin;
             Thickness thicknessEnemyHealthBar = PBarLifeEnemy.Margin;
             sounds.resumeRunning();
 
@@ -367,11 +368,16 @@ namespace GehirnJogging
                 thicknessEnemy.Right = thicknessEnemy.Right + (_differenceEnemyToCharacter / 100);
                 thicknessEnemyHealthBar.Left = thicknessEnemyHealthBar.Left - (_differenceEnemyToCharacter / 100);
                 thicknessEnemyHealthBar.Right = thicknessEnemyHealthBar.Right + (_differenceEnemyToCharacter / 100);
-                EnemyStanding.Margin = thicknessEnemy;
+                EnemyWalking.Margin = thicknessEnemy;
                 PBarLifeEnemy.Margin = thicknessEnemyHealthBar;
             }
             sounds.stopRunning();
             animationCompleted = true;
+            EnemyWalking.Visibility = Visibility.Hidden;
+            if (!forward)
+            {
+                EnemyStanding.Visibility = Visibility.Visible;
+            }
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
@@ -388,6 +394,17 @@ namespace GehirnJogging
                 await Task.Delay(20);
                 image.Opacity = image.Opacity - 0.005;
             }
+        }
+
+        public async void fadeLabel(Label label)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                await Task.Delay(5);
+                label.Opacity = label.Opacity - 0.01;
+            }
+            label.Visibility = Visibility.Hidden;
+            label.Opacity = 1;
         }
     }
 }
