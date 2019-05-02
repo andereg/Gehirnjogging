@@ -69,54 +69,6 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
-        <Image Name="CharacterDies" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
-            <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
-                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
-                                                   Duration="0:0:0.7">
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame1.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame2.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame3.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame4.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame5.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame6.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
-                                    <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame7.png"/>
-                                    </DiscreteObjectKeyFrame.Value>
-                                </DiscreteObjectKeyFrame>
-                            </ObjectAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Image.Triggers>
-        </Image>
         <Border BorderBrush="Black" BorderThickness="8" Margin="117,126,1543,172">
             <ProgressBar Name="PBarCharacterHealth" Foreground="DarkRed" Minimum="0" Maximum="200" Value="200" Background="Transparent">
             </ProgressBar>
@@ -191,6 +143,9 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+
+        <Image Name="CharacterDiesFrameOnly" Margin="493,281,1201,67" Source="Images/Character/SantaDies/Frame7.png" Visibility="Hidden"  Grid.Row="1"/>
+
         <Image Name="AttackAnimation" Margin="525,198,429,150" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
@@ -268,6 +223,7 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <Image Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1"/>
 
         <Image Name="EnemyDies" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
@@ -378,6 +334,54 @@
                 <RotateTransform Angle="3"></RotateTransform>
             </Label.RenderTransform>
         </Label>
+        <Image x:Name="CharacterDies" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.7">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame6.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Character\SantaDies\Frame7.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
 
     </Grid>
 </Page>

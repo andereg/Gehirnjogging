@@ -306,15 +306,25 @@ namespace GehirnJogging
             EnemyDies.Visibility = Visibility.Visible;
             await Task.Delay(600);
             EnemyDies.Visibility = Visibility.Hidden;
+            EnemyDiesFrameOnly.Margin = EnemyStanding.Margin;
+            EnemyDiesFrameOnly.Visibility = Visibility.Visible;
             enemyDefeated = true;
+
+            fadeImage(EnemyDiesFrameOnly);
         }
 
-        public void DefeatCharacter()
+        public async void DefeatCharacter()
         {
             Character.Visibility = Visibility.Hidden;
             GridGameOver.Visibility = Visibility.Visible;
             CharacterDies.Margin = Character.Margin;
             CharacterDies.Visibility = Visibility.Visible;
+            await Task.Delay(700);
+            CharacterDies.Visibility = Visibility.Hidden;
+            CharacterDiesFrameOnly.Margin = Character.Margin;
+            CharacterDiesFrameOnly.Visibility = Visibility.Visible;
+
+            fadeImage(CharacterDiesFrameOnly);
         }
 
         private async void EnemyAttack_Click(object sender, RoutedEventArgs e)
@@ -369,6 +379,15 @@ namespace GehirnJogging
             music.stopTheme();
             sounds.stopRunning();
             Start.NavigateTo("startpage");
+        }
+
+        public async void fadeImage(Image image)
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                await Task.Delay(20);
+                image.Opacity = image.Opacity - 0.005;
+            }
         }
     }
 }
