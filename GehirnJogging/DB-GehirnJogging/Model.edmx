@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GehirnjoggingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Charakters">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Damage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Luck" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Stage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SolveTime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Assets" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Enemies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Damage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="XP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Coins" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventars">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="CharakterID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SellingPrice" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="minStage" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Levelinfos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LevelID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="EnemyID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Levels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThreeStartime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TwoStartime" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OneStartime" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PassedLevels">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SavegameID" Type="int" Nullable="false" />
+          <Property Name="Time" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LevelID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Questions" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Savegames">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CharakterID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Types">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EnemyLevelinfos">
+          <End Role="Enemies" Type="Self.Enemies" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enemies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="EnemyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinishedLevelSavegame">
+          <End Role="Savegames" Type="Self.Savegames" Multiplicity="1" />
+          <End Role="PassedLevels" Type="Self.PassedLevels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Savegames">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PassedLevels">
+              <PropertyRef Name="SavegameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarCharakter">
+          <End Role="Charakters" Type="Self.Charakters" Multiplicity="1" />
+          <End Role="Inventars" Type="Self.Inventars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charakters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventars">
+              <PropertyRef Name="CharakterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarItem">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="Inventars" Type="Self.Inventars" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventars">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelinfosQuestion">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelLevelinfos">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PassedLevelLevel">
+          <End Role="Levels" Type="Self.Levels" Multiplicity="1" />
+          <End Role="PassedLevels" Type="Self.PassedLevels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PassedLevels">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SavegameCharakter">
+          <End Role="Charakters" Type="Self.Charakters" Multiplicity="1" />
+          <End Role="Savegames" Type="Self.Savegames" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charakters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Savegames">
+              <PropertyRef Name="CharakterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeItem">
+          <End Role="Types" Type="Self.Types" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GehirnjoggingModelStoreContainer">
+          <EntitySet Name="Charakters" EntityType="Self.Charakters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enemies" EntityType="Self.Enemies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventars" EntityType="Self.Inventars" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Levelinfos" EntityType="Self.Levelinfos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Levels" EntityType="Self.Levels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PassedLevels" EntityType="Self.PassedLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Savegames" EntityType="Self.Savegames" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_EnemyLevelinfos" Association="Self.FK_EnemyLevelinfos">
+            <End Role="Enemies" EntitySet="Enemies" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinishedLevelSavegame" Association="Self.FK_FinishedLevelSavegame">
+            <End Role="Savegames" EntitySet="Savegames" />
+            <End Role="PassedLevels" EntitySet="PassedLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarCharakter" Association="Self.FK_InventarCharakter">
+            <End Role="Charakters" EntitySet="Charakters" />
+            <End Role="Inventars" EntitySet="Inventars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarItem" Association="Self.FK_InventarItem">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Inventars" EntitySet="Inventars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelinfosQuestion" Association="Self.FK_LevelinfosQuestion">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelLevelinfos" Association="Self.FK_LevelLevelinfos">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PassedLevelLevel" Association="Self.FK_PassedLevelLevel">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="PassedLevels" EntitySet="PassedLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SavegameCharakter" Association="Self.FK_SavegameCharakter">
+            <End Role="Charakters" EntitySet="Charakters" />
+            <End Role="Savegames" EntitySet="Savegames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeItem" Association="Self.FK_TypeItem">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GehirnjoggingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Charakter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Damage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Luck" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SolveTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Assets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Inventars" Relationship="Self.FK_InventarCharakter" FromRole="Charakters" ToRole="Inventars" />
+          <NavigationProperty Name="Savegames" Relationship="Self.FK_SavegameCharakter" FromRole="Charakters" ToRole="Savegames" />
+        </EntityType>
+        <EntityType Name="Enemy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Damage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="XP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Coins" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Levelinfos" Relationship="Self.FK_EnemyLevelinfos" FromRole="Enemies" ToRole="Levelinfos" />
+        </EntityType>
+        <EntityType Name="Inventar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="CharakterID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Charakter" Relationship="Self.FK_InventarCharakter" FromRole="Inventars" ToRole="Charakters" />
+          <NavigationProperty Name="Item" Relationship="Self.FK_InventarItem" FromRole="Inventars" ToRole="Items" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SellingPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="minStage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Inventars" Relationship="Self.FK_InventarItem" FromRole="Items" ToRole="Inventars" />
+          <NavigationProperty Name="Type" Relationship="Self.FK_TypeItem" FromRole="Items" ToRole="Types" />
+        </EntityType>
+        <EntityType Name="Levelinfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LevelID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="EnemyID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Enemy" Relationship="Self.FK_EnemyLevelinfos" FromRole="Levelinfos" ToRole="Enemies" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_LevelinfosQuestion" FromRole="Levelinfos" ToRole="Questions" />
+          <NavigationProperty Name="Level" Relationship="Self.FK_LevelLevelinfos" FromRole="Levelinfos" ToRole="Levels" />
+        </EntityType>
+        <EntityType Name="Level">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThreeStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TwoStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OneStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelLevelinfos" FromRole="Levels" ToRole="Levelinfos" />
+          <NavigationProperty Name="PassedLevels" Relationship="Self.FK_PassedLevelLevel" FromRole="Levels" ToRole="PassedLevels" />
+        </EntityType>
+        <EntityType Name="PassedLevel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SavegameID" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LevelID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Level" Relationship="Self.FK_PassedLevelLevel" FromRole="PassedLevels" ToRole="Levels" />
+          <NavigationProperty Name="Savegame" Relationship="Self.FK_FinishedLevelSavegame" FromRole="PassedLevels" ToRole="Savegames" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Questions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelinfosQuestion" FromRole="Questions" ToRole="Levelinfos" />
+        </EntityType>
+        <EntityType Name="Savegame">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CharakterID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Charakter" Relationship="Self.FK_SavegameCharakter" FromRole="Savegames" ToRole="Charakters" />
+          <NavigationProperty Name="PassedLevels" Relationship="Self.FK_FinishedLevelSavegame" FromRole="Savegames" ToRole="PassedLevels" />
+        </EntityType>
+        <EntityType Name="Type">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK_TypeItem" FromRole="Types" ToRole="Items" />
+        </EntityType>
+        <Association Name="FK_InventarCharakter">
+          <End Role="Charakters" Type="Self.Charakter" Multiplicity="1" />
+          <End Role="Inventars" Type="Self.Inventar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charakters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventars">
+              <PropertyRef Name="CharakterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SavegameCharakter">
+          <End Role="Charakters" Type="Self.Charakter" Multiplicity="1" />
+          <End Role="Savegames" Type="Self.Savegame" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Charakters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Savegames">
+              <PropertyRef Name="CharakterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EnemyLevelinfos">
+          <End Role="Enemies" Type="Self.Enemy" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enemies">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="EnemyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InventarItem">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="Inventars" Type="Self.Inventar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Inventars">
+              <PropertyRef Name="ItemID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeItem">
+          <End Role="Types" Type="Self.Type" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelinfosQuestion">
+          <End Role="Questions" Type="Self.Question" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LevelLevelinfos">
+          <End Role="Levels" Type="Self.Level" Multiplicity="1" />
+          <End Role="Levelinfos" Type="Self.Levelinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Levelinfos">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PassedLevelLevel">
+          <End Role="Levels" Type="Self.Level" Multiplicity="1" />
+          <End Role="PassedLevels" Type="Self.PassedLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Levels">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PassedLevels">
+              <PropertyRef Name="LevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinishedLevelSavegame">
+          <End Role="Savegames" Type="Self.Savegame" Multiplicity="1" />
+          <End Role="PassedLevels" Type="Self.PassedLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Savegames">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PassedLevels">
+              <PropertyRef Name="SavegameID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GehirnjoggingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Charakters" EntityType="Self.Charakter" />
+          <EntitySet Name="Enemies" EntityType="Self.Enemy" />
+          <EntitySet Name="Inventars" EntityType="Self.Inventar" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Levelinfos" EntityType="Self.Levelinfo" />
+          <EntitySet Name="Levels" EntityType="Self.Level" />
+          <EntitySet Name="PassedLevels" EntityType="Self.PassedLevel" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="Savegames" EntityType="Self.Savegame" />
+          <EntitySet Name="Types" EntityType="Self.Type" />
+          <AssociationSet Name="FK_InventarCharakter" Association="Self.FK_InventarCharakter">
+            <End Role="Charakters" EntitySet="Charakters" />
+            <End Role="Inventars" EntitySet="Inventars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SavegameCharakter" Association="Self.FK_SavegameCharakter">
+            <End Role="Charakters" EntitySet="Charakters" />
+            <End Role="Savegames" EntitySet="Savegames" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EnemyLevelinfos" Association="Self.FK_EnemyLevelinfos">
+            <End Role="Enemies" EntitySet="Enemies" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InventarItem" Association="Self.FK_InventarItem">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="Inventars" EntitySet="Inventars" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeItem" Association="Self.FK_TypeItem">
+            <End Role="Types" EntitySet="Types" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelinfosQuestion" Association="Self.FK_LevelinfosQuestion">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LevelLevelinfos" Association="Self.FK_LevelLevelinfos">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="Levelinfos" EntitySet="Levelinfos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PassedLevelLevel" Association="Self.FK_PassedLevelLevel">
+            <End Role="Levels" EntitySet="Levels" />
+            <End Role="PassedLevels" EntitySet="PassedLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinishedLevelSavegame" Association="Self.FK_FinishedLevelSavegame">
+            <End Role="Savegames" EntitySet="Savegames" />
+            <End Role="PassedLevels" EntitySet="PassedLevels" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GehirnjoggingModelStoreContainer" CdmEntityContainer="GehirnjoggingEntities">
+          <EntitySetMapping Name="Charakters">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Charakter">
+              <MappingFragment StoreEntitySet="Charakters">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="Damage" ColumnName="Damage" />
+                <ScalarProperty Name="Luck" ColumnName="Luck" />
+                <ScalarProperty Name="Stage" ColumnName="Stage" />
+                <ScalarProperty Name="SolveTime" ColumnName="SolveTime" />
+                <ScalarProperty Name="Assets" ColumnName="Assets" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enemies">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Enemy">
+              <MappingFragment StoreEntitySet="Enemies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Damage" ColumnName="Damage" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="XP" ColumnName="XP" />
+                <ScalarProperty Name="Coins" ColumnName="Coins" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventars">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Inventar">
+              <MappingFragment StoreEntitySet="Inventars">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="CharakterID" ColumnName="CharakterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+                <ScalarProperty Name="minStage" ColumnName="minStage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levelinfos">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Levelinfo">
+              <MappingFragment StoreEntitySet="Levelinfos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="EnemyID" ColumnName="EnemyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Levels">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Level">
+              <MappingFragment StoreEntitySet="Levels">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ThreeStartime" ColumnName="ThreeStartime" />
+                <ScalarProperty Name="TwoStartime" ColumnName="TwoStartime" />
+                <ScalarProperty Name="OneStartime" ColumnName="OneStartime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PassedLevels">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.PassedLevel">
+              <MappingFragment StoreEntitySet="PassedLevels">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SavegameID" ColumnName="SavegameID" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="LevelID" ColumnName="LevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Questions" ColumnName="Questions" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Savegames">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Savegame">
+              <MappingFragment StoreEntitySet="Savegames">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CharakterID" ColumnName="CharakterID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types">
+            <EntityTypeMapping TypeName="GehirnjoggingModel.Type">
+              <MappingFragment StoreEntitySet="Types">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -201,5 +201,15 @@
   <ItemGroup>
     <Folder Include="Images\Patterns\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DB-GehirnJogging\DB-GehirnJogging.csproj">
+      <Project>{a00c543e-3097-4319-90b8-cdd5215bac56}</Project>
+      <Name>DB-GehirnJogging</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{a4492aef-ec0a-4486-9e51-a009245f4f0d}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
