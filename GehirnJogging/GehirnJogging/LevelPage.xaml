@@ -77,6 +77,11 @@
                 <ImageBrush ImageSource="Images\Pause.png"/>
             </Button.Background>
         </Button>
+        <Grid Name="GridGameOver" Visibility="Hidden">
+            <Frame  x:Name="gameoverfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="299" Margin="708,388,752,-328" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
+            <Button x:Name="btnExit" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="BtnExit_Click" />
+            <Label x:Name="gameoverlabel" Content="Game Over!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
+        </Grid>
         <Grid Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="BtnMusicOnOFf_Click" />
@@ -214,7 +219,7 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
-        <Image Name="EnemyAttackAnimation" Margin="1016,35,223,-23" Visibility="Hidden" Grid.Row="1" >
+        <Image Name="EnemyAttackAnimation" Margin="616,35,623,-23" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
@@ -274,10 +279,10 @@
         </Label>
         <ProgressBar Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
         <Image x:Name="hearticon" HorizontalAlignment="Left"  Height="92" Margin="20,108,0,0" VerticalAlignment="Top" Width="91"/>
-        <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="243,281,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
-        <Label.RenderTransform>
-            <RotateTransform Angle="3"></RotateTransform>
-        </Label.RenderTransform>
+        <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="588,314,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
+            <Label.RenderTransform>
+                <RotateTransform Angle="3"></RotateTransform>
+            </Label.RenderTransform>
         </Label>
 
     </Grid>

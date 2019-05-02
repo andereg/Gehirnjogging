@@ -44,7 +44,7 @@ namespace GehirnJogging
 
         private void EndGame(object sender, RoutedEventArgs e)
         {
-           //start.CloseApplication();
+            Application.Current.Shutdown();
         }
 
         private void ExitNewWorld_Click(object sender, RoutedEventArgs e)

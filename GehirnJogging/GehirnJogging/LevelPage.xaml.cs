@@ -31,7 +31,8 @@ namespace GehirnJogging
             label.Content = Player.GetInstance().PlayerName;
             music.playTheme();
             sounds.loadRunning();
-            Player.GetInstance().Health = 100;
+            Player.GetInstance().Health = 20;
+            PBarCharacterHealth.Value = Player.GetInstance().Health;
         }
 
         Music music = new Music();
@@ -42,7 +43,7 @@ namespace GehirnJogging
         bool animationCompleted = true;
         bool enemyDefeated = true;
         Random random = new Random();
-        Thickness thicknessEnemy;
+        Thickness MarginEnemy;
         private double _differenceEnemyToCharacter;
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
@@ -237,7 +238,7 @@ namespace GehirnJogging
             PBarLifeEnemy.Visibility = Visibility.Visible;
             Enemy.GetInstance().Health = 100;
             EnemyAttack.Visibility = Visibility.Visible;
-            thicknessEnemy = EnemyStanding.Margin;
+            MarginEnemy = EnemyStanding.Margin;
         }
 
 
@@ -273,7 +274,7 @@ namespace GehirnJogging
             int rotating = random.Next(-30, 30);
 
             Player.GetInstance().Health = Player.GetInstance().Health - damage;
-            if (Player.GetInstance().Health < 1) DefeatEnemy();
+            if (Player.GetInstance().Health < 1) DefeatCharacter();
 
             PBarCharacterHealth.Value = Player.GetInstance().Health;
 
@@ -301,6 +302,11 @@ namespace GehirnJogging
             enemyDefeated = true;
         }
 
+        public void DefeatCharacter()
+        {
+            GridGameOver.Visibility = Visibility.Visible;
+        }
+
         private async void EnemyAttack_Click(object sender, RoutedEventArgs e)
         {
             MoveEnemy(true);
@@ -312,7 +318,7 @@ namespace GehirnJogging
             animationCompleted = false;
             EnemyStanding.Visibility = Visibility.Hidden;
             EnemyAttackAnimation.Visibility = Visibility.Visible;
-            Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            await Task.Delay(800);
             EnemyAttackAnimation.Visibility = Visibility.Hidden;
             EnemyStanding.Visibility = Visibility.Visible;
             HurtCharacter();
@@ -323,34 +329,36 @@ namespace GehirnJogging
         private async void MoveEnemy(bool forward)
         {
             animationCompleted = false;
-            int percentMovement = 75;
             Thickness thicknessCharakter = new Thickness();
             if (forward)
             {
                 thicknessCharakter = Character.Margin;
-                percentMovement = 100;
+                _differenceEnemyToCharacter = 400;
             }
-            else thicknessCharakter = this.thicknessEnemy;
-
+            else _differenceEnemyToCharacter = -400;
             Thickness thicknessEnemy = EnemyStanding.Margin;
-            _differenceEnemyToCharacter = thicknessEnemy.Left - thicknessCharakter.Left;
+            Thickness thicknessEnemyHealthBar = PBarLifeEnemy.Margin;
             sounds.resumeRunning();
 
-            for (int i = 0; i < percentMovement; i++)
+            for (int i = 0; i < 100; i++)
             {
                 await Task.Delay(10);
                 thicknessEnemy.Left = thicknessEnemy.Left - (_differenceEnemyToCharacter / 100);
                 thicknessEnemy.Right = thicknessEnemy.Right + (_differenceEnemyToCharacter / 100);
+                thicknessEnemyHealthBar.Left = thicknessEnemyHealthBar.Left - (_differenceEnemyToCharacter / 100);
+                thicknessEnemyHealthBar.Right = thicknessEnemyHealthBar.Right + (_differenceEnemyToCharacter / 100);
                 EnemyStanding.Margin = thicknessEnemy;
+                PBarLifeEnemy.Margin = thicknessEnemyHealthBar;
             }
-
-            Thickness attackAnimationEnemy = EnemyAttackAnimation.Margin;
-            attackAnimationEnemy.Left = attackAnimationEnemy.Left - _differenceEnemyToCharacter;
-            attackAnimationEnemy.Right = attackAnimationEnemy.Right + _differenceEnemyToCharacter;
-            EnemyAttackAnimation.Margin = attackAnimationEnemy;
-
             sounds.stopRunning();
             animationCompleted = true;
+        }
+
+        private void BtnExit_Click(object sender, RoutedEventArgs e)
+        {
+            music.stopTheme();
+            sounds.stopRunning();
+            Start.NavigateTo("startpage");
         }
     }
 }
