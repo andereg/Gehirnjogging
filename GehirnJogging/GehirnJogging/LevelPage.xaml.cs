@@ -31,8 +31,8 @@ namespace GehirnJogging
             label.Content = Player.GetInstance().PlayerName;
             music.playTheme();
             sounds.loadRunning();
+            Player.GetInstance().Health = 100;
         }
-
 
         Music music = new Music();
         Sound sounds = new Sound();
@@ -42,6 +42,8 @@ namespace GehirnJogging
         bool animationCompleted = true;
         bool enemyDefeated = true;
         Random random = new Random();
+        Thickness thicknessEnemy;
+        private double _differenceEnemyToCharacter;
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -231,10 +233,13 @@ namespace GehirnJogging
             KeyLeft.Visibility = Visibility.Hidden;
             Attack.Visibility = Visibility.Visible;
             enemyDefeated = false;
-            Minotaurus.Visibility = Visibility.Visible;
+            EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
             Enemy.GetInstance().Health = 100;
+            EnemyAttack.Visibility = Visibility.Visible;
+            thicknessEnemy = EnemyStanding.Margin;
         }
+
 
         public async void HurtEnemy()
         {
@@ -244,32 +249,108 @@ namespace GehirnJogging
             Enemy.GetInstance().Health = Enemy.GetInstance().Health - damage;
             if (Enemy.GetInstance().Health < 1) DefeatEnemy();
 
-            PBarLifeEnemy.Value = PBarLifeEnemy.Value - damage;
+            PBarLifeEnemy.Value = Enemy.GetInstance().Health;
 
-            AttackDamage.Content = damage;
-            AttackDamage.Visibility = Visibility.Visible;
+            AttackDamageCharacter.Content = damage;
+            AttackDamageCharacter.Visibility = Visibility.Visible;
       
             RotateTransform rotateTransform1 = new RotateTransform(rotating);
-            AttackDamage.RenderTransform = rotateTransform1;
+            AttackDamageCharacter.RenderTransform = rotateTransform1;
 
             Thickness attackDamage = new Thickness();
-            attackDamage.Left = AttackDamage.Margin.Left - random.Next(-30, 30);
-            attackDamage.Right = AttackDamage.Margin.Right - random.Next(-30, 30);
-            attackDamage.Top = AttackDamage.Margin.Top - random.Next(-30, 30);
-            attackDamage.Bottom = AttackDamage.Margin.Bottom - random.Next(-30, 30);
+            attackDamage.Left = EnemyStanding.Margin.Left - random.Next(-30, 30);
+            attackDamage.Right = EnemyStanding.Margin.Right - random.Next(-30, 30);
+            attackDamage.Top = AttackDamageCharacter.Margin.Top - random.Next(-30, 30);
+            attackDamage.Bottom = AttackDamageCharacter.Margin.Bottom - random.Next(-30, 30);
 
             await Task.Delay(400);
-            AttackDamage.Visibility = Visibility.Hidden;
+            AttackDamageCharacter.Visibility = Visibility.Hidden;
+        }
 
+        public async void HurtCharacter()
+        {
+            int damage = random.Next(7, 30);
+            int rotating = random.Next(-30, 30);
+
+            Player.GetInstance().Health = Player.GetInstance().Health - damage;
+            if (Player.GetInstance().Health < 1) DefeatEnemy();
+
+            PBarCharacterHealth.Value = Player.GetInstance().Health;
+
+            AttackDamageEnemy.Content = damage;
+            AttackDamageEnemy.Visibility = Visibility.Visible;
+
+            RotateTransform rotateTransform1 = new RotateTransform(rotating);
+            AttackDamageCharacter.RenderTransform = rotateTransform1;
+            Thickness attackDamage = new Thickness();
+            attackDamage.Left = Character.Margin.Left - random.Next(-30, 30);
+            attackDamage.Right = Character.Margin.Right - random.Next(-30, 30);
+            attackDamage.Top = AttackDamageEnemy.Margin.Top - random.Next(-30, 30);
+            attackDamage.Bottom = AttackDamageEnemy.Margin.Bottom - random.Next(-30, 30);
+
+            await Task.Delay(400);
+            AttackDamageEnemy.Visibility = Visibility.Hidden;
         }
 
         public void DefeatEnemy()
         {
             KeyRight.Visibility = Visibility.Visible;
             KeyLeft.Visibility = Visibility.Visible;
-            Minotaurus.Visibility = Visibility.Hidden;
+            EnemyStanding.Visibility = Visibility.Hidden;
             PBarLifeEnemy.Visibility = Visibility.Hidden;
             enemyDefeated = true;
+        }
+
+        private async void EnemyAttack_Click(object sender, RoutedEventArgs e)
+        {
+            MoveEnemy(true);
+            do
+            {
+                await Task.Delay(10);
+            } while (animationCompleted == false);
+            await Task.Delay(750);
+            animationCompleted = false;
+            EnemyStanding.Visibility = Visibility.Hidden;
+            EnemyAttackAnimation.Visibility = Visibility.Visible;
+            Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            EnemyAttackAnimation.Visibility = Visibility.Hidden;
+            EnemyStanding.Visibility = Visibility.Visible;
+            HurtCharacter();
+            animationCompleted = true;
+            MoveEnemy(false);
+        }
+
+        private async void MoveEnemy(bool forward)
+        {
+            animationCompleted = false;
+            int percentMovement = 75;
+            Thickness thicknessCharakter = new Thickness();
+            if (forward)
+            {
+                thicknessCharakter = Character.Margin;
+                percentMovement = 100;
+            }
+            else thicknessCharakter = this.thicknessEnemy;
+
+            Thickness thicknessEnemy = EnemyStanding.Margin;
+            _differenceEnemyToCharacter = thicknessEnemy.Left - thicknessCharakter.Left;
+            sounds.resumeRunning();
+
+            for (int i = 0; i < percentMovement; i++)
+            {
+                await Task.Delay(10);
+                thicknessEnemy.Left = thicknessEnemy.Left - (_differenceEnemyToCharacter / 100);
+                thicknessEnemy.Right = thicknessEnemy.Right + (_differenceEnemyToCharacter / 100);
+                EnemyStanding.Margin = thicknessEnemy;
+            }
+
+            Thickness attackAnimationEnemy = EnemyAttackAnimation.Margin;
+            attackAnimationEnemy.Left = attackAnimationEnemy.Left - _differenceEnemyToCharacter;
+            attackAnimationEnemy.Right = attackAnimationEnemy.Right + _differenceEnemyToCharacter;
+            EnemyAttackAnimation.Margin = attackAnimationEnemy;
+
+            sounds.stopRunning();
+            animationCompleted = true;
         }
     }
 }

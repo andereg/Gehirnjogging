@@ -68,6 +68,10 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <Border BorderBrush="Black" BorderThickness="8" Margin="117,126,1543,172">
+            <ProgressBar Name="PBarCharacterHealth" Foreground="DarkRed" Minimum="0" Maximum="200" Value="200" Background="Transparent">
+            </ProgressBar>
+        </Border>
         <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="BtnPause_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images\Pause.png"/>
@@ -92,7 +96,8 @@
                 <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="Attack" Visibility="Hidden" HorizontalAlignment="Left" Background="Red" Margin="1478,238,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="Attack_Click" Grid.RowSpan="2"/>
+        <Button x:Name="Attack" Visibility="Hidden" Content="Gegner Angreifen" HorizontalAlignment="Left" Background="Red" Margin="243,238,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="Attack_Click" Grid.RowSpan="2"/>
+        <Button x:Name="EnemyAttack" Visibility="Hidden" Content="Character Angreifen" HorizontalAlignment="Left" Background="Red" Margin="1478,238,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="EnemyAttack_Click" Grid.RowSpan="2"/>
 
         <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
@@ -171,7 +176,7 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="Minotaurus" Margin="1103,15,351,-1" Visibility="Hidden" Grid.Row="1" >
+        <Image Name="EnemyStanding" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
@@ -209,13 +214,71 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
-        <Label Name="AttackDamage" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  Margin="1325,214,520,451" Grid.Row="1">
+        <Image Name="EnemyAttackAnimation" Margin="1016,35,223,-23" Visibility="Hidden" Grid.Row="1" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.8">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.5">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame6.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame7.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.7">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusAttack\Frame8.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <Label Name="AttackDamageCharacter" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  Margin="1325,214,520,451" Grid.Row="1">
             <Label.RenderTransform>
                 <RotateTransform Angle="3"></RotateTransform>
             </Label.RenderTransform>
         </Label>
         <ProgressBar Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
-
+        <Image x:Name="hearticon" HorizontalAlignment="Left"  Height="92" Margin="20,108,0,0" VerticalAlignment="Top" Width="91"/>
+        <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="243,281,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
+        <Label.RenderTransform>
+            <RotateTransform Angle="3"></RotateTransform>
+        </Label.RenderTransform>
+        </Label>
 
     </Grid>
 </Page>
