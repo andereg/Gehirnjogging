@@ -8,6 +8,10 @@ namespace GehirnJogging
 {
     class newGame
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Username"></param>
         public newGame(string Username)
         {
            

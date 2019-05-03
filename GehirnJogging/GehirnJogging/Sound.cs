@@ -11,42 +11,60 @@ namespace GehirnJogging
     class Sound
     {
         MediaPlayer player = new MediaPlayer();
-               
+
+         /// <summary>
+         /// 
+         /// </summary>
         public void playHover()
         {
             player.Open(new Uri("@Sounds/Hoversound.wav"));
             player.Play();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void playClick()
         {
             player.Open(new Uri("Sounds/Clicksound.wav"));
             player.Play();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void loadRunning()
         {
             player.Open(new Uri(@"Sounds/Runningsound.wav", UriKind.Relative));
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void stopRunning()
         {
             player.Pause();
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void resumeRunning()
         {
             player.Play();
             player.MediaEnded += new EventHandler(Media_Ended);
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Media_Ended(object sender, EventArgs e)
         {
             player.Position = TimeSpan.Zero;
             player.Play();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void decreaseVolume()
         {
             player.Volume = -10;

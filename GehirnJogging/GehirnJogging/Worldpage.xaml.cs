@@ -20,6 +20,9 @@ namespace GehirnJogging
     /// </summary>
     public partial class Worldpage : Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Worldpage()
         {
             InitializeComponent();
@@ -59,6 +62,11 @@ namespace GehirnJogging
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="Goal"></param>
         public void MoveTo(int target, int Goal)
         {
             if (!animationCompleted) return;

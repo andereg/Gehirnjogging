@@ -14,8 +14,14 @@ using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class Loadscreen : Window
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Loadscreen()
         {
             InitializeComponent();

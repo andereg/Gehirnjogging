@@ -20,6 +20,9 @@ namespace GehirnJogging
     /// </summary>
     public partial class LevelPage : Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public LevelPage()
         {
             InitializeComponent();
@@ -251,7 +254,9 @@ namespace GehirnJogging
             HurtEnemy();
             animationCompleted = true;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public void ShowEnemy()
         {
             KeyRight.Visibility = Visibility.Hidden;
@@ -265,7 +270,9 @@ namespace GehirnJogging
             MarginEnemy = EnemyStanding.Margin;
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         public async void HurtEnemy()
         {
             int damage = random.Next(7, 30);
@@ -291,7 +298,9 @@ namespace GehirnJogging
             await Task.Delay(400);
             fadeLabel(AttackDamageCharacter);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public async void HurtCharacter()
         {
             int damage = random.Next(7, 30);
@@ -316,7 +325,9 @@ namespace GehirnJogging
             await Task.Delay(400);
             fadeLabel(AttackDamageEnemy);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public async void DefeatEnemy()
         {
             KeyRight.Visibility = Visibility.Visible;
@@ -334,7 +345,9 @@ namespace GehirnJogging
 
             fadeImage(EnemyDiesFrameOnly);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public async void DefeatCharacter()
         {
             Character.Visibility = Visibility.Hidden;
@@ -407,7 +420,10 @@ namespace GehirnJogging
             sounds.stopRunning();
             Start.NavigateTo("startpage");
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="image"></param>
         public async void fadeImage(Image image)
         {
             for (int i = 0; i < 200; i++)
@@ -416,7 +432,10 @@ namespace GehirnJogging
                 image.Opacity = image.Opacity - 0.005;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="label"></param>
         public async void fadeLabel(Label label)
         {
             for (int i = 0; i < 100; i++)

@@ -22,6 +22,10 @@ namespace GehirnJogging
     {
 
         private Player _player = Player.GetInstance();
+
+        /// <summary>
+        /// 
+        /// </summary>
         public Startpage()
         {
             InitializeComponent();
