@@ -40,6 +40,7 @@ namespace GehirnJogging
         private void btnback(object sender, RoutedEventArgs e)
         {
             Start.NavigateTo("startpage");
+            Start.resetPage("worldpage");
 
         }
 

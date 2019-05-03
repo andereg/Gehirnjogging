@@ -31,6 +31,7 @@ namespace GehirnJogging
         {
             Player.GetInstance().PlayerName = nameinputtext.Text;
             Start.NavigateTo("worldpage");
+            Start.resetPage("startpage");
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)
@@ -44,7 +45,7 @@ namespace GehirnJogging
 
         private void EndGame(object sender, RoutedEventArgs e)
         {
-           //start.CloseApplication();
+            Application.Current.Shutdown();
         }
 
         private void ExitNewWorld_Click(object sender, RoutedEventArgs e)

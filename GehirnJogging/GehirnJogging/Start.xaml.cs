@@ -47,9 +47,22 @@ namespace GehirnJogging
             return _frame.NavigationService;
         }
 
-        //public void CloseApplication()
-        //{
-        //    this.Close();
-        //}
+        public static void resetPage(string destinationPage)
+        {
+            _pages[destinationPage].DataContext = null;
+
+            switch (destinationPage)
+            {
+                case "startpage":
+                    _pages[destinationPage].DataContext = new Startpage();
+                    break;
+                case "levelpage":
+                    _pages[destinationPage].DataContext = new LevelPage();
+                    break;
+                case "worldpage":
+                    _pages[destinationPage].DataContext = new Worldpage();
+                    break; 
+            }
+        }
     }
 }

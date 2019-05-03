@@ -193,6 +193,45 @@
     <Resource Include="Images\AttackObject\Frame3.png" />
     <Resource Include="Images\AttackObject\Frame4.png" />
     <Resource Include="Images\AttackObject\Frame5.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame1.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame2.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame3.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame4.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame5.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame6.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame7.png" />
+    <Resource Include="Images\Enemy\MinotaurusAttack\Frame8.png" />
+    <Resource Include="Images\Character\SantaDies\Frame1.png" />
+    <Resource Include="Images\Character\SantaDies\Frame2.png" />
+    <Resource Include="Images\Character\SantaDies\Frame3.png" />
+    <Resource Include="Images\Character\SantaDies\Frame4.png" />
+    <Resource Include="Images\Character\SantaDies\Frame5.png" />
+    <Resource Include="Images\Character\SantaDies\Frame6.png" />
+    <Resource Include="Images\Character\SantaDies\Frame7.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame1.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame2.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame3.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame4.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame5.png" />
+    <Resource Include="Images\Enemy\MinotaurusDies\Frame6.png" />
+    <Resource Include="Images\Enemy\MinotaurusWalks\Frame1.png" />
+    <Resource Include="Images\Enemy\MinotaurusWalks\Frame2.png" />
+    <Resource Include="Images\Enemy\MinotaurusWalks\Frame3.png" />
+    <Resource Include="Images\Enemy\MinotaurusWalks\Frame4.png" />
+    <Resource Include="Images\Enemy\MinotaurusWalks\Frame5.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame1.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame2.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame3.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame4.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame5.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame6.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame7.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame8.png" />
+    <Resource Include="Images\Character\SantaStands\Frame1.png" />
+    <Resource Include="Images\Character\SantaStands\Frame2.png" />
+    <Resource Include="Images\Character\SantaStands\Frame3.png" />
+    <Resource Include="Images\Character\SantaStands\Frame4.png" />
+    <Resource Include="Images\Character\SantaStands\Frame5.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -207,7 +246,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\Patterns\" />
+    <Folder Include="Images\Icons\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DB-GehirnJogging\DB-GehirnJogging.csproj">
