@@ -8,7 +8,8 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="LevelPage"
       KeyDown="keyDown"
-      ShowsNavigationUI="False">
+      ShowsNavigationUI="False"
+      >
 
     <Grid KeyDown="keyDown">
         <Grid.RowDefinitions>
@@ -20,7 +21,7 @@
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacter">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.5">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -59,7 +60,7 @@
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacterRuns">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.8">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -147,8 +148,8 @@
         <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                    <BeginStoryboard x:Name="BeginStoryboard_CharacterAttack">
+                        <Storyboard Name="StoryboardCharacterAttacks">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:1">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">

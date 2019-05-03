@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
-    /// <summary>
-    /// Interaktionslogik für LevelPage.xaml
-    /// </summary>
     public partial class LevelPage : Page
     {
         public LevelPage()
@@ -152,13 +149,13 @@ namespace GehirnJogging
         private void keyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.Key == Key.Left)
+            if (e.Key == Key.Right)
             {
                 MoveLeft();
                 sounds.resumeRunning();
             }
 
-            if (e.Key == Key.Right)
+            if (e.Key == Key.Left)
             {
                 MoveRight();
                 sounds.resumeRunning();
@@ -226,30 +223,32 @@ namespace GehirnJogging
 
         private async void Attack_Click(object sender, RoutedEventArgs e)
         {
+            StoryboardCharacterAttacks.Begin(this, true);
             //do
             //{
-            //    await Task.Delay(1);
+            //    await Task.Delay(10);
             //} while (animationCompleted == false);
-            animationCompleted = false;
+            //animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
-            Thickness MarginAttackAnimation = CharacterAttack.Margin;
-            MarginAttackAnimation.Left = Character.Margin.Left;
-            MarginAttackAnimation.Right = Character.Margin.Right;
+            //Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            //MarginAttackAnimation.Left = Character.Margin.Left;
+            //MarginAttackAnimation.Right = Character.Margin.Right;
 
-            CharacterAttack.Margin = MarginAttackAnimation;
-
-            await Task.Delay(600);
-            AttackAnimation.Visibility = Visibility.Visible;
-
-            await Task.Delay(400);
-            Character.Visibility = Visibility.Visible;
-            CharacterAttack.Visibility = Visibility.Hidden;
+            //CharacterAttack.Margin = MarginAttackAnimation;
 
             await Task.Delay(600);
-            AttackAnimation.Visibility = Visibility.Hidden;
-            HurtEnemy();
-            animationCompleted = true;
+            //AttackAnimation.Visibility = Visibility.Visible;
+
+            //await Task.Delay(400);
+            //Character.Visibility = Visibility.Visible;
+            //CharacterAttack.Visibility = Visibility.Hidden;
+
+            //await Task.Delay(600);
+            //AttackAnimation.Visibility = Visibility.Hidden;
+            //HurtEnemy();
+            //animationCompleted = true;
+            StoryboardCharacterAttacks.Pause(this);
         }
 
         public void ShowEnemy()
