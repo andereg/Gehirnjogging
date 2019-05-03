@@ -132,6 +132,8 @@ namespace GehirnJogging
 
         private async void FrameByFrame(Image Goallvl)
         {
+            Character.Visibility = Visibility.Hidden;
+            CharacterWalking.Visibility = Visibility.Visible;
 
             Thickness thicknessCharakter = Character.Margin;
             Thickness thicknessLvl = Goallvl.Margin;
@@ -143,9 +145,13 @@ namespace GehirnJogging
                 await Task.Delay(10);
                 thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 100);
                 thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 100);
-                Character.Margin = thicknessCharakter;
+                CharacterWalking.Margin = thicknessCharakter;
                 Charactername.Margin = thicknessCharakter;
             }
+
+            Character.Margin = CharacterWalking.Margin;
+            Character.Visibility = Visibility.Visible;
+            CharacterWalking.Visibility = Visibility.Hidden;
             animationCompleted = true;
             sound.stopRunning();
         }

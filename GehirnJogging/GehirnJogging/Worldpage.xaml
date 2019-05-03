@@ -53,8 +53,48 @@
         <Label x:Name="lbllevel" Content="1" HorizontalAlignment="Left" Margin="1544,664,0,0" VerticalAlignment="Top" Width="136" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
         <Label x:Name="lblSchwierigkeitText" Content="Schwierigkeit:" HorizontalAlignment="Left" Margin="1430,725,0,0" VerticalAlignment="Top" Width="344" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" RenderTransformOrigin="-0.147,0.48"/>
         <Label x:Name="lblSchwierigkeit" Content="Easy" HorizontalAlignment="Left" Margin="1708,725,0,0" VerticalAlignment="Top" Width="175" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
-        <Border BorderThickness="2, 0, 0, 5" Margin="47,0,-47,0">
+        <Border BorderThickness="2, 0, 0, 5">
             <Image Name="Character" HorizontalAlignment="Left" Margin="1030,0,0,212" VerticalAlignment="Bottom"  Height="88" Width="70" >
+                <Image.Triggers>
+                    <EventTrigger RoutedEvent="Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever">
+                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.5">
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="Images\Character\SantaStands\Frame1.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="Images\Character\SantaStands\Frame2.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="Images\Character\SantaStands\Frame3.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="Images\Character\SantaStands\Frame4.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                    <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                        <DiscreteObjectKeyFrame.Value>
+                                            <BitmapImage UriSource="Images\Character\SantaStands\Frame5.png"/>
+                                        </DiscreteObjectKeyFrame.Value>
+                                    </DiscreteObjectKeyFrame>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers>
+            </Image>
+        </Border>
+        <Border BorderThickness="2, 0, 0, 5">
+            <Image Name="CharacterWalking" HorizontalAlignment="Left" Margin="1030,0,0,212" VerticalAlignment="Bottom" Visibility="Hidden" Height="88" Width="70" >
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>

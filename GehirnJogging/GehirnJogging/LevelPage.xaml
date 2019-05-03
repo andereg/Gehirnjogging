@@ -8,7 +8,8 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="LevelPage"
       KeyDown="keyDown"
-      ShowsNavigationUI="False">
+      ShowsNavigationUI="False"
+      >
 
     <Grid KeyDown="keyDown">
         <Grid.RowDefinitions>
@@ -20,7 +21,7 @@
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacter">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.5">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -59,7 +60,7 @@
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacterRuns">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.8">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -147,8 +148,8 @@
         <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
-                    <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever">
+                    <BeginStoryboard x:Name="BeginStoryboard_CharacterAttack">
+                        <Storyboard Name="StoryboardCharacterAttacks">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:1">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -409,6 +410,7 @@
             </Label.RenderTransform>
         </Label>
         <ProgressBar Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
+        <Border Name="BorderLifeEnemy" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152" />
         <Image x:Name="hearticon" HorizontalAlignment="Left"  Height="92" Margin="20,108,0,0" VerticalAlignment="Top" Width="91"/>
         <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="588,314,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
             <Label.RenderTransform>

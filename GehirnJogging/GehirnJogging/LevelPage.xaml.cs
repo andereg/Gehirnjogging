@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace GehirnJogging
 {
-    /// <summary>
-    /// Interaktionslogik für LevelPage.xaml
-    /// </summary>
     public partial class LevelPage : Page
     {
         /// <summary>
@@ -155,15 +152,15 @@ namespace GehirnJogging
         private void keyDown(object sender, KeyEventArgs e)
         {
 
-            if (e.Key == Key.Left)
-            {
-                MoveLeft();
-                sounds.resumeRunning();
-            }
-
             if (e.Key == Key.Right)
             {
                 MoveRight();
+                sounds.resumeRunning();
+            }
+
+            if (e.Key == Key.Left)
+            {
+                MoveLeft();
                 sounds.resumeRunning();
             }
         }
@@ -229,30 +226,32 @@ namespace GehirnJogging
 
         private async void Attack_Click(object sender, RoutedEventArgs e)
         {
+            StoryboardCharacterAttacks.Begin(this, true);
             //do
             //{
-            //    await Task.Delay(1);
+            //    await Task.Delay(10);
             //} while (animationCompleted == false);
-            animationCompleted = false;
+            //animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
-            Thickness MarginAttackAnimation = CharacterAttack.Margin;
-            MarginAttackAnimation.Left = Character.Margin.Left;
-            MarginAttackAnimation.Right = Character.Margin.Right;
+            //Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            //MarginAttackAnimation.Left = Character.Margin.Left;
+            //MarginAttackAnimation.Right = Character.Margin.Right;
 
-            CharacterAttack.Margin = MarginAttackAnimation;
-
-            await Task.Delay(600);
-            AttackAnimation.Visibility = Visibility.Visible;
-
-            await Task.Delay(400);
-            Character.Visibility = Visibility.Visible;
-            CharacterAttack.Visibility = Visibility.Hidden;
+            //CharacterAttack.Margin = MarginAttackAnimation;
 
             await Task.Delay(600);
-            AttackAnimation.Visibility = Visibility.Hidden;
-            HurtEnemy();
-            animationCompleted = true;
+            //AttackAnimation.Visibility = Visibility.Visible;
+
+            //await Task.Delay(400);
+            //Character.Visibility = Visibility.Visible;
+            //CharacterAttack.Visibility = Visibility.Hidden;
+
+            //await Task.Delay(600);
+            //AttackAnimation.Visibility = Visibility.Hidden;
+            //HurtEnemy();
+            //animationCompleted = true;
+            StoryboardCharacterAttacks.Pause(this);
         }
         /// <summary>
         /// 
@@ -265,6 +264,7 @@ namespace GehirnJogging
             enemyDefeated = false;
             EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
+            BorderLifeEnemy.Visibility = Visibility.Visible;
             Enemy.GetInstance().Health = 100;
             EnemyAttack.Visibility = Visibility.Visible;
             MarginEnemy = EnemyStanding.Margin;
@@ -334,6 +334,7 @@ namespace GehirnJogging
             KeyLeft.Visibility = Visibility.Visible;
             EnemyStanding.Visibility = Visibility.Hidden;
             PBarLifeEnemy.Visibility = Visibility.Hidden;
+            BorderLifeEnemy.Visibility = Visibility.Hidden;
 
             EnemyDies.Margin = EnemyStanding.Margin;
             EnemyDies.Visibility = Visibility.Visible;
@@ -404,6 +405,7 @@ namespace GehirnJogging
                 thicknessEnemyHealthBar.Right = thicknessEnemyHealthBar.Right + (_differenceEnemyToCharacter / 100);
                 EnemyWalking.Margin = thicknessEnemy;
                 PBarLifeEnemy.Margin = thicknessEnemyHealthBar;
+                BorderLifeEnemy.Margin = thicknessEnemyHealthBar;
             }
             sounds.stopRunning();
             animationCompleted = true;
