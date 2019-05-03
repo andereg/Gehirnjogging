@@ -151,13 +151,13 @@ namespace GehirnJogging
 
             if (e.Key == Key.Right)
             {
-                MoveLeft();
+                MoveRight();
                 sounds.resumeRunning();
             }
 
             if (e.Key == Key.Left)
             {
-                MoveRight();
+                MoveLeft();
                 sounds.resumeRunning();
             }
         }
@@ -259,6 +259,7 @@ namespace GehirnJogging
             enemyDefeated = false;
             EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
+            BorderLifeEnemy.Visibility = Visibility.Visible;
             Enemy.GetInstance().Health = 100;
             EnemyAttack.Visibility = Visibility.Visible;
             MarginEnemy = EnemyStanding.Margin;
@@ -322,6 +323,7 @@ namespace GehirnJogging
             KeyLeft.Visibility = Visibility.Visible;
             EnemyStanding.Visibility = Visibility.Hidden;
             PBarLifeEnemy.Visibility = Visibility.Hidden;
+            BorderLifeEnemy.Visibility = Visibility.Hidden;
 
             EnemyDies.Margin = EnemyStanding.Margin;
             EnemyDies.Visibility = Visibility.Visible;
@@ -390,6 +392,7 @@ namespace GehirnJogging
                 thicknessEnemyHealthBar.Right = thicknessEnemyHealthBar.Right + (_differenceEnemyToCharacter / 100);
                 EnemyWalking.Margin = thicknessEnemy;
                 PBarLifeEnemy.Margin = thicknessEnemyHealthBar;
+                BorderLifeEnemy.Margin = thicknessEnemyHealthBar;
             }
             sounds.stopRunning();
             animationCompleted = true;
