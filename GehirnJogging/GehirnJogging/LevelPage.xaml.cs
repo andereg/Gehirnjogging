@@ -135,10 +135,12 @@ namespace GehirnJogging
                     MarginBackground.Left = MarginBackground.Left - amount;
                     MarginBackground.Right = MarginBackground.Right + amount;
                     Backgroundimage.Margin = MarginBackground;
+                    switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
                 animationCompleted = true;
                 sounds.stopRunning();
+                switchCharacterAnimationFromStandToRun(false);
             }
 
             if (MarginBackground.Left < -1000)
@@ -175,12 +177,30 @@ namespace GehirnJogging
                     MarginCharacter.Left = MarginCharacter.Left - moveAmount;
                     MarginCharacter.Right = MarginCharacter.Right + moveAmount;
                     Character.Margin = MarginCharacter;
+                    switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
                 animationCompleted = true;
                 sounds.stopRunning();
+                switchCharacterAnimationFromStandToRun(false);
             }
         }
+
+        private void switchCharacterAnimationFromStandToRun(bool forward)
+        {
+            if (forward)
+            {
+                CharacterRuns.Margin = Character.Margin;
+                CharacterRuns.Visibility = Visibility.Visible;
+                Character.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                CharacterRuns.Visibility = Visibility.Hidden;
+                Character.Visibility = Visibility.Visible;
+            }
+        }
+
 
         private async void MoveRight()
         {
@@ -194,20 +214,22 @@ namespace GehirnJogging
                     MarginCharacter.Left = MarginCharacter.Left + moveAmount;
                     MarginCharacter.Right = MarginCharacter.Right - moveAmount;
                     Character.Margin = MarginCharacter;
+                    switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
                 animationCompleted = true;
                 sounds.stopRunning();
+                switchCharacterAnimationFromStandToRun(false);
             }
             else MoveBackground(moveAmount);
         }
 
         private async void Attack_Click(object sender, RoutedEventArgs e)
         {
-            do
-            {
-                await Task.Delay(1);
-            } while (animationCompleted == false);
+            //do
+            //{
+            //    await Task.Delay(1);
+            //} while (animationCompleted == false);
             animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
@@ -335,7 +357,6 @@ namespace GehirnJogging
             {
                 await Task.Delay(10);
             } while (animationCompleted == false);
-            await Task.Delay(1000);
             animationCompleted = false;
             EnemyWalking.Visibility = Visibility.Hidden;
             EnemyAttackAnimation.Visibility = Visibility.Visible;

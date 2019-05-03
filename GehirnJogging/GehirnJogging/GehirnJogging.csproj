@@ -211,6 +211,19 @@
     <Resource Include="Images\Enemy\MinotaurusWalks\Frame3.png" />
     <Resource Include="Images\Enemy\MinotaurusWalks\Frame4.png" />
     <Resource Include="Images\Enemy\MinotaurusWalks\Frame5.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame1.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame2.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame3.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame4.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame5.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame6.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame7.png" />
+    <Resource Include="Images\Character\SantaRuns\Frame8.png" />
+    <Resource Include="Images\Character\SantaStands\Frame1.png" />
+    <Resource Include="Images\Character\SantaStands\Frame2.png" />
+    <Resource Include="Images\Character\SantaStands\Frame3.png" />
+    <Resource Include="Images\Character\SantaStands\Frame4.png" />
+    <Resource Include="Images\Character\SantaStands\Frame5.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
