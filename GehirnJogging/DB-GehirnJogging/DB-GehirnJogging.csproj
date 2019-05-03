@@ -50,13 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\AbstractRepository.cs" />
     <Compile Include="Charakter.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context.cs" />
     <Compile Include="Enemy.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IEntityRepository.cs" />
     <Compile Include="Inventar.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -123,12 +124,6 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Repositories\Repositories.csproj">
-      <Project>{a4492aef-ec0a-4486-9e51-a009245f4f0d}</Project>
-      <Name>Repositories</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
