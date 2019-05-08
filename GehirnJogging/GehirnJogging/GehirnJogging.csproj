@@ -232,6 +232,8 @@
     <Resource Include="Images\Character\SantaStands\Frame3.png" />
     <Resource Include="Images\Character\SantaStands\Frame4.png" />
     <Resource Include="Images\Character\SantaStands\Frame5.png" />
+    <Resource Include="Images\Icons\rightIcon.png" />
+    <Resource Include="Images\Icons\falseIcon.png" />
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -245,9 +247,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Icons\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DB-GehirnJogging\DB-GehirnJogging.csproj">
       <Project>{a00c543e-3097-4319-90b8-cdd5215bac56}</Project>

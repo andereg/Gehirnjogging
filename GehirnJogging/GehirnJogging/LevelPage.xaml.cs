@@ -31,6 +31,9 @@ namespace GehirnJogging
             Player.GetInstance().Health = 20;
             PBarCharacterHealth.Value = Player.GetInstance().Health;
             PBarCharacterHealth.Maximum = Player.GetInstance().Health;
+            _startTimeMillisecond = DateTime.Now.Millisecond;
+
+
         }
 
         Music music = new Music();
@@ -43,12 +46,24 @@ namespace GehirnJogging
         Random random = new Random();
         Thickness MarginEnemy;
         private double _differenceEnemyToCharacter;
+        int _startTimeMillisecond;
+        private int _numberOfDefeatedEnemys;
+
+
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
         {
             btnPause.Visibility = Visibility.Hidden;
             GridPause.Visibility = Visibility.Visible;
 
+        }
+
+        private int actualTime()
+        {
+        int actualTimeMillisecond = DateTime.Now.Millisecond;
+        int difference = actualTimeMillisecond - _startTimeMillisecond;
+
+        return difference;
         }
 
         private void SliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -140,7 +155,15 @@ namespace GehirnJogging
                 switchCharacterAnimationFromStandToRun(false);
             }
 
-            if (MarginBackground.Left < -1000)
+            if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            {
+                ShowEnemy();
+            }
+            if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
+            {
+                ShowEnemy();
+            }
+            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
             {
                 ShowEnemy();
             }
@@ -221,48 +244,54 @@ namespace GehirnJogging
             else MoveBackground(moveAmount);
         }
 
-        private async void Attack_Click(object sender, RoutedEventArgs e)
+        private async void AttackEnemy()
         {
-            StoryboardCharacterAttacks.Begin(this, true);
-            //do
+            //int a = actualTime();
+            //if (a < 0)
             //{
-            //    await Task.Delay(10);
-            //} while (animationCompleted == false);
-            //animationCompleted = false;
+            //    a = -(2 * a);
+            //}
+            //for (int i = a; i > 0; i--)
+            //{
+            //    await Task.Delay(1);
+            //}
+
+            animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
-            //Thickness MarginAttackAnimation = CharacterAttack.Margin;
-            //MarginAttackAnimation.Left = Character.Margin.Left;
-            //MarginAttackAnimation.Right = Character.Margin.Right;
+            Thickness MarginAttackAnimation = CharacterAttack.Margin;
+            MarginAttackAnimation.Left = Character.Margin.Left;
+            MarginAttackAnimation.Right = Character.Margin.Right;
 
-            //CharacterAttack.Margin = MarginAttackAnimation;
+            CharacterAttack.Margin = MarginAttackAnimation;
 
             await Task.Delay(600);
-            //AttackAnimation.Visibility = Visibility.Visible;
+            AttackAnimation.Visibility = Visibility.Visible;
 
-            //await Task.Delay(400);
-            //Character.Visibility = Visibility.Visible;
-            //CharacterAttack.Visibility = Visibility.Hidden;
+            await Task.Delay(400);
+            Character.Visibility = Visibility.Visible;
+            CharacterAttack.Visibility = Visibility.Hidden;
 
-            //await Task.Delay(600);
-            //AttackAnimation.Visibility = Visibility.Hidden;
-            //HurtEnemy();
-            //animationCompleted = true;
-            StoryboardCharacterAttacks.Pause(this);
+            await Task.Delay(600);
+            AttackAnimation.Visibility = Visibility.Hidden;
+            HurtEnemy();
+            animationCompleted = true;
         }
 
-        public void ShowEnemy()
+        public async void ShowEnemy()
         {
             KeyRight.Visibility = Visibility.Hidden;
             KeyLeft.Visibility = Visibility.Hidden;
-            Attack.Visibility = Visibility.Visible;
             enemyDefeated = false;
             EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
             BorderLifeEnemy.Visibility = Visibility.Visible;
-            Enemy.GetInstance().Health = 100;
-            EnemyAttack.Visibility = Visibility.Visible;
+            Enemy.GetInstance().Health = 20;
+            PBarLifeEnemy.Value = Enemy.GetInstance().Health;
+            PBarLifeEnemy.Maximum = Enemy.GetInstance().Health;
             MarginEnemy = EnemyStanding.Margin;
+            await Task.Delay(1000);
+            Question.Visibility = Visibility.Visible;
         }
 
 
@@ -273,7 +302,7 @@ namespace GehirnJogging
 
             Enemy.GetInstance().Health = Enemy.GetInstance().Health - damage;
             if (Enemy.GetInstance().Health < 1) DefeatEnemy();
-
+            
             PBarLifeEnemy.Value = Enemy.GetInstance().Health;
 
             AttackDamageCharacter.Content = damage;
@@ -290,6 +319,11 @@ namespace GehirnJogging
 
             await Task.Delay(400);
             fadeLabel(AttackDamageCharacter);
+            if (Enemy.GetInstance().Health > 0)
+            {
+                await Task.Delay(1000);
+                Question.Visibility = Visibility.Visible;
+            }
         }
 
         public async void HurtCharacter()
@@ -299,7 +333,6 @@ namespace GehirnJogging
 
             Player.GetInstance().Health = Player.GetInstance().Health - damage;
             if (Player.GetInstance().Health < 1) DefeatCharacter();
-
             PBarCharacterHealth.Value = Player.GetInstance().Health;
 
             AttackDamageEnemy.Content = damage;
@@ -315,6 +348,11 @@ namespace GehirnJogging
 
             await Task.Delay(400);
             fadeLabel(AttackDamageEnemy);
+            if (Player.GetInstance().Health > 0)
+            {
+                await Task.Delay(1500);
+                Question.Visibility = Visibility.Visible;
+            }
         }
 
         public async void DefeatEnemy()
@@ -332,8 +370,9 @@ namespace GehirnJogging
             EnemyDiesFrameOnly.Margin = EnemyStanding.Margin;
             EnemyDiesFrameOnly.Visibility = Visibility.Visible;
             enemyDefeated = true;
+            _numberOfDefeatedEnemys++;
 
-            fadeImage(EnemyDiesFrameOnly);
+            fadeImageOut(EnemyDiesFrameOnly);
         }
 
         public async void DefeatCharacter()
@@ -347,10 +386,10 @@ namespace GehirnJogging
             CharacterDiesFrameOnly.Margin = Character.Margin;
             CharacterDiesFrameOnly.Visibility = Visibility.Visible;
 
-            fadeImage(CharacterDiesFrameOnly);
+            fadeImageOut(CharacterDiesFrameOnly);
         }
 
-        private async void EnemyAttack_Click(object sender, RoutedEventArgs e)
+        private async void EnemyAttacks()
         {
             EnemyStanding.Visibility = Visibility.Hidden;
             MoveEnemy(true);
@@ -359,7 +398,6 @@ namespace GehirnJogging
                 await Task.Delay(10);
             } while (animationCompleted == false);
             animationCompleted = false;
-            EnemyWalking.Visibility = Visibility.Hidden;
             EnemyAttackAnimation.Visibility = Visibility.Visible;
             await Task.Delay(800);
             EnemyAttackAnimation.Visibility = Visibility.Hidden;
@@ -410,12 +448,26 @@ namespace GehirnJogging
             Start.NavigateTo("startpage");
         }
 
-        public async void fadeImage(Image image)
+        public async void fadeImageOut(Image image)
         {
             for (int i = 0; i < 200; i++)
             {
                 await Task.Delay(20);
                 image.Opacity = image.Opacity - 0.005;
+            }
+
+            image.Visibility = Visibility.Hidden;
+            image.Opacity = 1;
+        }
+
+        public async void fadeImageIn(Image image)
+        {
+            image.Opacity = 0;
+            image.Visibility = Visibility.Visible;
+            for (int i = 0; i < 100; i++)
+            {
+                await Task.Delay(2);
+                image.Opacity = image.Opacity + 0.01;
             }
         }
 
@@ -428,6 +480,28 @@ namespace GehirnJogging
             }
             label.Visibility = Visibility.Hidden;
             label.Opacity = 1;
+        }
+
+        private async void SubmitAnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (questionAnswer.Text.Equals(questioncontent.Tag.ToString()))
+            {
+                fadeImageIn(imageIconRight);
+                await Task.Delay(1000);
+                Question.Visibility = Visibility.Hidden;
+                imageIconRight.Visibility = Visibility.Hidden;
+                AttackEnemy();
+            }
+            else
+            {
+                fadeImageIn(imageIconFalse);
+                await Task.Delay(1000);
+                Question.Visibility = Visibility.Hidden;
+                imageIconFalse.Visibility = Visibility.Hidden;
+                EnemyAttacks();
+            }
+
+            questionAnswer.Text = "";
         }
     }
 }
