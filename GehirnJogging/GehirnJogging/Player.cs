@@ -42,6 +42,8 @@ namespace GehirnJogging
         /// </summary>
         public double Health { get; set; }
 
+        public int Level { get; set; }
+
 
     }
 }

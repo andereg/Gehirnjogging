@@ -51,14 +51,15 @@ namespace GehirnJogging
             //{
             //    Charakter charakter = new Charakter()
             //    {
-            //        Name = nameinputtext.Text,
-            //        HP = "100"
+            //        Name = nameinputtext.Text.ToString()
+            //        HP = 100,
             //    };
             //    gehirnjoggingEntities.Charakters.Add(charakter);
             //    gehirnjoggingEntities.SaveChanges();
             //}
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
+
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)

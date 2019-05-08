@@ -227,6 +227,9 @@
     <Resource Include="Images\Character\SantaStands\Frame5.png" />
     <Resource Include="Images\Icons\rightIcon.png" />
     <Resource Include="Images\Icons\falseIcon.png" />
+    <Content Include="Images\Backgrounds\winbackground.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\Clicksound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

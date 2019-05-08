@@ -158,6 +158,11 @@ namespace GehirnJogging
                 switchCharacterAnimationFromStandToRun(false);
             }
 
+            if (MarginBackground.Left < -400)
+            {
+                completeLevel();
+            }
+
             if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
             {
                 ShowEnemy();
@@ -170,6 +175,13 @@ namespace GehirnJogging
             {
                 ShowEnemy();
             }
+        }
+
+        private void completeLevel()
+        {
+            LevelCompleted.Visibility = Visibility.Visible;
+            Backgroundimage.Visibility = Visibility.Hidden;
+            fadeImageIn(Background2);
         }
 
         private void keyDown(object sender, KeyEventArgs e)
@@ -518,6 +530,15 @@ namespace GehirnJogging
             }
 
             questionAnswer.Text = "";
+        }
+
+        private void BtnBackToWorldMap_Click(object sender, RoutedEventArgs e)
+        {
+            music.stopTheme();
+            sounds.stopRunning();
+            Start.NavigateTo("worldpage");
+            Start.resetPage("levelpage");
+            Player.GetInstance().Level++;
         }
     }
 }

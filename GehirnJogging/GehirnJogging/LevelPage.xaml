@@ -16,12 +16,13 @@
             <RowDefinition Height="349*"/>
             <RowDefinition Height="700*"/>
         </Grid.RowDefinitions>
+
         <Image x:Name="Backgroundimage" Margin="-69,0,-3848,0" Source="Images\environment-preview.png"  Grid.RowSpan="2"/>
-        <Image Name="Character" Margin="193,352,1501,88" Grid.Row="1" >
+        <Image x:Name="Character" Margin="193,352,1501,88" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacter">
+                        <Storyboard RepeatBehavior="Forever" x:Name="StoryboardCharacter">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.5">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -56,11 +57,11 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="CharacterRuns" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
+        <Image x:Name="CharacterRuns" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
-                        <Storyboard RepeatBehavior="Forever" Name="StoryboardCharacterRuns">
+                        <Storyboard RepeatBehavior="Forever" x:Name="StoryboardCharacterRuns">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
                                                    Duration="0:0:0.8">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
@@ -110,20 +111,19 @@
             </Image.Triggers>
         </Image>
         <Border BorderBrush="Black" BorderThickness="8" Margin="117,126,1543,172">
-            <ProgressBar Name="PBarCharacterHealth" Foreground="DarkRed" Minimum="0" Maximum="200" Value="200" Background="Transparent">
-            </ProgressBar>
+            <ProgressBar x:Name="PBarCharacterHealth" Foreground="DarkRed" Minimum="0" Maximum="200" Value="200" Background="Transparent"/>
         </Border>
         <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="BtnPause_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images\Pause.png"/>
             </Button.Background>
         </Button>
-        <Grid Name="GridGameOver" Visibility="Hidden">
+        <Grid x:Name="GridGameOver" Visibility="Hidden">
             <Frame  x:Name="gameoverfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="299" Margin="708,388,752,-328" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnExit" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="BtnExit_Click" />
             <Label x:Name="gameoverlabel" Content="Game Over!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
-        <Grid Name="Question" Visibility="Hidden">
+        <Grid x:Name="Question" Visibility="Hidden">
             <Frame  x:Name="questionfield"  Background="#FF211919" Visibility="Visible" BorderBrush="WhiteSmoke" BorderThickness="10" Height="457" Margin="611,185,612,-283" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="submitAnswerButton" Content="submit" Background="DarkOliveGreen" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="953,447,0,-162" Click="SubmitAnswerButton_Click" />
             <Label x:Name="questioncontent" Foreground="WhiteSmoke" Tag="4"  Content="2 + 2 ="  HorizontalAlignment="Left" Margin="797,289,0,-33" VerticalAlignment="Top"  FontSize="70" FontFamily="Microsoft Tai Le" Height="103" FontWeight="Bold" Width="298"  />
@@ -131,7 +131,7 @@
             <Image x:Name="imageIconRight" Source="Images/Icons/rightIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1170,434,0,-175" VerticalAlignment="Top" Width="100"/>
             <Image x:Name="imageIconFalse" Source="Images/Icons/falseIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1170,434,0,-175" VerticalAlignment="Top" Width="100"/>
         </Grid>
-        <Grid Name="GridPause" Visibility="Hidden">
+        <Grid x:Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="BtnMusicOnOFf_Click" />
             <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="981,495,0,-232" Click="BtnSoundsOnOff_Click" RenderTransformOrigin="0.555,0.535" />
@@ -150,9 +150,9 @@
                 <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
+        <Image x:Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard  RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source" Duration="0:0:1">
@@ -188,11 +188,11 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="CharacterDiesFrameOnly" Margin="493,281,1201,67" Source="Images/Character/SantaDies/Frame7.png" Visibility="Hidden"  Grid.Row="1"/>
+        <Image x:Name="CharacterDiesFrameOnly" Margin="493,281,1201,67" Source="Images/Character/SantaDies/Frame7.png" Visibility="Hidden"  Grid.Row="1"/>
 
-        <Image Name="AttackAnimation" Margin="525,198,429,150" Grid.Row="1" Visibility="Hidden">
+        <Image x:Name="AttackAnimation" Margin="525,198,429,150" Grid.Row="1" Visibility="Hidden">
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
@@ -229,9 +229,9 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="EnemyStanding" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+        <Image x:Name="EnemyStanding" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
@@ -268,9 +268,9 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="EnemyWalking" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+        <Image x:Name="EnemyWalking" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
@@ -307,11 +307,11 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1"/>
+        <Image x:Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1"/>
 
-        <Image Name="EnemyDies" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+        <Image x:Name="EnemyDies" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
@@ -353,9 +353,9 @@
             </Image.Triggers>
         </Image>
 
-        <Image Name="EnemyAttackAnimation" Margin="616,35,623,-23" Visibility="Hidden" Grid.Row="1" >
+        <Image x:Name="EnemyAttackAnimation" Margin="616,35,623,-23" Visibility="Hidden" Grid.Row="1" >
             <Image.Triggers>
-                <EventTrigger RoutedEvent="Loaded">
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
 
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
@@ -409,17 +409,17 @@
         </Image>
 
 
-        <Label Name="AttackDamageCharacter" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  Margin="1325,214,520,451" Grid.Row="1">
+        <Label x:Name="AttackDamageCharacter" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  Margin="1325,214,520,451" Grid.Row="1">
             <Label.RenderTransform>
-                <RotateTransform Angle="3"></RotateTransform>
+                <RotateTransform Angle="3"/>
             </Label.RenderTransform>
         </Label>
-        <ProgressBar Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
-        <Border Name="BorderLifeEnemy" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152" />
+        <ProgressBar x:Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
+        <Border x:Name="BorderLifeEnemy" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152" />
         <Image x:Name="hearticon" HorizontalAlignment="Left"  Height="92" Margin="20,108,0,0" VerticalAlignment="Top" Width="91"/>
         <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="588,314,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
             <Label.RenderTransform>
-                <RotateTransform Angle="3"></RotateTransform>
+                <RotateTransform Angle="3"/>
             </Label.RenderTransform>
         </Label>
         <Image x:Name="CharacterDies" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
@@ -470,6 +470,11 @@
                 </EventTrigger>
             </Image.Triggers>
         </Image>
+        <Grid x:Name="LevelCompleted" Visibility="Hidden">
+            <Image x:Name="Background2" Source="Images/Backgrounds/winbackground.png" Margin="-44,-22,-21,-748"/>
+            <Label x:Name="LevelCompletedLabel" Foreground="Black" Content="Level geschafft!" HorizontalAlignment="Left" Margin="355,367,0,-223" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" />
+            <Button x:Name="btnBackToWorldMap" BorderBrush="Black" BorderThickness="8" Background="Transparent" Content="zurück zur Worldmap" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="BtnBackToWorldMap_Click"/>
+        </Grid>
 
     </Grid>
 </Page>
