@@ -240,7 +240,9 @@
     <Content Include="Sounds\Hoversound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Sounds\Purple Planet Music - Cinematic - True Faith %281_27%29 120bpm %28L%29.wav" />
+    <Content Include="Sounds\True Faith.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\Runningsound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
