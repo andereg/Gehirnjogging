@@ -67,7 +67,7 @@ namespace GehirnJogging
         /// </summary>
         /// <param name="target"></param>
         /// <param name="Goal"></param>
-        public void MoveTo(int target, int Goal)
+        private void MoveTo(int target, int Goal)
         {
             if (!animationCompleted) return;
             animationCompleted = false;

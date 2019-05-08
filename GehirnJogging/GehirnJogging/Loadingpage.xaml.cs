@@ -26,16 +26,25 @@ namespace GehirnJogging
         public Loadingpage()
         {
             InitializeComponent();
+            Start.GetNavigationService().Navigated += OnNavigated;
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
             ProgressAnimation();
+            Start.NavigateTo("worldpage");
+            Start.resetPage("loadingpage");
         }
 
         private async void ProgressAnimation()
         {
+            Progressbar.Value = 0;
             do
             {
-                Progress.Value++;
+                Progressbar.Value = Progressbar.Value + 1;
                 await Task.Delay(10);
-            } while (Progress.Value < 100);
+            } while (Progressbar.Value > 100);
         }
+
     }
 }

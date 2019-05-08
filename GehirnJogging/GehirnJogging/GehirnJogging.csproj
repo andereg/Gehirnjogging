@@ -69,9 +69,6 @@
     <Compile Include="Loadingpage.xaml.cs">
       <DependentUpon>Loadingpage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Loadscreen.xaml.cs">
-      <DependentUpon>Loadscreen.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
@@ -89,10 +86,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Loadingpage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Loadscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -85,6 +85,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="PassedLevel.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -103,6 +108,7 @@
     <None Include="App.config" />
     <EntityDeploy Include="Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
