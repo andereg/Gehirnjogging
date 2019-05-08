@@ -11,12 +11,12 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="HP" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Damage" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Luck" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Stage" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SolveTime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Assets" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HP" Type="int" Nullable="false" />
+          <Property Name="Damage" Type="int" Nullable="false" />
+          <Property Name="Luck" Type="int" Nullable="false" />
+          <Property Name="Stage" Type="int" Nullable="false" />
+          <Property Name="SolveTime" Type="int" Nullable="false" />
+          <Property Name="Assets" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Enemies">
           <Key>
@@ -24,10 +24,10 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Damage" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="HP" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="XP" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Coins" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Damage" Type="int" Nullable="false" />
+          <Property Name="HP" Type="int" Nullable="false" />
+          <Property Name="XP" Type="int" Nullable="false" />
+          <Property Name="Coins" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Inventars">
           <Key>
@@ -44,9 +44,9 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TypeID" Type="int" Nullable="false" />
-          <Property Name="Price" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="SellingPrice" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="minStage" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="SellingPrice" Type="int" Nullable="false" />
+          <Property Name="minStage" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Levelinfos">
           <Key>
@@ -62,9 +62,6 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ThreeStartime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TwoStartime" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="OneStartime" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="PassedLevels">
           <Key>
@@ -72,7 +69,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SavegameID" Type="int" Nullable="false" />
-          <Property Name="Time" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Time" Type="int" Nullable="false" />
           <Property Name="LevelID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Questions">
@@ -81,7 +78,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Questions" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Answer" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Answer" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Savegames">
           <Key>
@@ -264,12 +261,12 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Damage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Luck" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Stage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SolveTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Assets" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HP" Type="Int32" Nullable="false" />
+          <Property Name="Damage" Type="Int32" Nullable="false" />
+          <Property Name="Luck" Type="Int32" Nullable="false" />
+          <Property Name="Stage" Type="Int32" Nullable="false" />
+          <Property Name="SolveTime" Type="Int32" Nullable="false" />
+          <Property Name="Assets" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Inventars" Relationship="Self.FK_InventarCharakter" FromRole="Charakters" ToRole="Inventars" />
           <NavigationProperty Name="Savegames" Relationship="Self.FK_SavegameCharakter" FromRole="Charakters" ToRole="Savegames" />
         </EntityType>
@@ -279,10 +276,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Damage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="XP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Coins" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Damage" Type="Int32" Nullable="false" />
+          <Property Name="HP" Type="Int32" Nullable="false" />
+          <Property Name="XP" Type="Int32" Nullable="false" />
+          <Property Name="Coins" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_EnemyLevelinfos" FromRole="Enemies" ToRole="Levelinfos" />
         </EntityType>
         <EntityType Name="Inventar">
@@ -302,9 +299,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TypeID" Type="Int32" Nullable="false" />
-          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="SellingPrice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="minStage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="SellingPrice" Type="Int32" Nullable="false" />
+          <Property Name="minStage" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Inventars" Relationship="Self.FK_InventarItem" FromRole="Items" ToRole="Inventars" />
           <NavigationProperty Name="Type" Relationship="Self.FK_TypeItem" FromRole="Items" ToRole="Types" />
         </EntityType>
@@ -325,11 +322,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ThreeStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TwoStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="OneStartime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThreeStartime" Type="Int32" Nullable="false" />
+          <Property Name="TwoStartime" Type="Int32" Nullable="false" />
+          <Property Name="OneStartime" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelLevelinfos" FromRole="Levels" ToRole="Levelinfos" />
           <NavigationProperty Name="PassedLevels" Relationship="Self.FK_PassedLevelLevel" FromRole="Levels" ToRole="PassedLevels" />
+          <Property Name="ThreeStarTime" Type="Int32" Nullable="false" />
+          <Property Name="TwoStarTime" Type="Int32" Nullable="false" />
+          <Property Name="OneStarTime" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PassedLevel">
           <Key>
@@ -337,7 +337,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SavegameID" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Time" Type="Int32" Nullable="false" />
           <Property Name="LevelID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Level" Relationship="Self.FK_PassedLevelLevel" FromRole="PassedLevels" ToRole="Levels" />
           <NavigationProperty Name="Savegame" Relationship="Self.FK_FinishedLevelSavegame" FromRole="PassedLevels" ToRole="Savegames" />
@@ -348,7 +348,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Questions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Answer" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelinfosQuestion" FromRole="Questions" ToRole="Levelinfos" />
         </EntityType>
         <EntityType Name="Savegame">
@@ -592,10 +592,7 @@
             <EntityTypeMapping TypeName="GehirnjoggingModel.Level">
               <MappingFragment StoreEntitySet="Levels">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="ThreeStartime" ColumnName="ThreeStartime" />
-                <ScalarProperty Name="TwoStartime" ColumnName="TwoStartime" />
-                <ScalarProperty Name="OneStartime" ColumnName="OneStartime" />
-              </MappingFragment>
+                </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PassedLevels">
