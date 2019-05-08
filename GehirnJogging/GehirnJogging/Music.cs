@@ -18,15 +18,7 @@ namespace GehirnJogging
         /// </summary>
         public void playTheme()
         {
-            player.Open(new Uri(@"Sounds/Speed_Kills_1.wav", UriKind.Relative));
-            player.Play();
-            player.MediaEnded += new EventHandler(Media_Ended);
-
-        }
-   
-        private void Media_Ended(object sender, EventArgs e)
-        {
-            player.Position = TimeSpan.Zero;
+            //player.Open(new Uri(@"Sounds/Tamilsong.wav", UriKind.Relative));
             player.Play();
         }
         /// <summary>
@@ -35,7 +27,6 @@ namespace GehirnJogging
         public void resumeTheme()
         {
             player.Play();
-            player.MediaEnded += new EventHandler(Media_Ended);
         }
         /// <summary>
         /// 
