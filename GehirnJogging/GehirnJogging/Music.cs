@@ -11,17 +11,20 @@ namespace GehirnJogging
     class Music
     {
         MediaPlayer player = new MediaPlayer();
-
+        public bool musiIscOn = false;
 
         /// <summary>
         /// 
         /// </summary>
         public void playTheme()
         {
-            player.Open(new Uri(@"Sounds/Speed_Kills_1.wav", UriKind.Relative));
-            player.Play();
-            player.MediaEnded += new EventHandler(Media_Ended);
-
+            if (musiIscOn == false)
+            {
+                musiIscOn = true;
+                player.Open(new Uri(@"Sounds/True Faith.wav", UriKind.Relative));
+                player.Play();
+                player.MediaEnded += new EventHandler(Media_Ended);
+            }
         }
    
         private void Media_Ended(object sender, EventArgs e)
