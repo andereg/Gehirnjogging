@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DB_GehirnJogging;
 
 namespace GehirnJogging
 {
@@ -29,11 +31,32 @@ namespace GehirnJogging
         public Startpage()
         {
             InitializeComponent();
-        }     
+            Start.GetNavigationService().Navigated += OnNavigated;
+        }
+
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            nameinputtext.Text = null;
+            NameInput.Visibility = Visibility.Hidden;
+            yourname.Visibility = Visibility.Hidden;
+            btnok.Visibility = Visibility.Hidden;
+            nameinputtext.Visibility = Visibility.Hidden;
+            exitNewWorld.Visibility = Visibility.Hidden;
+        }    
 
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)
         {
             Player.GetInstance().PlayerName = nameinputtext.Text;
+            //using (GehirnjoggingEntities gehirnjoggingEntities = new GehirnjoggingEntities())
+            //{
+            //    Charakter charakter = new Charakter()
+            //    {
+            //        Name = nameinputtext.Text,
+            //        HP = "100"
+            //    };
+            //    gehirnjoggingEntities.Charakters.Add(charakter);
+            //    gehirnjoggingEntities.SaveChanges();
+            //}
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
         }

@@ -11,7 +11,7 @@
     <Grid>
         <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Startscreen – 1.png" Stretch="Fill"/>
         <Label x:Name="label" Content="Progress..." HorizontalAlignment="Left" Margin="801,480,0,0" VerticalAlignment="Top" Width="328" FontFamily="Microsoft Tai Le" FontSize="60" FontWeight="Bold" Height="83"/>
-        <ProgressBar Name="Progress" Minimum="0" Maximum="100" HorizontalAlignment="Left" Background="WhiteSmoke" Height="101" Margin="370,563,0,0" VerticalAlignment="Top" Width="1172" BorderBrush="Black" BorderThickness="8"/>
+        <ProgressBar Name="Progressbar" Value="0" Minimum="0" Maximum="100" HorizontalAlignment="Left" Background="WhiteSmoke" Height="101" Margin="370,563,0,0" VerticalAlignment="Top" Width="1172" BorderBrush="Black" BorderThickness="8"/>
 
     </Grid>
 </Page>

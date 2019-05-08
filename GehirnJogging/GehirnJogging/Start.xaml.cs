@@ -21,11 +21,11 @@ namespace GehirnJogging
     public partial class Start : Window
     {
         private static IDictionary<string, Page> _pages = new Dictionary<string, Page>();
-
         private static Frame _frame;
 
         /// <summary>
-        /// 
+        /// Initialisiert das Fenster und addet jede Seite dem IDictionary _pages.
+        /// Navigatet auf die Seite startpage
         /// </summary>
         public Start()
         {
@@ -34,7 +34,6 @@ namespace GehirnJogging
 
             _pages.Add("startpage", new Startpage());
             _pages.Add("levelpage",new LevelPage());
-            //World page ist die Level Auswahl
             _pages.Add("worldpage", new Worldpage());
 
             MainFrame.NavigationService.Navigate(_pages["startpage"]);
@@ -42,26 +41,25 @@ namespace GehirnJogging
         }
 
         /// <summary>
-        /// Diese Methode führt einen zu einer anderen Page wen man den richtigen Parameter hat.
+        /// Diese Methode führt einen zu einer anderen Page wenn man den richtigen Parameter hat.
         /// </summary>
         /// <param name="destinationPage"></param>
         public static void NavigateTo(string destinationPage)
         { 
             _frame.NavigationService.Navigate(_pages[destinationPage]);
-
         }
 
         /// <summary>
-        /// 
+        /// Gibt den NavigationService von _frame zurück.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>NavigationService von _frame</returns>
         public static NavigationService GetNavigationService()
         {
             return _frame.NavigationService;
         }
 
         /// <summary>
-        /// 
+        /// Diese Methode setzt die mitgegebene Seite auf Standard zurück.
         /// </summary>
         /// <param name="destinationPage"></param>
         public static void resetPage(string destinationPage)
@@ -78,7 +76,7 @@ namespace GehirnJogging
                     break;
                 case "worldpage":
                     _pages[destinationPage].DataContext = new Worldpage();
-                    break; 
+                    break;
             }
         }
     }
