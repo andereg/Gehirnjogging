@@ -20,6 +20,9 @@ namespace GehirnJogging
     /// </summary>
     public partial class Loadingpage : Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public Loadingpage()
         {
             InitializeComponent();

@@ -17,6 +17,9 @@ namespace GehirnJogging
 {
     public partial class LevelPage : Page
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public LevelPage()
         {
             InitializeComponent();
@@ -277,8 +280,10 @@ namespace GehirnJogging
             HurtEnemy();
             animationCompleted = true;
         }
-
-        public async void ShowEnemy()
+        /// <summary>
+        /// 
+        /// </summary>
+        private async void ShowEnemy()
         {
             KeyRight.Visibility = Visibility.Hidden;
             KeyLeft.Visibility = Visibility.Hidden;
@@ -294,8 +299,10 @@ namespace GehirnJogging
             Question.Visibility = Visibility.Visible;
         }
 
-
-        public async void HurtEnemy()
+        /// <summary>
+        /// 
+        /// </summary>
+        private async void HurtEnemy()
         {
             int damage = random.Next(7, 30);
             int rotating = random.Next(-30, 30);
@@ -325,8 +332,10 @@ namespace GehirnJogging
                 Question.Visibility = Visibility.Visible;
             }
         }
-
-        public async void HurtCharacter()
+        /// <summary>
+        /// 
+        /// </summary>
+        private async void HurtCharacter()
         {
             int damage = random.Next(7, 30);
             int rotating = random.Next(-30, 30);
@@ -354,8 +363,10 @@ namespace GehirnJogging
                 Question.Visibility = Visibility.Visible;
             }
         }
-
-        public async void DefeatEnemy()
+        /// <summary>
+        /// 
+        /// </summary>
+        private async void DefeatEnemy()
         {
             KeyRight.Visibility = Visibility.Visible;
             KeyLeft.Visibility = Visibility.Visible;
@@ -374,8 +385,10 @@ namespace GehirnJogging
 
             fadeImageOut(EnemyDiesFrameOnly);
         }
-
-        public async void DefeatCharacter()
+        /// <summary>
+        /// 
+        /// </summary>
+        private async void DefeatCharacter()
         {
             Character.Visibility = Visibility.Hidden;
             GridGameOver.Visibility = Visibility.Visible;
@@ -448,7 +461,7 @@ namespace GehirnJogging
             Start.NavigateTo("startpage");
         }
 
-        public async void fadeImageOut(Image image)
+        private async void fadeImageOut(Image image)
         {
             for (int i = 0; i < 200; i++)
             {
@@ -460,7 +473,7 @@ namespace GehirnJogging
             image.Opacity = 1;
         }
 
-        public async void fadeImageIn(Image image)
+        private async void fadeImageIn(Image image)
         {
             image.Opacity = 0;
             image.Visibility = Visibility.Visible;
@@ -470,8 +483,11 @@ namespace GehirnJogging
                 image.Opacity = image.Opacity + 0.01;
             }
         }
-
-        public async void fadeLabel(Label label)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="label"></param>
+        private async void fadeLabel(Label label)
         {
             for (int i = 0; i < 100; i++)
             {

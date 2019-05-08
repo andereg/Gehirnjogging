@@ -24,6 +24,9 @@ namespace GehirnJogging
 
         private static Frame _frame;
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Start()
         {
             InitializeComponent();
@@ -31,22 +34,36 @@ namespace GehirnJogging
 
             _pages.Add("startpage", new Startpage());
             _pages.Add("levelpage",new LevelPage());
+            //World page ist die Level Auswahl
             _pages.Add("worldpage", new Worldpage());
 
             MainFrame.NavigationService.Navigate(_pages["startpage"]);
 
         }
 
+        /// <summary>
+        /// Diese Methode führt einen zu einer anderen Page wen man den richtigen Parameter hat.
+        /// </summary>
+        /// <param name="destinationPage"></param>
         public static void NavigateTo(string destinationPage)
         { 
             _frame.NavigationService.Navigate(_pages[destinationPage]);
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static NavigationService GetNavigationService()
         {
             return _frame.NavigationService;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="destinationPage"></param>
         public static void resetPage(string destinationPage)
         {
             _pages[destinationPage].DataContext = null;

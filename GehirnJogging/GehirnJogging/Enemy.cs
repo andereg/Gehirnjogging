@@ -16,6 +16,10 @@ private Enemy()
 
 }
 
+/// <summary>
+/// 
+/// </summary>
+/// <returns></returns>
 public static Enemy GetInstance()
 {
 if (_enemy == null)
@@ -25,8 +29,14 @@ _enemy = new Enemy();
 return _enemy;
 }
 
+/// <summary>
+/// 
+/// </summary>
 public string enemyName { get; set; }
 
+/// <summary>
+/// 
+/// </summary>
 public double Health { get; set; }
 
 }

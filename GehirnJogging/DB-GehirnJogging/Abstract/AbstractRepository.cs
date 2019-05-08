@@ -12,7 +12,6 @@ using System.Data.Entity;
 
 namespace Repositories.Abstract
 {
-
         public abstract class AbstractRepository<TEntity> : IEntityRepository<TEntity> where TEntity : class
         {
 
