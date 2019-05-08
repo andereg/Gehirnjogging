@@ -345,3 +345,4 @@ MigrationBackup/
 
 # Config App
 app.config
+*.config
