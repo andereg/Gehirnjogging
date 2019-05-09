@@ -18,7 +18,7 @@ namespace GehirnJogging
     public partial class LevelPage : Page
     {
         /// <summary>
-        /// 
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt 
         /// </summary>
         public LevelPage()
         {
@@ -28,15 +28,12 @@ namespace GehirnJogging
 
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
-            label.Content = Player.GetInstance().PlayerName;
             music.playTheme();
             sounds.loadRunning();
             Player.GetInstance().Health = 20;
             PBarCharacterHealth.Value = Player.GetInstance().Health;
             PBarCharacterHealth.Maximum = Player.GetInstance().Health;
             _startTimeMillisecond = DateTime.Now.Millisecond;
-
-
         }
 
         Music music = new Music();
@@ -51,7 +48,7 @@ namespace GehirnJogging
         private double _differenceEnemyToCharacter;
         int _startTimeMillisecond;
         private int _numberOfDefeatedEnemys;
-
+        private bool _levelCompleted = false;
 
 
         private void BtnPause_Click(object sender, RoutedEventArgs e)
@@ -63,15 +60,15 @@ namespace GehirnJogging
 
         private int actualTime()
         {
-        int actualTimeMillisecond = DateTime.Now.Millisecond;
-        int difference = actualTimeMillisecond - _startTimeMillisecond;
+            int actualTimeMillisecond = DateTime.Now.Millisecond;
+            int difference = actualTimeMillisecond - _startTimeMillisecond;
 
-        return difference;
+            return difference;
         }
 
         private void SliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            music.decreaseVolume(sliderMusic.Value / 10);
+            music.changeVolume(sliderMusic.Value / 10);
 
         }
 
@@ -158,30 +155,36 @@ namespace GehirnJogging
                 switchCharacterAnimationFromStandToRun(false);
             }
 
-            if (MarginBackground.Left < -400)
+            if (MarginBackground.Left < -300)
             {
                 completeLevel();
             }
 
-            if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
-            {
-                ShowEnemy();
-            }
-            if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
-            {
-                ShowEnemy();
-            }
-            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
-            {
-                ShowEnemy();
-            }
+            //if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            //{
+            //    ShowEnemy();
+            //}
+            //if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
+            //{
+            //    ShowEnemy();
+            //}
+            //if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
+            //{
+            //    ShowEnemy();
+            //}
         }
 
         private void completeLevel()
         {
-            LevelCompleted.Visibility = Visibility.Visible;
-            Backgroundimage.Visibility = Visibility.Hidden;
-            fadeImageIn(Background2);
+            if (!_levelCompleted)
+            {
+                LevelCompleted.Visibility = Visibility.Visible;
+                Backgroundimage.Visibility = Visibility.Hidden;
+                fadeImageIn(Background2);
+                sounds.playCompleteLevel();
+                _levelCompleted = true;
+            }
+            else return;
         }
 
         private void keyDown(object sender, KeyEventArgs e)
@@ -321,12 +324,12 @@ namespace GehirnJogging
 
             Enemy.GetInstance().Health = Enemy.GetInstance().Health - damage;
             if (Enemy.GetInstance().Health < 1) DefeatEnemy();
-            
+
             PBarLifeEnemy.Value = Enemy.GetInstance().Health;
 
             AttackDamageCharacter.Content = damage;
             AttackDamageCharacter.Visibility = Visibility.Visible;
-      
+
             RotateTransform rotateTransform1 = new RotateTransform(rotating);
             AttackDamageCharacter.RenderTransform = rotateTransform1;
 

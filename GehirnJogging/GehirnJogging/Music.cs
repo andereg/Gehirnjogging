@@ -14,7 +14,7 @@ namespace GehirnJogging
 
 
         /// <summary>
-        /// 
+        /// Öffnet/Loadet den Song und spielt ihn danach ab.
         /// </summary>
         public void playTheme()
         {
@@ -22,24 +22,24 @@ namespace GehirnJogging
             player.Play();
         }
         /// <summary>
-        /// 
+        /// Spielt einen bereits geladenen Song/.Wav File ab.
         /// </summary>
         public void resumeTheme()
         {
             player.Play();
         }
         /// <summary>
-        /// 
+        /// Pausert einen Song
         /// </summary>
         public void stopTheme()
         {
             player.Pause();
         }
         /// <summary>
-        /// 
+        /// Ändert das Volume.
         /// </summary>
         /// <param name="Value"></param>
-        public void decreaseVolume(double Value)
+        public void changeVolume(double Value)
         {
             player.Volume = Value;
         }

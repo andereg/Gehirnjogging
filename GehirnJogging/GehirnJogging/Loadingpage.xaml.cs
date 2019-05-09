@@ -21,7 +21,7 @@ namespace GehirnJogging
     public partial class Loadingpage : Page
     {
         /// <summary>
-        /// 
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt 
         /// </summary>
         public Loadingpage()
         {

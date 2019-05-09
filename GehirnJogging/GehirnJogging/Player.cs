@@ -42,6 +42,9 @@ namespace GehirnJogging
         /// </summary>
         public double Health { get; set; }
 
+        /// <summary>
+        /// Der getter und setter vom int Level sind hier
+        /// </summary>
         public int Level { get; set; }
 
 
