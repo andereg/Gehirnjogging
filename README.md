@@ -1,4 +1,4 @@
-# Gehirn Jogging
+# **Gehirn Jogging**
 
 # Abstract
 
