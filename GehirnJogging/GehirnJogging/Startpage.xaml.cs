@@ -51,6 +51,7 @@ namespace GehirnJogging
                 return;
             }
             Player.GetInstance().PlayerName = nameinputtext.Text;
+
             charakterRepository.createNewUser(nameinputtext.Text);
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
