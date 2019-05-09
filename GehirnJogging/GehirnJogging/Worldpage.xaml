@@ -43,7 +43,7 @@
                 <ImageBrush ImageSource="Images\ArrowUp.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="ArrowUp_Copy" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,926,0,0" VerticalAlignment="Top" Width="73" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowDown_Click" RenderTransformOrigin="0.671,1.781" >
+        <Button x:Name="ArrowDown" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1451,926,0,0" VerticalAlignment="Top" Width="73" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ArrowDown_Click" RenderTransformOrigin="0.671,1.781" >
             <Button.Background>
                 <ImageBrush ImageSource="Images\ArrowDown.png"/>
             </Button.Background>

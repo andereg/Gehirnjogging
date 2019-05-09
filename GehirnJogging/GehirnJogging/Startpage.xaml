@@ -26,10 +26,20 @@
         </Grid>
 
         <Grid Name="GridLoadGame" Visibility="Hidden">
-            <Frame x:Name="FrameLoadGame"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="763" Margin="388,171,0,0" VerticalAlignment="Top" Width="1122" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="LoadGame" Content="Spiel laden" Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="772,788,0,0" VerticalAlignment="Top" Width="417" Height="98" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnNewPlayer_Click" />
+            <Frame x:Name="FrameLoadGame"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="646" Margin="388,171,0,0" VerticalAlignment="Top" Width="1122" RenderTransformOrigin="3.63,-1.54"/>
             <Label x:Name="lblSpielstaende" Content="Spielstände:" Visibility="Visible" HorizontalAlignment="Left" Margin="752,188,0,0" VerticalAlignment="Top" Height="102" Width="414" FontSize="70" FontWeight="Bold"/>
-            <Button x:Name="exitLoadGame" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1362,218,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitLoadGame_Click" />
+            <Button x:Name="exitLoadGame" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1372,210,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitLoadGame_Click" />
+            <Button x:Name="ArrowUp" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1372,383,0,0" VerticalAlignment="Top" Width="93" Height="93" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" RenderTransformOrigin="-0.932,-4.425" Click="ArrowUp_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\ArrowUp.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="ArrowDown" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1372,571,0,0" VerticalAlignment="Top" Width="93" Height="94" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" RenderTransformOrigin="0.671,1.781" Click="ArrowDown_Click" >
+                <Button.Background>
+                    <ImageBrush ImageSource="Images\ArrowDown.png"/>
+                </Button.Background>
+            </Button>
+            <Grid Name="GridSpielstandButtons"></Grid>
         </Grid>
     </Grid>
 
