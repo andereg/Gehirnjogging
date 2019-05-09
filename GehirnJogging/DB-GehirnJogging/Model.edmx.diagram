@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="813642e16caf47e382c6aa41a68b6b87" Name="Diagram1" ZoomLevel="96">
+      <Diagram DiagramId="813642e16caf47e382c6aa41a68b6b87" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="GehirnjoggingModel.Charakter" Width="1.5" PointX="2.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="GehirnjoggingModel.Enemy" Width="1.5" PointX="7.5" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="GehirnjoggingModel.Inventar" Width="1.5" PointX="0.5" PointY="6" IsExpanded="true" />

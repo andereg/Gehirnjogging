@@ -57,7 +57,6 @@ namespace GehirnJogging
         {
             btnPause.Visibility = Visibility.Hidden;
             GridPause.Visibility = Visibility.Visible;
-
         }
 
         private int actualTime()
@@ -157,23 +156,23 @@ namespace GehirnJogging
                 switchCharacterAnimationFromStandToRun(false);
             }
 
-            if (MarginBackground.Left < -300)
+            if (MarginBackground.Left < -3700)
             {
                 completeLevel();
             }
 
-            //if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
-            //{
-            //    ShowEnemy();
-            //}
-            //if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
-            //{
-            //    ShowEnemy();
-            //}
-            //if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
-            //{
-            //    ShowEnemy();
-            //}
+            if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            {
+                ShowEnemy();
+            }
+            if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
+            {
+                ShowEnemy();
+            }
+            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
+            {
+                ShowEnemy();
+            }
         }
 
         private void completeLevel()

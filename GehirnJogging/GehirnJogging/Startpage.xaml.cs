@@ -44,8 +44,16 @@ namespace GehirnJogging
 
         private void BtnNewPlayer_Click(object sender, RoutedEventArgs e)
         {
+            lblusernameAlreadyGiven.Visibility = Visibility.Hidden;
+            lblusernameCantBeEmpty.Visibility = Visibility.Hidden;
+
             CharakterRepository charakterRepository = new CharakterRepository(new GehirnjoggingEntities());
-            if(charakterRepository.CharacternameExists(nameinputtext.Text))
+            if (nameinputtext.Text.Equals(""))
+            {
+                lblusernameCantBeEmpty.Visibility = Visibility.Visible;
+                return;
+            }
+            if (charakterRepository.CharacternameExists(nameinputtext.Text))
             {
                 lblusernameAlreadyGiven.Visibility = Visibility.Visible;
                 return;
@@ -70,6 +78,16 @@ namespace GehirnJogging
         private void ExitNewWorld_Click(object sender, RoutedEventArgs e)
         {
             GridNewGame.Visibility = Visibility.Hidden;
+        }
+
+        private void BtnloadGame_Click(object sender, RoutedEventArgs e)
+        {
+            GridLoadGame.Visibility = Visibility.Visible;
+        }
+
+        private void ExitLoadGame_Click(object sender, RoutedEventArgs e)
+        {
+            GridLoadGame.Visibility = Visibility.Hidden;
         }
     }
 }

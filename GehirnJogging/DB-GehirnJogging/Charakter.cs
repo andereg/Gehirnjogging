@@ -23,12 +23,12 @@ namespace DB_GehirnJogging
     
         public int ID { get; set; }
         public string Name { get; set; }
-        public int HP { get; set; }
-        public int Damage { get; set; }
-        public int Luck { get; set; }
-        public int Stage { get; set; }
-        public int SolveTime { get; set; }
-        public int Assets { get; set; }
+        public Nullable<int> HP { get; set; }
+        public Nullable<int> Damage { get; set; }
+        public Nullable<int> Luck { get; set; }
+        public Nullable<int> Stage { get; set; }
+        public Nullable<int> SolveTime { get; set; }
+        public Nullable<int> Assets { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventar> Inventars { get; set; }

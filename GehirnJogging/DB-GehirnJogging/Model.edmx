@@ -327,9 +327,9 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelLevelinfos" FromRole="Levels" ToRole="Levelinfos" />
           <NavigationProperty Name="PassedLevels" Relationship="Self.FK_PassedLevelLevel" FromRole="Levels" ToRole="PassedLevels" />
-          <Property Name="ThreeStarTime" Type="Int32" Nullable="false" />
-          <Property Name="TwoStarTime" Type="Int32" Nullable="false" />
           <Property Name="OneStarTime" Type="Int32" Nullable="false" />
+          <Property Name="TwoStarTime" Type="Int32" Nullable="false" />
+          <Property Name="ThreeStarTime" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PassedLevel">
           <Key>
@@ -591,9 +591,9 @@
           <EntitySetMapping Name="Levels">
             <EntityTypeMapping TypeName="GehirnjoggingModel.Level">
               <MappingFragment StoreEntitySet="Levels">
-                <ScalarProperty Name="OneStarTime" ColumnName="OneStarTime" />
-                <ScalarProperty Name="TwoStarTime" ColumnName="TwoStarTime" />
                 <ScalarProperty Name="ThreeStarTime" ColumnName="ThreeStarTime" />
+                <ScalarProperty Name="TwoStarTime" ColumnName="TwoStarTime" />
+                <ScalarProperty Name="OneStarTime" ColumnName="OneStarTime" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 </MappingFragment>
             </EntityTypeMapping>
