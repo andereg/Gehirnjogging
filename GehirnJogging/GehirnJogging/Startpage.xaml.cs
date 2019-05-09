@@ -47,16 +47,16 @@ namespace GehirnJogging
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)
         {
             Player.GetInstance().PlayerName = nameinputtext.Text;
-            //using (GehirnjoggingEntities gehirnjoggingEntities = new GehirnjoggingEntities())
-            //{
-            //    Charakter charakter = new Charakter()
-            //    {
-            //        Name = nameinputtext.Text.ToString()
-            //        HP = 100,
-            //    };
-            //    gehirnjoggingEntities.Charakters.Add(charakter);
-            //    gehirnjoggingEntities.SaveChanges();
-            //}
+            using (GehirnjoggingEntities gehirnjoggingEntities = new GehirnjoggingEntities())
+            {
+                Charakter charakter = new Charakter()
+                {
+                    Name = nameinputtext.Text.ToString(),
+                    HP = 100,
+                };
+                gehirnjoggingEntities.Charakters.Add(charakter);
+                gehirnjoggingEntities.SaveChanges();
+            }
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
 

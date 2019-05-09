@@ -1,0 +1,221 @@
+﻿<Window x:Class="GehirnJogging.Level"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GehirnJogging"
+        mc:Ignorable="d"
+        Title="Level" Height="1080" Width="1920"
+        WindowState="Maximized" WindowStyle="None"
+        KeyDown="keyDown">
+
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        </Style>
+    </Window.Resources>
+    <Grid KeyDown="keyDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="349*"/>
+            <RowDefinition Height="700*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Backgroundimage" Margin="-61,0,-3856,0" Source="Images\environment-preview.png"  Grid.RowSpan="2"/>
+        <Image Name="Character" Margin="193,352,1501,88" Grid.Row="1" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.8">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe6.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe7.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\santawalking\transparentframe8.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="BtnPause_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\Pause.png"/>
+            </Button.Background>
+        </Button>
+        <Grid Name="GridPause" Visibility="Hidden">
+            <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
+            <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="BtnMusicOnOFf_Click" />
+            <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="981,495,0,-232" Click="BtnSoundsOnOff_Click" RenderTransformOrigin="0.555,0.535" />
+            <Button x:Name="btnSoundsOnOff_Copy" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,606,0,-343" Click="BtnResume" />
+            <Slider x:Name="sliderMusic" HorizontalAlignment="Left" Margin="926,420,0,-95" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="SliderMusic_ValueChanged" Value="100" Maximum="8" />
+            <Button x:Name="btnBack" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="957,606,0,-343" Click="BtnBack_Click" />
+            <Label x:Name="label" Content="Musicvolume:" HorizontalAlignment="Left" Margin="581,393,0,-113" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
+        </Grid>
+        <Button x:Name="KeyLeft" HorizontalAlignment="Left" Margin="1380,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyLeft_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\ArrowKeys\KeyLeft.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="KeyRight" HorizontalAlignment="Left" Margin="1587,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyRight_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Attack" Visibility="Hidden" HorizontalAlignment="Left" Background="Red" Margin="1478,238,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="Attack_Click" Grid.RowSpan="2"/>
+
+        <Image Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.8">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\Santathrowing\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+        <Image Name="AttackAnimation" Margin="525,198,429,150" Grid.Row="1" Visibility="Hidden">
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:1">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\AttackObject\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\AttackObject\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\AttackObject\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.6">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\AttackObject\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.8">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\AttackObject\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+
+        <Image Name="Minotaurus" Margin="1103,15,351,-1" Visibility="Hidden" Grid.Row="1" >
+            <Image.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
+                                                   Duration="0:0:0.5">
+                                <DiscreteObjectKeyFrame KeyTime="0:0:0">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame1.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame2.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame3.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame4.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                                <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
+                                    <DiscreteObjectKeyFrame.Value>
+                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame5.png"/>
+                                    </DiscreteObjectKeyFrame.Value>
+                                </DiscreteObjectKeyFrame>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Image.Triggers>
+        </Image>
+
+
+    </Grid>
+
+</Window>
