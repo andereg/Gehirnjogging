@@ -16,7 +16,7 @@ namespace DB_GehirnJogging
     {
         public int ID { get; set; }
         public int SavegameID { get; set; }
-        public string Time { get; set; }
+        public int Time { get; set; }
         public int LevelID { get; set; }
     
         public virtual Level Level { get; set; }

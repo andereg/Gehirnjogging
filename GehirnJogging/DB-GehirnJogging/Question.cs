@@ -22,7 +22,7 @@ namespace DB_GehirnJogging
     
         public int ID { get; set; }
         public string Questions { get; set; }
-        public string Answer { get; set; }
+        public int Answer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Levelinfo> Levelinfos { get; set; }
