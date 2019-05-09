@@ -23,9 +23,9 @@ namespace DB_GehirnJogging
         public int ID { get; set; }
         public string Name { get; set; }
         public int TypeID { get; set; }
-        public string Price { get; set; }
-        public string SellingPrice { get; set; }
-        public string minStage { get; set; }
+        public int Price { get; set; }
+        public int SellingPrice { get; set; }
+        public int minStage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventar> Inventars { get; set; }

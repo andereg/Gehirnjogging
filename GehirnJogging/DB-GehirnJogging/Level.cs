@@ -22,9 +22,6 @@ namespace DB_GehirnJogging
         }
     
         public int ID { get; set; }
-        public string ThreeStartime { get; set; }
-        public string TwoStartime { get; set; }
-        public string OneStartime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Levelinfo> Levelinfos { get; set; }

@@ -322,14 +322,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ThreeStartime" Type="Int32" Nullable="false" />
-          <Property Name="TwoStartime" Type="Int32" Nullable="false" />
-          <Property Name="OneStartime" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelLevelinfos" FromRole="Levels" ToRole="Levelinfos" />
           <NavigationProperty Name="PassedLevels" Relationship="Self.FK_PassedLevelLevel" FromRole="Levels" ToRole="PassedLevels" />
-          <Property Name="ThreeStarTime" Type="Int32" Nullable="false" />
-          <Property Name="TwoStarTime" Type="Int32" Nullable="false" />
-          <Property Name="OneStarTime" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PassedLevel">
           <Key>
