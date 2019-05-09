@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DB_GehirnJogging;
+using DB_GehirnJogging.Repositories;
 
 namespace GehirnJogging
 {
@@ -182,6 +184,9 @@ namespace GehirnJogging
                 Backgroundimage.Visibility = Visibility.Hidden;
                 fadeImageIn(Background2);
                 sounds.playCompleteLevel();
+                CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
+                ctx.incrementStageByName(Player.GetInstance().PlayerName);
+                Player.GetInstance().Level++;
                 _levelCompleted = true;
             }
             else return;
@@ -541,7 +546,6 @@ namespace GehirnJogging
             sounds.stopRunning();
             Start.NavigateTo("worldpage");
             Start.resetPage("levelpage");
-            Player.GetInstance().Level++;
         }
     }
 }

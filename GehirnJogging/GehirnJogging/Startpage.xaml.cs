@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DB_GehirnJogging;
+using DB_GehirnJogging.Repositories;
+using Repositories.Abstract;
 
 namespace GehirnJogging
 {
@@ -26,7 +28,7 @@ namespace GehirnJogging
         private Player _player = Player.GetInstance();
 
         /// <summary>
-        /// 
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt
         /// </summary>
         public Startpage()
         {
@@ -37,37 +39,26 @@ namespace GehirnJogging
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
             nameinputtext.Text = null;
-            NameInput.Visibility = Visibility.Hidden;
-            yourname.Visibility = Visibility.Hidden;
-            btnok.Visibility = Visibility.Hidden;
-            nameinputtext.Visibility = Visibility.Hidden;
-            exitNewWorld.Visibility = Visibility.Hidden;
+            GridNewGame.Visibility = Visibility.Hidden;
         }    
 
-        private void BtnloadGame_Click(object sender, RoutedEventArgs e)
+        private void BtnNewPlayer_Click(object sender, RoutedEventArgs e)
         {
+            CharakterRepository charakterRepository = new CharakterRepository(new GehirnjoggingEntities());
+            if(charakterRepository.CharacternameExists(nameinputtext.Text))
+            {
+                lblusernameAlreadyGiven.Visibility = Visibility.Visible;
+                return;
+            }
             Player.GetInstance().PlayerName = nameinputtext.Text;
-            //using (GehirnjoggingEntities gehirnjoggingEntities = new GehirnjoggingEntities())
-            //{
-            //    Charakter charakter = new Charakter()
-            //    {
-            //        Name = nameinputtext.Text
-            //    };
-            //    gehirnjoggingEntities.Charakters.Add(charakter);
-            //    gehirnjoggingEntities.SaveChanges();
-            //}
+            charakterRepository.createNewUser(nameinputtext.Text);
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
-
         }
 
         private void BtnnewGame_Click(object sender, RoutedEventArgs e)
         {
-            NameInput.Visibility = Visibility.Visible;
-            yourname.Visibility = Visibility.Visible;
-            btnok.Visibility = Visibility.Visible;
-            nameinputtext.Visibility = Visibility.Visible;
-            exitNewWorld.Visibility = Visibility.Visible;
+            GridNewGame.Visibility = Visibility.Visible;
         }
 
         private void EndGame(object sender, RoutedEventArgs e)
@@ -77,11 +68,7 @@ namespace GehirnJogging
 
         private void ExitNewWorld_Click(object sender, RoutedEventArgs e)
         {
-            NameInput.Visibility = Visibility.Hidden;
-            yourname.Visibility = Visibility.Hidden;
-            btnok.Visibility = Visibility.Hidden;
-            nameinputtext.Visibility = Visibility.Hidden;
-            exitNewWorld.Visibility = Visibility.Hidden;
+            GridNewGame.Visibility = Visibility.Hidden;
         }
     }
 }

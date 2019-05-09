@@ -14,13 +14,15 @@
         <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,316,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnnewGame_Click" />
         <Button x:Name="btnuserdefinedGame" Content="Benutzerdefiniertes Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,451,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold"/>
         <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,600,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" />
-        <Frame x:Name="NameInput"  Background="WhiteSmoke" Visibility="Hidden" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="457" Margin="600,304,0,0" VerticalAlignment="Top" Width="706" RenderTransformOrigin="3.63,-1.54"/>
-        <Label x:Name="yourname" Content="Dein Name" Visibility="Hidden" HorizontalAlignment="Left" Margin="769,392,0,0" VerticalAlignment="Top" Height="102" Width="396" FontSize="70" FontWeight="Bold"/>
-        <TextBox x:Name="nameinputtext" Background="LightYellow" Visibility="Hidden" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Height="82" Margin="769,499,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="417" FontSize="50" FontWeight="Bold"/>
-        <Button x:Name="btnok" Content="OK" Background="LightYellow" Visibility="Hidden" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="769,600,0,0" VerticalAlignment="Top" Width="417" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnloadGame_Click" />
         <Button x:Name="btnExit" Content="Spiel beenden" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,749,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="EndGame" />
-        <Button x:Name="exitNewWorld" Content="X" Background="DarkRed" Visibility="Hidden" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1170,352,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitNewWorld_Click" />
-
+        <Grid Name="GridNewGame" Visibility="Hidden">
+            <Frame x:Name="NameInput"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="457" Margin="600,304,0,0" VerticalAlignment="Top" Width="706" RenderTransformOrigin="3.63,-1.54"/>
+            <Button x:Name="exitNewWorld" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1170,352,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitNewWorld_Click" />
+            <Button x:Name="btnok" Content="OK" Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="769,628,0,0" VerticalAlignment="Top" Width="417" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnNewPlayer_Click" />
+            <TextBox x:Name="nameinputtext" Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Height="82" Margin="769,499,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="417" FontSize="50" FontWeight="Bold"/>
+            <Label x:Name="lblyourname" Content="Dein Name" Visibility="Visible" HorizontalAlignment="Left" Margin="769,392,0,0" VerticalAlignment="Top" Height="102" Width="396" FontSize="70" FontWeight="Bold"/>
+            <Label x:Name="lblusernameAlreadyGiven" Content="Benutzername bereits vergeben" Visibility="Hidden" HorizontalAlignment="Left" Margin="741,577,0,0" VerticalAlignment="Top" Height="51" Width="482" FontSize="30" FontWeight="Bold" Foreground="DarkRed"/>
+        </Grid>
     </Grid>
 
 </Page>

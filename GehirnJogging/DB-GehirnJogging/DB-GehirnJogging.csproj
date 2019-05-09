@@ -97,6 +97,7 @@
     <Compile Include="Question.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\CharakterRepository.cs" />
     <Compile Include="Savegame.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

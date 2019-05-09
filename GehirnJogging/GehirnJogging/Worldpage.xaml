@@ -48,7 +48,7 @@
                 <ImageBrush ImageSource="Images\ArrowDown.png"/>
             </Button.Background>
         </Button>
-        <Label x:Name="Charactername" Foreground="DarkSeaGreen" Content="Fritz" Margin="1030,0,0,212" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="99" FontFamily="Microsoft Tai Le" FontSize="20" FontWeight="Bold" Height="97" FontStyle="Italic"/>
+        <Label x:Name="Charactername" Foreground="DarkSeaGreen" Content="Fritz" Margin="1030,0,0,212" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="332" FontFamily="Microsoft Tai Le" FontSize="20" FontWeight="Bold" Height="97" FontStyle="Italic"/>
         <Label x:Name="lblleveltext" Content="Level" HorizontalAlignment="Left" Margin="1430,664,0,0" VerticalAlignment="Top" Width="114" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
         <Label x:Name="lbllevel" Content="1" HorizontalAlignment="Left" Margin="1544,664,0,0" VerticalAlignment="Top" Width="136" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
         <Label x:Name="lblSchwierigkeitText" Content="Schwierigkeit:" HorizontalAlignment="Left" Margin="1430,725,0,0" VerticalAlignment="Top" Width="344" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" RenderTransformOrigin="-0.147,0.48"/>
