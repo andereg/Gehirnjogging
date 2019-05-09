@@ -107,7 +107,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="newGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -236,6 +235,9 @@
     <Content Include="Sounds\Hoversound.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Sounds\CompleteLevel.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\Runningsound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -243,7 +245,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DB-GehirnJogging\DB-GehirnJogging.csproj">
       <Project>{a00c543e-3097-4319-90b8-cdd5215bac56}</Project>

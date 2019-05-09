@@ -51,8 +51,7 @@ namespace GehirnJogging
             //{
             //    Charakter charakter = new Charakter()
             //    {
-            //        Name = nameinputtext.Text.ToString()
-            //        HP = 100,
+            //        Name = nameinputtext.Text
             //    };
             //    gehirnjoggingEntities.Charakters.Add(charakter);
             //    gehirnjoggingEntities.SaveChanges();

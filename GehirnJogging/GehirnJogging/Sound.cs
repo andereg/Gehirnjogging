@@ -17,7 +17,7 @@ namespace GehirnJogging
          /// </summary>
         public void playHover()
         {
-            player.Open(new Uri("@Sounds/Hoversound.wav"));
+            player.Open(new Uri(@"Sounds/Hoversound.wav", UriKind.Relative));
             player.Play();
         }
         /// <summary>
@@ -25,7 +25,13 @@ namespace GehirnJogging
         /// </summary>
         public void playClick()
         {
-            player.Open(new Uri("Sounds/Clicksound.wav"));
+            player.Open(new Uri(@"Sounds/Clicksound.wav", UriKind.Relative));
+            player.Play();
+        }
+
+        public void playCompleteLevel()
+        {
+            player.Open(new Uri(@"Sounds/CompleteLevel.wav", UriKind.Relative));
             player.Play();
         }
         /// <summary>

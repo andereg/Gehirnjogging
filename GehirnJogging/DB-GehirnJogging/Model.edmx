@@ -11,12 +11,12 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="HP" Type="int" Nullable="false" />
-          <Property Name="Damage" Type="int" Nullable="false" />
-          <Property Name="Luck" Type="int" Nullable="false" />
-          <Property Name="Stage" Type="int" Nullable="false" />
-          <Property Name="SolveTime" Type="int" Nullable="false" />
-          <Property Name="Assets" Type="int" Nullable="false" />
+          <Property Name="HP" Type="int" />
+          <Property Name="Damage" Type="int" />
+          <Property Name="Luck" Type="int" />
+          <Property Name="Stage" Type="int" />
+          <Property Name="SolveTime" Type="int" />
+          <Property Name="Assets" Type="int" />
         </EntityType>
         <EntityType Name="Enemies">
           <Key>
@@ -24,10 +24,10 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Damage" Type="int" Nullable="false" />
-          <Property Name="HP" Type="int" Nullable="false" />
-          <Property Name="XP" Type="int" Nullable="false" />
-          <Property Name="Coins" Type="int" Nullable="false" />
+          <Property Name="Damage" Type="int" />
+          <Property Name="HP" Type="int" />
+          <Property Name="XP" Type="int" />
+          <Property Name="Coins" Type="int" />
         </EntityType>
         <EntityType Name="Inventars">
           <Key>
@@ -261,12 +261,12 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HP" Type="Int32" Nullable="false" />
-          <Property Name="Damage" Type="Int32" Nullable="false" />
-          <Property Name="Luck" Type="Int32" Nullable="false" />
-          <Property Name="Stage" Type="Int32" Nullable="false" />
-          <Property Name="SolveTime" Type="Int32" Nullable="false" />
-          <Property Name="Assets" Type="Int32" Nullable="false" />
+          <Property Name="HP" Type="Int32" />
+          <Property Name="Damage" Type="Int32" />
+          <Property Name="Luck" Type="Int32" />
+          <Property Name="Stage" Type="Int32" />
+          <Property Name="SolveTime" Type="Int32" />
+          <Property Name="Assets" Type="Int32" />
           <NavigationProperty Name="Inventars" Relationship="Self.FK_InventarCharakter" FromRole="Charakters" ToRole="Inventars" />
           <NavigationProperty Name="Savegames" Relationship="Self.FK_SavegameCharakter" FromRole="Charakters" ToRole="Savegames" />
         </EntityType>
@@ -276,10 +276,10 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Damage" Type="Int32" Nullable="false" />
-          <Property Name="HP" Type="Int32" Nullable="false" />
-          <Property Name="XP" Type="Int32" Nullable="false" />
-          <Property Name="Coins" Type="Int32" Nullable="false" />
+          <Property Name="Damage" Type="Int32" />
+          <Property Name="HP" Type="Int32" />
+          <Property Name="XP" Type="Int32" />
+          <Property Name="Coins" Type="Int32" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_EnemyLevelinfos" FromRole="Enemies" ToRole="Levelinfos" />
         </EntityType>
         <EntityType Name="Inventar">
@@ -322,14 +322,8 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ThreeStartime" Type="Int32" Nullable="false" />
-          <Property Name="TwoStartime" Type="Int32" Nullable="false" />
-          <Property Name="OneStartime" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Levelinfos" Relationship="Self.FK_LevelLevelinfos" FromRole="Levels" ToRole="Levelinfos" />
           <NavigationProperty Name="PassedLevels" Relationship="Self.FK_PassedLevelLevel" FromRole="Levels" ToRole="PassedLevels" />
-          <Property Name="ThreeStarTime" Type="Int32" Nullable="false" />
-          <Property Name="TwoStarTime" Type="Int32" Nullable="false" />
-          <Property Name="OneStarTime" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="PassedLevel">
           <Key>
