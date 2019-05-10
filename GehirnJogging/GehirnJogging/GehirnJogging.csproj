@@ -135,25 +135,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Startscreen – 1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sounds\CorrectAnswer.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\FalseAnswer.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\EnemyAttack.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\CharacterAttack.wav" />
-    <Content Include="Sounds\Timersound.wav">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Resource Include="Images\ArrowDown.png" />
     <Resource Include="Images\ArrowUp.png" />
     <Resource Include="Images\blue-whale-with-krill\blue-whale-smile.png" />
