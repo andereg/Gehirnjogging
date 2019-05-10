@@ -25,6 +25,42 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
+
+        public int countCharakters()
+        {
+            using (GehirnjoggingEntities context = new GehirnjoggingEntities())
+            {
+                return context.Charakters.Count();
+            }
+        }
+
+        public List<String> getCharakterNames()
+        {
+            using (GehirnjoggingEntities context = new GehirnjoggingEntities())
+            {
+                return context.Charakters.Select(s => s.Name).ToList();
+            }
+        }
+
+        public List<int> getCharakterStages()
+        {
+            using (GehirnjoggingEntities context = new GehirnjoggingEntities())
+            {
+                return context.Charakters.Select(s => s.Stage.Value).ToList();
+            }
+        }
+
+        public int getAttackDamageByName(string Name)
+        {
+            using (GehirnjoggingEntities context = new GehirnjoggingEntities())
+            {
+                Charakter ctx = context.Charakters.FirstOrDefault(i => i.Name == Name );
+                return ctx.Damage.Value;
+            }
+        }
+
+
+
         /// <summary>
         /// Erhöht die Stage des mitgegebenen Charakters um 1
         /// </summary>
@@ -32,8 +68,8 @@ namespace DB_GehirnJogging.Repositories
         public void incrementStageByName(string charaktername)
         {
             Charakter result = (from p in Context.Charakters
-                where p.Name == charaktername
-                select p).SingleOrDefault();
+                                where p.Name == charaktername
+                                select p).SingleOrDefault();
 
             result.Stage = result.Stage + 1;
 
@@ -51,7 +87,7 @@ namespace DB_GehirnJogging.Repositories
                 Charakter charakter = new Charakter()
                 {
                     Name = charaktername,
-                    Stage = 1, 
+                    Stage = 1,
                     Damage = 15,
                     HP = 100,
                     Luck = 1,

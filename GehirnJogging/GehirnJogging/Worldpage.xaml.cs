@@ -54,7 +54,7 @@ namespace GehirnJogging
 
         private void ArrowUp_Click(object sender, RoutedEventArgs e)
         {
-            if (!animationCompleted || goallvl > Player.GetInstance().Level + 1) return;
+            if (!animationCompleted || goallvl > Player.GetInstance().Level) return;
             if (goallvl != 13)
             {
                 goallvl = goallvl + 1;
@@ -165,12 +165,13 @@ namespace GehirnJogging
 
         private void ArrowDown_Click(object sender, RoutedEventArgs e)
         {
-            if (!animationCompleted) return;
-            if (goallvl != 1 && goallvl != 0)
+            if (!animationCompleted || goallvl < 1 || goallvl == 1 && currentlvl == 1) return;
+            if (goallvl > 1)
             {
                 goallvl = goallvl - 1;
-                MoveTo(currentlvl, goallvl);
             }
+            MoveTo(currentlvl, goallvl);
+
         }
 
         private void keyEvent(object sender, KeyEventArgs e)
