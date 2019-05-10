@@ -138,6 +138,7 @@
     <Resource Include="Images\Startscreen – 1.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Icons\HolyCarrot.png" />
     <Content Include="Sounds\CorrectAnswer.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
