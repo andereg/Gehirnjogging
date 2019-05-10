@@ -27,7 +27,8 @@ namespace GehirnJogging
 
         private Player _player = Player.GetInstance();
         private int _scrollValue = 1;
-        private int _maxButtons = 10;
+        private int _maxButtons;
+        private bool _spielstandLoaded = false;
 
         /// <summary>
         /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt
@@ -42,7 +43,7 @@ namespace GehirnJogging
         {
             nameinputtext.Text = null;
             GridNewGame.Visibility = Visibility.Hidden;
-        }    
+        }
 
         private void BtnNewPlayer_Click(object sender, RoutedEventArgs e)
         {
@@ -63,6 +64,11 @@ namespace GehirnJogging
             Player.GetInstance().PlayerName = nameinputtext.Text;
 
             charakterRepository.createNewUser(nameinputtext.Text);
+            navigateToWorldpage();
+        }
+
+        private void navigateToWorldpage()
+        {
             Start.NavigateTo("worldpage");
             Start.resetPage("startpage");
         }
@@ -84,17 +90,46 @@ namespace GehirnJogging
 
         private void BtnloadGame_Click(object sender, RoutedEventArgs e)
         {
+            CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
+            _maxButtons = ctx.countCharakters();
+
             int marginTop = 333;
             GridLoadGame.Visibility = Visibility.Visible;
-            for (int i = 1; i < _maxButtons; i++)
+            Button btn;
+            List<String> CharacterNames = ctx.getCharakterNames();
+            List<int> CharacterStages = ctx.getCharakterStages();
+            string playerName;
+            int playerStage;
+            if (_spielstandLoaded) return;
+
+            for (int i = 0; i < _maxButtons; i++)
             {
-                if (i > 5)
+                playerName = CharacterNames[i];
+                playerStage = CharacterStages[i];
+                if (i > 4)
                 {
-                    this.GridSpielstandButtons.Children.Add(new Button { HorizontalAlignment = HorizontalAlignment.Left, Tag = i, FontSize = 30, Content = "Spielstand " + i, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0),Visibility = Visibility.Hidden ,VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 });
+                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name ="B" + playerName ,Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), Visibility = Visibility.Hidden, VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 };
                 }
-                else this.GridSpielstandButtons.Children.Add(new Button { HorizontalAlignment = HorizontalAlignment.Left, Tag = i, FontSize = 30, Content = "Spielstand " + i ,FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 });
+                else
+                {
+                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name = "B"+ playerName, Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74};
+                }
+
+                btn.Click += new RoutedEventHandler(loadGame);
+
+                this.GridSpielstandButtons.Children.Add(btn);
                 marginTop = marginTop + 80;
             }
+            _spielstandLoaded = true;
+        }
+
+        private void loadGame(object sender, RoutedEventArgs e)
+        {
+            Player.GetInstance().Level = (sender as Button).TabIndex -1;
+            string Charactername = (sender as Button).Name;
+            Charactername = Charactername.Remove(0, 1);
+            Player.GetInstance().PlayerName = Charactername;
+            navigateToWorldpage();
         }
 
         private void ExitLoadGame_Click(object sender, RoutedEventArgs e)
@@ -130,7 +165,7 @@ namespace GehirnJogging
         private void ArrowDown_Click(object sender, RoutedEventArgs e)
         {
 
-            if (_scrollValue + 5 == _maxButtons)
+            if (_scrollValue + 4 == _maxButtons)
             {
                 return;
             }

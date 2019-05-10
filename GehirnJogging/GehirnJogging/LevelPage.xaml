@@ -454,12 +454,15 @@
             <Label x:Name="gameoverlabel" Content="Game Over!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
         <Grid x:Name="Question" Visibility="Hidden">
-            <Frame  x:Name="questionfield"  Background="#FF211919" Visibility="Visible" BorderBrush="WhiteSmoke" BorderThickness="10" Height="457" Margin="611,185,612,-283" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="submitAnswerButton" Content="submit" Background="DarkOliveGreen" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="74" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="953,447,0,-162" Click="SubmitAnswerButton_Click" />
-            <Label x:Name="questioncontent" Foreground="WhiteSmoke" Tag="4"  Content="2 + 2 ="  HorizontalAlignment="Left" Margin="797,289,0,-33" VerticalAlignment="Top"  FontSize="70" FontFamily="Microsoft Tai Le" Height="103" FontWeight="Bold" Width="298"  />
-            <TextBox x:Name="questionAnswer" HorizontalAlignment="Left" Foreground="Black" Height="81" Margin="646,443,0,-165" TextWrapping="Wrap" Text="" FontSize="70" VerticalAlignment="Top" Width="286"/>
-            <Image x:Name="imageIconRight" Source="Images/Icons/rightIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1170,434,0,-175" VerticalAlignment="Top" Width="100"/>
-            <Image x:Name="imageIconFalse" Source="Images/Icons/falseIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1170,434,0,-175" VerticalAlignment="Top" Width="100"/>
+            <Frame  x:Name="questionfield"  Background="#FF211919" Visibility="Visible" BorderBrush="WhiteSmoke" BorderThickness="10" Height="348" Margin="467,256,502,-245" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
+            <Button x:Name="submitAnswerButton" Content="submit" Background="DarkOliveGreen" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="62" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="953,477,0,-180" Click="SubmitAnswerButton_Click" RenderTransformOrigin="0.542,0.677" />
+            <Label x:Name="questioncontent" Foreground="WhiteSmoke" Tag="4"  Content="2 + 2 ="  HorizontalAlignment="Left" Margin="520,303,0,2"  FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Width="848"  />
+            <TextBox x:Name="questionAnswer" HorizontalAlignment="Left" Foreground="Black" Height="81" Margin="646,470,0,-192" TextWrapping="Wrap" Text="" FontSize="70" VerticalAlignment="Top" Width="286"/>
+            <Image x:Name="imageIconRight" Source="Images/Icons/rightIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1248,451,0,-192" VerticalAlignment="Top" Width="100"/>
+            <Image x:Name="imageIconFalse" Source="Images/Icons/falseIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1248,451,0,-192" VerticalAlignment="Top" Width="100"/>
+            <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="17" Margin="527,402,0,-60" VerticalAlignment="Top" Width="821">
+                <ProgressBar x:Name="PBarTimer" Maximum="70" Value="70" BorderThickness="0" Foreground="DarkOliveGreen" Background="DarkRed" HorizontalAlignment="Left" Height="13" VerticalAlignment="Top" Width="817"/>
+            </Border>
         </Grid>
         <Grid x:Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
