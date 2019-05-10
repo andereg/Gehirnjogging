@@ -24,7 +24,7 @@ namespace GehirnJogging
     /// </summary>
     public partial class Startpage : Page
     {
-
+        private Music _music = new Music();
         private Player _player = Player.GetInstance();
         private int _scrollValue = 1;
         private int _maxButtons = 10;
@@ -34,12 +34,14 @@ namespace GehirnJogging
         /// </summary>
         public Startpage()
         {
+            
             InitializeComponent();
             Start.GetNavigationService().Navigated += OnNavigated;
         }
 
         private void OnNavigated(object sender, NavigationEventArgs e)
         {
+            _music.playTheme();
             nameinputtext.Text = null;
             GridNewGame.Visibility = Visibility.Hidden;
         }    
