@@ -127,6 +127,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.config" />
     <None Include="Images\blue-whale-with-krill\blue-whale.psd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
