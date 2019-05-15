@@ -57,8 +57,6 @@ namespace GehirnJogging
         private bool _levelCompleted = false;
         private int _questionAnswer;
         private bool _questionAnswered = false;
-        private bool _pauseOn;
-
 
 
 
@@ -66,15 +64,6 @@ namespace GehirnJogging
         {
             btnPause.Visibility = Visibility.Hidden;
             GridPause.Visibility = Visibility.Visible;
-            _pauseOn = true;
-        }
-
-        private int actualTime()
-        {
-            int actualTimeMillisecond = DateTime.Now.Millisecond;
-            int difference = actualTimeMillisecond - _startTimeMillisecond;
-
-            return difference;
         }
 
         private void sliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -418,31 +407,23 @@ namespace GehirnJogging
         private async void startTimer()
         {
             sounds.playTimer();
-            while (PBarTimer.Value > 0 && Question.Visibility == Visibility.Visible)
+            for (int i = 0; i < PBarTimer.Maximum; i++)
             {
                 await Task.Delay(100);
                 PBarTimer.Value--;
-                if (_pauseOn)
-                {
-                    break;
-                }
                 if (_questionAnswered)
                 {
                     await Task.Delay(1000);
-                    PBarTimer.Value = 70;
                     sounds.stopTimer();
                     return;
                 }
-            }
-            if (_pauseOn)
-            {
-                return;
             }
             fadeImageIn(imageIconFalse);
             sounds.stopTimer();
             sounds.playFalseAnswer();
             await Task.Delay(1000);
             Question.Visibility = Visibility.Hidden;
+            PBarTimer.Value = 70;
             imageIconFalse.Visibility = Visibility.Hidden;
             enemyAttacks();
         }
@@ -599,7 +580,7 @@ namespace GehirnJogging
                 imageIconFalse.Visibility = Visibility.Hidden;
                 enemyAttacks();
             }
-
+            PBarTimer.Value = 70;
             questionAnswer.Text = "";
         }
 
