@@ -20,7 +20,7 @@ using Repositories.Abstract;
 namespace GehirnJogging
 {
     /// <summary>
-    /// Interaktionslogik für Startpage.xaml
+    /// In dieser Klasse sind die Funktionalitäten der Startpage definiert d.h. funktionalität der Buttons und das Navigieren auf andere Pages ist hier definiert.
     /// </summary>
     public partial class StartPage : Page
     {
@@ -68,27 +68,6 @@ namespace GehirnJogging
             navigateToWorldpage();
         }
 
-        private void navigateToWorldpage()
-        {
-            Start.navigateTo("worldpage");
-            Start.resetPage("startpage");
-        }
-
-        private void btnNewGame_Click(object sender, RoutedEventArgs e)
-        {
-            GridNewGame.Visibility = Visibility.Visible;
-        }
-
-        private void endGame(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void exitNewWorld_Click(object sender, RoutedEventArgs e)
-        {
-            GridNewGame.Visibility = Visibility.Hidden;
-        }
-
         private void btnLoadGame_Click(object sender, RoutedEventArgs e)
         {
             CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
@@ -123,6 +102,31 @@ namespace GehirnJogging
             }
             _spielstandLoaded = true;
         }
+
+        private void btnNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            GridNewGame.Visibility = Visibility.Visible;
+        }
+
+
+        private void navigateToWorldpage()
+        {
+            Start.navigateTo("worldpage");
+            Start.resetPage("startpage");
+        }
+
+
+        private void endGame(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void exitNewWorld_Click(object sender, RoutedEventArgs e)
+        {
+            GridNewGame.Visibility = Visibility.Hidden;
+        }
+
+
 
         private void loadGame(object sender, RoutedEventArgs e)
         {

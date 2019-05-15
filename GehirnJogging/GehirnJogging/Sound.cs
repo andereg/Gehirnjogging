@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Sound
     {
         MediaPlayer playerCompleteLevel = new MediaPlayer();

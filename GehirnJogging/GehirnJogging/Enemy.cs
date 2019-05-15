@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     class Enemy
     {
 

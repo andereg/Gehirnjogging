@@ -17,6 +17,9 @@ using DB_GehirnJogging.Repositories;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class LevelPage : Page
     {
         /// <summary>

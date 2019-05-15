@@ -8,6 +8,9 @@ using System.Windows.Media;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// In dieser Klasse sind die Funktionälitäten Hintergrundmusik abzuspielen, die Hintergrundmusik zu stopen, die hintergrundmusik zu starten und die Lautstärke der Hintergrundmsuik zu steuern. 
+    /// </summary>
     class Music
     {
         MediaPlayer player = new MediaPlayer();
