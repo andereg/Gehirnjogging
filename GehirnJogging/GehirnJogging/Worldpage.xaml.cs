@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace GehirnJogging
 {
     /// <summary>
-    /// Interaktionslogik für Worldpage.xaml
+    /// In dieser Klasse werden die funktionalitäten der Worldmap definiert d.h. Funktionalitäten der Buttons, das Bewegen auf der map und Navigieren auf andere Pages sind hier definiert.
     /// </summary>
     public partial class Worldpage : Page
     {

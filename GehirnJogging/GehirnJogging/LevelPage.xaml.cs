@@ -17,6 +17,9 @@ using DB_GehirnJogging.Repositories;
 
 namespace GehirnJogging
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class LevelPage : Page
     {
         /// <summary>
@@ -112,7 +115,7 @@ namespace GehirnJogging
         {
             GridPause.Visibility = Visibility.Hidden;
             btnPause.Visibility = Visibility.Visible;
-            _pauseOn = false;
+
             startTimer();
 
         }
