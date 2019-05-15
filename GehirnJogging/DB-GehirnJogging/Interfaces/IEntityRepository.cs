@@ -13,30 +13,30 @@ namespace Repositories.Interfaces
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        TEntity GetById(int id);
+        TEntity getById(int id);
 
         /// <summary>
         /// Adds the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        void Add(TEntity entity);
+        void add(TEntity entity);
 
         /// <summary>
         /// Deletes the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        void Delete(TEntity entity);
+        void delete(TEntity entity);
 
         /// <summary>
         /// Lists all entities.
         /// </summary>
         /// <returns></returns>
-        IList<TEntity> All();
+        IList<TEntity> all();
 
         /// <summary>
         /// Updates the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        void Update(TEntity entity);
+        void update(TEntity entity);
     }
 }

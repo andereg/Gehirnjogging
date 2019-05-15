@@ -21,17 +21,17 @@ namespace GehirnJogging
     public partial class Worldpage : Page
     {
         /// <summary>
-        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt 
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt 
         /// </summary>
         public Worldpage()
         {
             InitializeComponent();
-            Start.GetNavigationService().Navigated += OnNavigated;
+            Start.getNavigationService().Navigated += onNavigated;
         }
 
-        private void OnNavigated(object sender, NavigationEventArgs e)
+        private void onNavigated(object sender, NavigationEventArgs e)
         {
-            Charactername.Content = Player.GetInstance().PlayerName;
+            Charactername.Content = Player.getInstance().playerName;
             sound.loadRunning();
         }
 
@@ -40,25 +40,26 @@ namespace GehirnJogging
         bool animationCompleted = true;
         Sound sound = new Sound();
 
-        private void btnback(object sender, RoutedEventArgs e)
+        private void btnBack(object sender, RoutedEventArgs e)
         {
-            Start.NavigateTo("startpage");
+            Start.navigateTo("startpage");
             Start.resetPage("worldpage");
 
         }
 
-        private void BtnStartLevel(object sender, RoutedEventArgs e)
+        private void btnStartLevel(object sender, RoutedEventArgs e)
         {
-            Start.NavigateTo("levelpage");
+            Start.resetPage("levelpage");
+            Start.navigateTo("levelpage");
         }
 
-        private void ArrowUp_Click(object sender, RoutedEventArgs e)
+        private void arrowUp_Click(object sender, RoutedEventArgs e)
         {
-            if (!animationCompleted || goallvl > Player.GetInstance().Level) return;
+            if (!animationCompleted || goallvl > Player.getInstance().level) return;
             if (goallvl != 13)
             {
                 goallvl = goallvl + 1;
-                MoveTo(currentlvl, goallvl);
+                moveTo(currentlvl, goallvl);
             }
         }
 
@@ -67,11 +68,11 @@ namespace GehirnJogging
         /// </summary>
         /// <param name="target"></param>
         /// <param name="Goal"></param>
-        private void MoveTo(int target, int Goal)
+        private void moveTo(int target, int Goal)
         {
             if (!animationCompleted) return;
 
-            int maxLevel = Player.GetInstance().Level + 1;
+            int maxLevel = Player.getInstance().level + 1;
 
             if (Goal > maxLevel)
             {
@@ -96,48 +97,48 @@ namespace GehirnJogging
             switch (goallvl)
             {
                 case 1:
-                    FrameByFrame(lvl1);
+                    frameByFrame(lvl1);
                     break;
                 case 2:
-                    FrameByFrame(lvl2);
+                    frameByFrame(lvl2);
                     break;
                 case 3:
-                    FrameByFrame(lvl3);
+                    frameByFrame(lvl3);
                     break;
                 case 4:
-                    FrameByFrame(lvl4);
+                    frameByFrame(lvl4);
                     break;
                 case 5:
-                    FrameByFrame(lvl5);
+                    frameByFrame(lvl5);
                     break;
                 case 6:
-                    FrameByFrame(lvl6);
+                    frameByFrame(lvl6);
                     break;
                 case 7:
-                    FrameByFrame(lvl7);
+                    frameByFrame(lvl7);
                     break;
                 case 8:
-                    FrameByFrame(lvl8);
+                    frameByFrame(lvl8);
                     break;
                 case 9:
-                    FrameByFrame(lvl9);
+                    frameByFrame(lvl9);
                     break;
                 case 10:
-                    FrameByFrame(lvl10);
+                    frameByFrame(lvl10);
                     break;
                 case 11:
-                    FrameByFrame(lvl11);
+                    frameByFrame(lvl11);
                     break;
                 case 12:
-                    FrameByFrame(lvl12);
+                    frameByFrame(lvl12);
                     break;
                 case 13:
-                    FrameByFrame(lvl13);
+                    frameByFrame(lvl13);
                     break;
             }
         }
 
-        private async void FrameByFrame(Image Goallvl)
+        private async void frameByFrame(Image Goallvl)
         {
             Character.Visibility = Visibility.Hidden;
             CharacterWalking.Visibility = Visibility.Visible;
@@ -163,14 +164,14 @@ namespace GehirnJogging
             sound.stopRunning();
         }
 
-        private void ArrowDown_Click(object sender, RoutedEventArgs e)
+        private void arrowDown_Click(object sender, RoutedEventArgs e)
         {
             if (!animationCompleted || goallvl < 1 || goallvl == 1 && currentlvl == 1) return;
             if (goallvl > 1)
             {
                 goallvl = goallvl - 1;
             }
-            MoveTo(currentlvl, goallvl);
+            moveTo(currentlvl, goallvl);
 
         }
 
@@ -178,12 +179,12 @@ namespace GehirnJogging
         {
             if (e.Key == Key.Up)
             {
-                ArrowUp_Click(sender, e);
+                arrowUp_Click(sender, e);
             }
 
             if (e.Key == Key.Down)
             {
-                ArrowDown_Click(sender, e);
+                arrowDown_Click(sender, e);
             }
         }
     }

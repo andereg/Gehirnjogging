@@ -17,7 +17,7 @@ namespace DB_GehirnJogging.Repositories
         /// </summary>
         /// <param name="name"></param>
         /// <returns>True wenn der Name bereits vorhanden ist, falls wenn nicht</returns>
-        public bool CharacternameExists(string name)
+        public bool characternameExists(string name)
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
             {
@@ -54,7 +54,7 @@ namespace DB_GehirnJogging.Repositories
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
             {
-                Charakter ctx = context.Charakters.FirstOrDefault(i => i.Name == Name );
+                Charakter ctx = context.Charakters.FirstOrDefault(i => i.Name == Name);
                 return ctx.Damage.Value;
             }
         }

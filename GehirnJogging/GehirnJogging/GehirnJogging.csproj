@@ -69,9 +69,6 @@
     <Compile Include="LevelPage.xaml.cs">
       <DependentUpon>LevelPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Loadingpage.xaml.cs">
-      <DependentUpon>Loadingpage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Sound.cs" />
     <Compile Include="Music.cs" />
     <Compile Include="Player.cs" />
@@ -85,10 +82,6 @@
       <DependentUpon>Worldpage.xaml</DependentUpon>
     </Compile>
     <Page Include="LevelPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Loadingpage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

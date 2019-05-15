@@ -24,7 +24,7 @@ namespace GehirnJogging
                 player.Open(new Uri(@"Sounds/Crow.mp3", UriKind.Relative));
                 player.Play();
             }
-            
+
         }
         /// <summary>
         /// Spielt einen bereits geladenen Song/.Wav File ab.

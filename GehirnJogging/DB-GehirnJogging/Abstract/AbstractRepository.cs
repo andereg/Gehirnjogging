@@ -4,9 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repositories.Interfaces;
-using Repositories.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
 using DB_GehirnJogging;
 using System.Data.Entity;
 
@@ -35,7 +32,7 @@ namespace Repositories.Abstract
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns></returns>
-        public virtual TEntity GetById(int id)
+        public virtual TEntity getById(int id)
         {
             return Context.Set<TEntity>().Find(id);
         }
@@ -44,7 +41,7 @@ namespace Repositories.Abstract
         /// Adds the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        public virtual void Add(TEntity entity)
+        public virtual void add(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
             Context.SaveChanges();
@@ -54,7 +51,7 @@ namespace Repositories.Abstract
         /// Deletes the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        public virtual void Delete(TEntity entity)
+        public virtual void delete(TEntity entity)
         {
             Context.Set<TEntity>().Remove(entity);
             Context.SaveChanges();
@@ -64,7 +61,7 @@ namespace Repositories.Abstract
         /// Lists all entities.
         /// </summary>
         /// <returns></returns>
-        public virtual IList<TEntity> All()
+        public virtual IList<TEntity> all()
         {
             return Context.Set<TEntity>().ToList();
         }
@@ -73,7 +70,7 @@ namespace Repositories.Abstract
         /// Updates the specified entity.
         /// </summary>
         /// <param name="entity">The entity.</param>
-        public virtual void Update(TEntity entity)
+        public virtual void update(TEntity entity)
         {
             Context.Entry(entity).State = EntityState.Modified;
             Context.SaveChanges();

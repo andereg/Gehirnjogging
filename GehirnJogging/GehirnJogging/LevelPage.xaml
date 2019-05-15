@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:GehirnJogging"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="LevelPage"
+      Title="levelPage"
       KeyDown="keyDown"
       ShowsNavigationUI="False"
       >
@@ -113,17 +113,17 @@
         <Border BorderBrush="Black" BorderThickness="8" Margin="117,126,1543,172">
             <ProgressBar x:Name="PBarCharacterHealth" BorderThickness="0" Foreground="DarkRed" Minimum="0" Maximum="200" Value="200" Background="Transparent"/>
         </Border>
-        <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="BtnPause_Click">
+        <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="btnPause_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images\Pause.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="KeyLeft" HorizontalAlignment="Left" Margin="1380,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyLeft_Click">
+        <Button x:Name="KeyLeft" HorizontalAlignment="Left" Margin="1380,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="keyLeft_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images\ArrowKeys\KeyLeft.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
-        <Button x:Name="KeyRight" HorizontalAlignment="Left" Margin="1587,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="KeyRight_Click">
+        <Button x:Name="KeyRight" HorizontalAlignment="Left" Margin="1587,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="keyRight_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images\ArrowKeys\KeyRight.png" Stretch="Uniform"/>
             </Button.Background>
@@ -450,12 +450,12 @@
         </Image>
         <Grid x:Name="GridGameOver" Visibility="Hidden">
             <Frame  x:Name="gameoverfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="299" Margin="708,388,752,-328" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="btnExit" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="BtnExit_Click" />
+            <Button x:Name="btnExit" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="btnExit_Click" />
             <Label x:Name="gameoverlabel" Content="Game Over!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
         <Grid x:Name="Question" Visibility="Hidden">
             <Frame  x:Name="questionfield"  Background="#FF211919" Visibility="Visible" BorderBrush="WhiteSmoke" BorderThickness="10" Height="348" Margin="467,256,502,-245" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="submitAnswerButton" Content="submit" Background="DarkOliveGreen" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="62" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="953,477,0,-180" Click="SubmitAnswerButton_Click" RenderTransformOrigin="0.542,0.677" />
+            <Button x:Name="submitAnswerButton" Content="submit" Background="DarkOliveGreen" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="212" Height="62" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="953,477,0,-180" Click="submitAnswerButton_Click" RenderTransformOrigin="0.542,0.677" />
             <Label x:Name="questioncontent" Foreground="WhiteSmoke" Tag="4"  Content="2 + 2 ="  HorizontalAlignment="Left" Margin="520,303,0,2"  FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Width="848"  />
             <TextBox x:Name="questionAnswer" HorizontalAlignment="Left" Foreground="Black" Height="81" Margin="646,470,0,-192" TextWrapping="Wrap" Text="" FontSize="70" VerticalAlignment="Top" Width="286"/>
             <Image x:Name="imageIconRight" Source="Images/Icons/rightIcon.png" Visibility="Hidden" HorizontalAlignment="Left" Height="100" Margin="1248,451,0,-192" VerticalAlignment="Top" Width="100"/>
@@ -466,17 +466,17 @@
         </Grid>
         <Grid x:Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="393" Margin="512,344,520,-388" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="BtnMusicOnOFf_Click" />
-            <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="981,495,0,-232" Click="BtnSoundsOnOff_Click" RenderTransformOrigin="0.555,0.535" />
-            <Button x:Name="btnResume" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,606,0,-343" Click="BtnResume" />
-            <Slider x:Name="sliderMusic" HorizontalAlignment="Left" Margin="926,420,0,-95" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="SliderMusic_ValueChanged" Value="100" Maximum="8" />
-            <Button x:Name="btnBack" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="957,606,0,-343" Click="BtnBack_Click" />
+            <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="576,495,0,-232" Click="btnMusicOnOFf_Click" />
+            <Button x:Name="btnSoundsOnOff" Content="Sounds Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="326" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="981,495,0,-232" Click="btnSoundsOnOff_Click" RenderTransformOrigin="0.555,0.535" />
+            <Button x:Name="btnResume" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="555,606,0,-343" Click="btnResume_Click" />
+            <Slider x:Name="sliderMusic" HorizontalAlignment="Left" Margin="926,420,0,-95" VerticalAlignment="Top" Width="403" Height="24" ValueChanged="sliderMusic_ValueChanged" Value="100" Maximum="8" />
+            <Button x:Name="btnBack" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="957,606,0,-343" Click="btnBack_Click" />
             <Label x:Name="lblVolume" Content="Musicvolume:" HorizontalAlignment="Left" Margin="581,393,0,-113" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
         <Grid x:Name="LevelCompleted" Visibility="Hidden">
             <Image x:Name="Background2" Source="Images/Backgrounds/winbackground.png" Margin="-44,-22,-21,-748"/>
-            <Label x:Name="LevelCompletedLabel" Foreground="Black" Content="Level geschafft!" HorizontalAlignment="Left" Margin="355,367,0,-223" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" />
-            <Button x:Name="btnBackToWorldMap" BorderBrush="Black" BorderThickness="8" Background="Transparent" Content="zurück zur Worldmap" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="BtnBackToWorldMap_Click"/>
+            <Label x:Name="LevelCompletedLabel" Foreground="Black" Content="level geschafft!" HorizontalAlignment="Left" Margin="355,367,0,-223" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" />
+            <Button x:Name="btnBackToWorldMap" BorderBrush="Black" BorderThickness="8" Background="Transparent" Content="zurück zur Worldmap" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="btnBackToWorldMap_Click"/>
         </Grid>
 
     </Grid>
