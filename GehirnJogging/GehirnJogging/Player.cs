@@ -52,6 +52,8 @@ namespace GehirnJogging
         /// </summary>
         public int damage { get; set; }
 
+        public int playingLevel { get; set; }
+
 
     }
 }

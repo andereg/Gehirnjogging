@@ -125,6 +125,8 @@ namespace GehirnJogging
                 lblSchwierigkeit.Content = "Hard";
             }
 
+            Player.getInstance().playingLevel = goallvl;
+
             switch (goallvl)
             {
                 case 1:

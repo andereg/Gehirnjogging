@@ -12,6 +12,10 @@ namespace DB_GehirnJogging.Repositories
         public QuestionRepository(GehirnjoggingEntities context) : base(context) { }
 
 
+        /// <summary>
+        /// Holt alle Fragen aus der Datenbank und schreibt diese in eine Liste
+        /// </summary>
+        /// <returns>Gibt alle Fragen in einer String-Liste zurück</returns>
         public List<String> getQuestions()
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
@@ -20,6 +24,10 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
+        /// <summary>
+        /// Holt alle Antworten aus der Datenbank und schreibt diese in eine Liste
+        /// </summary>
+        /// <returns>Gibt alle Antworten in einer String-Liste zurück</returns>
         public List<int> getAnswers()
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())

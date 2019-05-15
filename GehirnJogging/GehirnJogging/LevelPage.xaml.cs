@@ -17,9 +17,6 @@ using DB_GehirnJogging.Repositories;
 
 namespace GehirnJogging
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public partial class LevelPage : Page
     {
         /// <summary>
@@ -39,8 +36,14 @@ namespace GehirnJogging
             Player.getInstance().health = 100;
             PBarCharacterHealth.Value = Player.getInstance().health;
             PBarCharacterHealth.Maximum = Player.getInstance().health;
-
-            _startTimeMillisecond = DateTime.Now.Millisecond;
+            if (Player.getInstance().playingLevel > 1)
+            {
+                string imagenr = "Level" + Convert.ToString(Player.getInstance().playingLevel) + ".png";
+                Backgroundimage.Source = new BitmapImage(new Uri(@"\Images\Backgrounds\" + imagenr, UriKind.Relative));
+            }
+            PBarTimer.Maximum = 200 - Player.getInstance().playingLevel * 10;
+            _maxTime = PBarTimer.Maximum;
+            PBarTimer.Value = _maxTime;
         }
 
         Music music = new Music();
@@ -50,9 +53,9 @@ namespace GehirnJogging
         int moveAmount = 5;
         bool animationCompleted = true;
         bool enemyDefeated = true;
-        Thickness MarginEnemy;
+        private Thickness MarginEnemy;
         private double _differenceEnemyToCharacter;
-        int _startTimeMillisecond;
+        private double _maxTime;
         private int _numberOfDefeatedEnemys;
         private bool _levelCompleted = false;
         private int _questionAnswer;
@@ -91,31 +94,10 @@ namespace GehirnJogging
             }
         }
 
-        private void btnSoundsOnOff_Click(object sender, RoutedEventArgs e)
-        {
-            string on = "Sound On";
-            string off = "Sound Off";
-
-            if (isSoundOn)
-            {
-                btnSoundsOnOff.Content = on;
-                music.stopTheme();
-                isSoundOn = false;
-            }
-            else
-            {
-                btnSoundsOnOff.Content = off;
-                music.resumeTheme();
-                isSoundOn = true;
-            }
-
-        }
-
         private void btnResume_Click(object sender, RoutedEventArgs e)
         {
             GridPause.Visibility = Visibility.Hidden;
             btnPause.Visibility = Visibility.Visible;
-
             startTimer();
 
         }
@@ -163,31 +145,50 @@ namespace GehirnJogging
                 sounds.stopRunning();
             }
 
-            if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            //if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            //{
+            //    showEnemy();
+            //}
+            //if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
+            //{
+            //    showEnemy();
+            //}
+            //if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
+            //{
+            //    showEnemy();
+            //}
+        }
+
+        private async void completeLevelAnimation()
+        {
+            Thickness newCharacterMargin = Character.Margin;
+            for (int i = 0; i < 100; i++)
             {
-                showEnemy();
-            }
-            if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
-            {
-                showEnemy();
-            }
-            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
-            {
-                showEnemy();
+                newCharacterMargin.Left += 5;
+                newCharacterMargin.Right -= 2;
+                Character.Margin = newCharacterMargin;
+                await Task.Delay(10);
             }
         }
 
-        private void completeLevel()
+        private async void completeLevel()
         {
             if (!_levelCompleted)
             {
+                completeLevelAnimation();
+                LevelCompletedLabel.Visibility = Visibility.Visible;
+
+                await Task.Delay(2000);
                 LevelCompleted.Visibility = Visibility.Visible;
                 Backgroundimage.Visibility = Visibility.Hidden;
                 fadeImageIn(Background2);
                 sounds.playCompleteLevel();
                 CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
-                ctx.incrementStageByName(Player.getInstance().playerName);
-                Player.getInstance().level++;
+                if (Player.getInstance().level == Player.getInstance().playingLevel)
+                {
+                    ctx.incrementStageByName(Player.getInstance().playerName);
+                    Player.getInstance().level++;
+                }
                 _levelCompleted = true;
             }
             else return;
@@ -423,7 +424,7 @@ namespace GehirnJogging
             sounds.playFalseAnswer();
             await Task.Delay(1000);
             Question.Visibility = Visibility.Hidden;
-            PBarTimer.Value = 70;
+            PBarTimer.Value = _maxTime;
             imageIconFalse.Visibility = Visibility.Hidden;
             enemyAttacks();
         }
@@ -580,7 +581,7 @@ namespace GehirnJogging
                 imageIconFalse.Visibility = Visibility.Hidden;
                 enemyAttacks();
             }
-            PBarTimer.Value = 70;
+            PBarTimer.Value = _maxTime;
             questionAnswer.Text = "";
         }
 

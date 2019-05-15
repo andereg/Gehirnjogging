@@ -25,7 +25,10 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
-
+        /// <summary>
+        /// Zählt alle Datensätze der Tabelle Charaktere
+        /// </summary>
+        /// <returns>Gibt die Anzahl der Charaktere zurück</returns>
         public int countCharakters()
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
@@ -34,6 +37,10 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
+        /// <summary>
+        /// Holt alle Namen der Charaktere aus der Datenbank und schreibt diese in eine Liste
+        /// </summary>
+        /// <returns>Gibt alle Charakternamen in einer String-Liste zurück</returns>
         public List<String> getCharakterNames()
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
@@ -42,6 +49,10 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
+        /// <summary>
+        /// Holt alle CharakterStages aus der Datenbank und schreibt diese in eine Liste
+        /// </summary>
+        /// <returns>Gibt alle Stages in einer int-List zurück</returns>
         public List<int> getCharakterStages()
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
@@ -50,6 +61,11 @@ namespace DB_GehirnJogging.Repositories
             }
         }
 
+        /// <summary>
+        /// Holt den Angriffsschaden des Charakters aus der Datenbank mithilfe eines FirstOrDefault-Command 
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <returns>Gibt den Angriffschaden des mitgegebenen Charakters zurück</returns>
         public int getAttackDamageByName(string Name)
         {
             using (GehirnjoggingEntities context = new GehirnjoggingEntities())
@@ -70,9 +86,7 @@ namespace DB_GehirnJogging.Repositories
             Charakter result = (from p in Context.Charakters
                                 where p.Name == charaktername
                                 select p).SingleOrDefault();
-
             result.Stage = result.Stage + 1;
-
             Context.SaveChanges();
         }
 
@@ -90,13 +104,12 @@ namespace DB_GehirnJogging.Repositories
                     Stage = 1,
                     Damage = 15,
                     HP = 100,
-                    Luck = 20,
+                    Luck = 0,
                     SolveTime = 1,
-                    Assets = 1,
+                    Assets = 1
                 };
                 gehirnjoggingEntities.Charakters.Add(charakter);
                 gehirnjoggingEntities.SaveChanges();
-
             }
         }
     }
