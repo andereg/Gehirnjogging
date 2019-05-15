@@ -196,7 +196,7 @@ namespace GehirnJogging
             double random1left = random.Next(1100, 1300);
             double random1top = random.Next(200, 350);
             double random2left = random.Next(820, 1200);
-            double random2top = random.Next(500, 1000);
+            double random2top = random.Next(700, 1000);
 
             for (int i = 0; i < 100; i++)
             {

@@ -32,7 +32,7 @@ namespace GehirnJogging
         {
             music.playTheme();
             sounds.loadRunning();
-            Player.GetInstance().Health = 20;
+            Player.GetInstance().Health = 50;
             PBarCharacterHealth.Value = Player.GetInstance().Health;
             PBarCharacterHealth.Maximum = Player.GetInstance().Health;
             _startTimeMillisecond = DateTime.Now.Millisecond;
@@ -52,6 +52,8 @@ namespace GehirnJogging
         private bool _levelCompleted = false;
         private int _questionAnswer;
         private bool _questionAnswered = false;
+        private bool _pauseOn;
+
 
 
 
@@ -59,6 +61,7 @@ namespace GehirnJogging
         {
             btnPause.Visibility = Visibility.Hidden;
             GridPause.Visibility = Visibility.Visible;
+            _pauseOn = true;
         }
 
         private int actualTime()
@@ -118,6 +121,8 @@ namespace GehirnJogging
         {
             GridPause.Visibility = Visibility.Hidden;
             btnPause.Visibility = Visibility.Visible;
+            _pauseOn = false;
+            StartTimer();
 
         }
 
@@ -417,10 +422,14 @@ namespace GehirnJogging
         private async void StartTimer()
         {
             sounds.playTimer();
-            for (int i = 0; i < PBarTimer.Maximum; i++)
+            while (PBarTimer.Value > 0)
             {
                 await Task.Delay(100);
                 PBarTimer.Value--;
+                if (_pauseOn)
+                {
+                    return;
+                }
                 if (_questionAnswered)
                 {
                     await Task.Delay(1000);
