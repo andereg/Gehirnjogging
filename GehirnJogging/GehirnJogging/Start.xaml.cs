@@ -69,14 +69,32 @@ namespace GehirnJogging
             switch (destinationPage)
             {
                 case "startpage":
-                    _pages[destinationPage].DataContext = new Startpage();
+                    _pages[destinationPage] = new Startpage();
                     break;
                 case "levelpage":
-                    _pages[destinationPage].DataContext = new LevelPage();
+                    _pages[destinationPage] = new LevelPage();
                     break;
                 case "worldpage":
-                    _pages[destinationPage].DataContext = new Worldpage();
+                    _pages[destinationPage] = new Worldpage();
                     break;
+            }
+        }
+
+        public static void deletePage(string curentPage)
+        {
+            if (curentPage == "startpage")
+            {
+                
+            }
+
+            if (curentPage == "levelpage")
+            {
+
+            }
+
+            if (curentPage == "worldpage")
+            {
+
             }
         }
     }

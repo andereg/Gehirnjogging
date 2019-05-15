@@ -406,6 +406,7 @@ namespace GehirnJogging
         {
             _questionAnswered = false;
             Random random = new Random();
+
             Question.Visibility = Visibility.Visible;
             QuestionRepository questionRepository = new QuestionRepository(new GehirnjoggingEntities());
             List<string> questions = questionRepository.getQuestions();
