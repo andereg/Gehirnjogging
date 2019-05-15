@@ -22,7 +22,7 @@ namespace GehirnJogging
     /// <summary>
     /// Interaktionslogik für Startpage.xaml
     /// </summary>
-    public partial class Startpage : Page
+    public partial class StartPage : Page
     {
         private Music _music = new Music();
         private Player _player = Player.getInstance();
@@ -34,7 +34,7 @@ namespace GehirnJogging
         /// <summary>
         /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt
         /// </summary>
-        public Startpage()
+        public StartPage()
         {
             InitializeComponent();
             Start.getNavigationService().Navigated += onNavigated;

@@ -148,7 +148,7 @@
                 </Image.Triggers>
             </Image>
         </Border>
-        <Button x:Name="BtnHolyCarrot"  HorizontalAlignment="Left" Opacity="0" Height="204" Margin="1344,72,0,0" VerticalAlignment="Top" Width="308"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="BtnHolyCarrot_Click">
+        <Button x:Name="BtnHolyCarrot"  HorizontalAlignment="Left" Opacity="0" Height="204" Margin="1344,72,0,0" VerticalAlignment="Top" Width="308"  BorderBrush="{x:Null}" Foreground="{x:Null}" Click="btnHolyCarrot_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Icons/HolyCarrot.png" Stretch="Uniform"/>
             </Button.Background>

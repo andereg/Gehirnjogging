@@ -20,6 +20,12 @@ namespace GehirnJogging
     /// </summary>
     public partial class Worldpage : Page
     {
+
+        private int currentlvl = 1;
+        private int goallvl = 1;
+        private bool animationCompleted = true;
+        Sound sound = new Sound();
+
         /// <summary>
         /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt 
         /// </summary>
@@ -35,11 +41,6 @@ namespace GehirnJogging
             sound.loadRunning();
         }
 
-        int currentlvl = 1;
-        int goallvl = 1;
-        bool animationCompleted = true;
-        Sound sound = new Sound();
-
         private void btnBack(object sender, RoutedEventArgs e)
         {
             Start.navigateTo("startpage");
@@ -51,6 +52,36 @@ namespace GehirnJogging
         {
             Start.resetPage("levelpage");
             Start.navigateTo("levelpage");
+        }
+
+        private async void btnHolyCarrot_Click(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+            BtnHolyCarrot.Opacity = 1;
+            Thickness thx = new Thickness(1920, 36, 0, 0);
+            BtnHolyCarrot.Margin = thx;
+            double random1left = random.Next(1100, 1300);
+            double random1top = random.Next(200, 350);
+            double random2left = random.Next(820, 1200);
+            double random2top = random.Next(700, 1000);
+
+            for (int i = 0; i < 100; i++)
+            {
+                Thickness CarrotMargin = BtnHolyCarrot.Margin;
+                CarrotMargin.Left = CarrotMargin.Left - random1left / 100;
+                CarrotMargin.Top = CarrotMargin.Top + random1top / 100;
+                BtnHolyCarrot.Margin = CarrotMargin;
+                await Task.Delay(10);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                Thickness CarrotMargin = BtnHolyCarrot.Margin;
+                CarrotMargin.Left = CarrotMargin.Left - random2left / 100;
+                CarrotMargin.Top = CarrotMargin.Top + random2top / 100;
+                BtnHolyCarrot.Margin = CarrotMargin;
+                await Task.Delay(10);
+            }
         }
 
         private void arrowUp_Click(object sender, RoutedEventArgs e)
@@ -188,36 +219,7 @@ namespace GehirnJogging
             }
         }
 
-        private async void BtnHolyCarrot_Click(object sender, RoutedEventArgs e)
-        {
-            Random random = new Random();
-            BtnHolyCarrot.Opacity = 1;
-            Thickness thx = new Thickness(1920, 36, 0, 0);
-            BtnHolyCarrot.Margin = thx;
-            double random1left = random.Next(1100, 1300);
-            double random1top = random.Next(200, 350);
-            double random2left = random.Next(820, 1200);
-            double random2top = random.Next(700, 1000);
 
-            for (int i = 0; i < 100; i++)
-            {
-                Thickness CarrotMargin = BtnHolyCarrot.Margin;
-                CarrotMargin.Left = CarrotMargin.Left - random1left / 100;
-                CarrotMargin.Top = CarrotMargin.Top + random1top / 100;
-                BtnHolyCarrot.Margin = CarrotMargin;
-                await Task.Delay(10);
-            }
-
-            for (int i = 0; i < 100; i++)
-            {
-                Thickness CarrotMargin = BtnHolyCarrot.Margin;
-                CarrotMargin.Left = CarrotMargin.Left - random2left / 100;
-                CarrotMargin.Top = CarrotMargin.Top + random2top / 100;
-                BtnHolyCarrot.Margin = CarrotMargin;
-                await Task.Delay(10);
-            }
-
-        }
     }
 }
 
