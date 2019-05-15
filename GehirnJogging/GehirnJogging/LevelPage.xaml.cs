@@ -115,7 +115,7 @@ namespace GehirnJogging
         {
             GridPause.Visibility = Visibility.Hidden;
             btnPause.Visibility = Visibility.Visible;
-            _pauseOn = false;
+
             startTimer();
 
         }
