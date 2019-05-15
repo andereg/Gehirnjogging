@@ -29,20 +29,19 @@ namespace GehirnJogging
         private int _scrollValue = 1;
         private int _maxButtons;
         private bool _spielstandLoaded = false;
+        private int _anzahlSpielstand;
 
         /// <summary>
         /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt
         /// </summary>
         public Startpage()
         {
-
             InitializeComponent();
             Start.getNavigationService().Navigated += onNavigated;
         }
 
         private void onNavigated(object sender, NavigationEventArgs e)
         {
-            _music.playTheme();
             nameinputtext.Text = null;
             GridNewGame.Visibility = Visibility.Hidden;
         }
@@ -118,7 +117,7 @@ namespace GehirnJogging
                 }
 
                 btn.Click += new RoutedEventHandler(loadGame);
-
+                _anzahlSpielstand++;
                 this.GridSpielstandButtons.Children.Add(btn);
                 marginTop = marginTop + 80;
             }
@@ -141,7 +140,7 @@ namespace GehirnJogging
 
         private void arrowUp_Click(object sender, RoutedEventArgs e)
         {
-            if (_scrollValue == 1)
+            if (_scrollValue == 1 || _anzahlSpielstand < 6)
             {
                 return;
             }
@@ -159,15 +158,13 @@ namespace GehirnJogging
             Thickness GridSpielstandButtonsmarginTop = GridSpielstandButtons.Margin;
             GridSpielstandButtonsmarginTop.Top = GridSpielstandButtonsmarginTop.Top + 80;
             GridSpielstandButtons.Margin = GridSpielstandButtonsmarginTop;
-
             _scrollValue--;
-
         }
 
         private void arrowDown_Click(object sender, RoutedEventArgs e)
         {
 
-            if (_scrollValue + 4 == _maxButtons)
+            if (_scrollValue + 4 == _maxButtons || _anzahlSpielstand < 6)
             {
                 return;
             }

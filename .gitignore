@@ -343,4 +343,5 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-GehirnJogging/DB-GehirnJogging/App.config
+# Config App
+app.config

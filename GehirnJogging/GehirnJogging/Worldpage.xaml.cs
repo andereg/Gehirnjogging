@@ -187,6 +187,37 @@ namespace GehirnJogging
                 arrowDown_Click(sender, e);
             }
         }
+
+        private async void BtnHolyCarrot_Click(object sender, RoutedEventArgs e)
+        {
+            Random random = new Random();
+            BtnHolyCarrot.Opacity = 1;
+            Thickness thx = new Thickness(1920, 36, 0, 0);
+            BtnHolyCarrot.Margin = thx;
+            double random1left = random.Next(1100, 1300);
+            double random1top = random.Next(200, 350);
+            double random2left = random.Next(820, 1200);
+            double random2top = random.Next(700, 1000);
+
+            for (int i = 0; i < 100; i++)
+            {
+                Thickness CarrotMargin = BtnHolyCarrot.Margin;
+                CarrotMargin.Left = CarrotMargin.Left - random1left / 100;
+                CarrotMargin.Top = CarrotMargin.Top + random1top / 100;
+                BtnHolyCarrot.Margin = CarrotMargin;
+                await Task.Delay(10);
+            }
+
+            for (int i = 0; i < 100; i++)
+            {
+                Thickness CarrotMargin = BtnHolyCarrot.Margin;
+                CarrotMargin.Left = CarrotMargin.Left - random2left / 100;
+                CarrotMargin.Top = CarrotMargin.Top + random2top / 100;
+                BtnHolyCarrot.Margin = CarrotMargin;
+                await Task.Delay(10);
+            }
+
+        }
     }
 }
 

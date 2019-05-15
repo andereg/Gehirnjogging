@@ -11,19 +11,22 @@ namespace GehirnJogging
     class Music
     {
         MediaPlayer player = new MediaPlayer();
-
         private bool isMusicOn = false;
+
+
         /// <summary>
         /// Öffnet/Loadet den Song und spielt ihn danach ab.
         /// </summary>
         public void playTheme()
         {
+
             if (isMusicOn == false)
             {
                 isMusicOn = true;
                 player.Open(new Uri(@"Sounds/Crow.mp3", UriKind.Relative));
                 player.Play();
             }
+
 
         }
         /// <summary>

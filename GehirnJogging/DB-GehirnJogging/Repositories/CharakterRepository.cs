@@ -89,10 +89,7 @@ namespace DB_GehirnJogging.Repositories
                     Name = charaktername,
                     Stage = 1,
                     Damage = 15,
-                    HP = 100,
-                    Luck = 1,
-                    SolveTime = 1,
-                    Assets = 0
+                    HP = 100
                 };
                 gehirnjoggingEntities.Charakters.Add(charakter);
                 gehirnjoggingEntities.SaveChanges();
