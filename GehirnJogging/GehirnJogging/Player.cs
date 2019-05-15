@@ -20,12 +20,12 @@ namespace GehirnJogging
         }
 
         /// <summary>
-        /// In der Methode GetInstance wird ein Objekt Player erstellt falls player noch null ist.
+        /// In der Methode getInstance wird ein Objekt Player erstellt falls player noch null ist.
         /// </summary>
         /// <returns>Es wird player zurück gegeben</returns>
-        public static Player GetInstance()
+        public static Player getInstance()
         {
-            if(_player == null)
+            if (_player == null)
             {
                 _player = new Player();
             }
@@ -33,21 +33,24 @@ namespace GehirnJogging
         }
 
         /// <summary>
-        /// Der getter und setter vom String PlayerName hier
+        /// Der getter und setter vom String playerName hier
         /// </summary>
-        public string PlayerName { get; set; }
+        public string playerName { get; set; }
 
         /// <summary>
-        /// Der getter und setter vom Double Health sind hier
+        /// Der getter und setter vom Double health sind hier
         /// </summary>
-        public double Health { get; set; }
+        public double health { get; set; }
 
         /// <summary>
-        /// Der getter und setter vom int Level sind hier
+        /// Der getter und setter vom int level sind hier
         /// </summary>
-        public int Level { get; set; }
+        public int level { get; set; }
 
-        public int Damage { get; set; }
+        /// <summary>
+        /// Der getter und settr von int damage sind hier
+        /// </summary>
+        public int damage { get; set; }
 
 
     }

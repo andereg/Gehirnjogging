@@ -20,174 +20,41 @@ namespace GehirnJogging
     /// </summary>
     public partial class Worldpage : Page
     {
+
+        private int currentlvl = 1;
+        private int goallvl = 1;
+        private bool animationCompleted = true;
+        Sound sound = new Sound();
+
         /// <summary>
-        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt 
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt 
         /// </summary>
         public Worldpage()
         {
             InitializeComponent();
-            Start.GetNavigationService().Navigated += OnNavigated;
+            Start.getNavigationService().Navigated += onNavigated;
         }
 
-        private void OnNavigated(object sender, NavigationEventArgs e)
+        private void onNavigated(object sender, NavigationEventArgs e)
         {
-            Charactername.Content = Player.GetInstance().PlayerName;
+            Charactername.Content = Player.getInstance().playerName;
             sound.loadRunning();
         }
 
-        int currentlvl = 1;
-        int goallvl = 1;
-        bool animationCompleted = true;
-        Sound sound = new Sound();
-
-        private void btnback(object sender, RoutedEventArgs e)
+        private void btnBack(object sender, RoutedEventArgs e)
         {
-            Start.NavigateTo("startpage");
+            Start.navigateTo("startpage");
             Start.resetPage("worldpage");
 
         }
 
-        private void BtnStartLevel(object sender, RoutedEventArgs e)
+        private void btnStartLevel(object sender, RoutedEventArgs e)
         {
-            Start.NavigateTo("levelpage");
+            Start.resetPage("levelpage");
+            Start.navigateTo("levelpage");
         }
 
-        private void ArrowUp_Click(object sender, RoutedEventArgs e)
-        {
-            if (!animationCompleted || goallvl > Player.GetInstance().Level) return;
-            if (goallvl != 13)
-            {
-                goallvl = goallvl + 1;
-                MoveTo(currentlvl, goallvl);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="target"></param>
-        /// <param name="Goal"></param>
-        private void MoveTo(int target, int Goal)
-        {
-            if (!animationCompleted) return;
-
-            int maxLevel = Player.GetInstance().Level + 1;
-
-            if (Goal > maxLevel)
-            {
-                return;
-            }
-
-            animationCompleted = false;
-            lbllevel.Content = goallvl;
-            if (goallvl < 4)
-            {
-                lblSchwierigkeit.Content = "Easy";
-            }
-            if (goallvl < 10 && goallvl > 3)
-            {
-                lblSchwierigkeit.Content = "Medium";
-            }
-            if (goallvl > 9)
-            {
-                lblSchwierigkeit.Content = "Hard";
-            }
-
-            switch (goallvl)
-            {
-                case 1:
-                    FrameByFrame(lvl1);
-                    break;
-                case 2:
-                    FrameByFrame(lvl2);
-                    break;
-                case 3:
-                    FrameByFrame(lvl3);
-                    break;
-                case 4:
-                    FrameByFrame(lvl4);
-                    break;
-                case 5:
-                    FrameByFrame(lvl5);
-                    break;
-                case 6:
-                    FrameByFrame(lvl6);
-                    break;
-                case 7:
-                    FrameByFrame(lvl7);
-                    break;
-                case 8:
-                    FrameByFrame(lvl8);
-                    break;
-                case 9:
-                    FrameByFrame(lvl9);
-                    break;
-                case 10:
-                    FrameByFrame(lvl10);
-                    break;
-                case 11:
-                    FrameByFrame(lvl11);
-                    break;
-                case 12:
-                    FrameByFrame(lvl12);
-                    break;
-                case 13:
-                    FrameByFrame(lvl13);
-                    break;
-            }
-        }
-
-        private async void FrameByFrame(Image Goallvl)
-        {
-            Character.Visibility = Visibility.Hidden;
-            CharacterWalking.Visibility = Visibility.Visible;
-
-            Thickness thicknessCharakter = Character.Margin;
-            Thickness thicknessLvl = Goallvl.Margin;
-            double differenceLeft = thicknessCharakter.Left - thicknessLvl.Left;
-            double differenceBottom = thicknessCharakter.Bottom - thicknessLvl.Bottom;
-            sound.resumeRunning();
-            for (int i = 0; i < 100; i++)
-            {
-                await Task.Delay(10);
-                thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 100);
-                thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 100);
-                CharacterWalking.Margin = thicknessCharakter;
-                Charactername.Margin = thicknessCharakter;
-            }
-
-            Character.Margin = CharacterWalking.Margin;
-            Character.Visibility = Visibility.Visible;
-            CharacterWalking.Visibility = Visibility.Hidden;
-            animationCompleted = true;
-            sound.stopRunning();
-        }
-
-        private void ArrowDown_Click(object sender, RoutedEventArgs e)
-        {
-            if (!animationCompleted || goallvl < 1 || goallvl == 1 && currentlvl == 1) return;
-            if (goallvl > 1)
-            {
-                goallvl = goallvl - 1;
-            }
-            MoveTo(currentlvl, goallvl);
-
-        }
-
-        private void keyEvent(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Up)
-            {
-                ArrowUp_Click(sender, e);
-            }
-
-            if (e.Key == Key.Down)
-            {
-                ArrowDown_Click(sender, e);
-            }
-        }
-
-        private async void BtnHolyCarrot_Click(object sender, RoutedEventArgs e)
+        private async void btnHolyCarrot_Click(object sender, RoutedEventArgs e)
         {
             Random random = new Random();
             BtnHolyCarrot.Opacity = 1;
@@ -215,8 +82,144 @@ namespace GehirnJogging
                 BtnHolyCarrot.Margin = CarrotMargin;
                 await Task.Delay(10);
             }
+        }
+
+        private void arrowUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (!animationCompleted || goallvl > Player.getInstance().level) return;
+            if (goallvl != 13)
+            {
+                goallvl = goallvl + 1;
+                moveTo(currentlvl, goallvl);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="target"></param>
+        /// <param name="Goal"></param>
+        private void moveTo(int target, int Goal)
+        {
+            if (!animationCompleted) return;
+
+            int maxLevel = Player.getInstance().level + 1;
+
+            if (Goal > maxLevel)
+            {
+                return;
+            }
+
+            animationCompleted = false;
+            lbllevel.Content = goallvl;
+            if (goallvl < 4)
+            {
+                lblSchwierigkeit.Content = "Easy";
+            }
+            if (goallvl < 10 && goallvl > 3)
+            {
+                lblSchwierigkeit.Content = "Medium";
+            }
+            if (goallvl > 9)
+            {
+                lblSchwierigkeit.Content = "Hard";
+            }
+
+            switch (goallvl)
+            {
+                case 1:
+                    frameByFrame(lvl1);
+                    break;
+                case 2:
+                    frameByFrame(lvl2);
+                    break;
+                case 3:
+                    frameByFrame(lvl3);
+                    break;
+                case 4:
+                    frameByFrame(lvl4);
+                    break;
+                case 5:
+                    frameByFrame(lvl5);
+                    break;
+                case 6:
+                    frameByFrame(lvl6);
+                    break;
+                case 7:
+                    frameByFrame(lvl7);
+                    break;
+                case 8:
+                    frameByFrame(lvl8);
+                    break;
+                case 9:
+                    frameByFrame(lvl9);
+                    break;
+                case 10:
+                    frameByFrame(lvl10);
+                    break;
+                case 11:
+                    frameByFrame(lvl11);
+                    break;
+                case 12:
+                    frameByFrame(lvl12);
+                    break;
+                case 13:
+                    frameByFrame(lvl13);
+                    break;
+            }
+        }
+
+        private async void frameByFrame(Image Goallvl)
+        {
+            Character.Visibility = Visibility.Hidden;
+            CharacterWalking.Visibility = Visibility.Visible;
+
+            Thickness thicknessCharakter = Character.Margin;
+            Thickness thicknessLvl = Goallvl.Margin;
+            double differenceLeft = thicknessCharakter.Left - thicknessLvl.Left;
+            double differenceBottom = thicknessCharakter.Bottom - thicknessLvl.Bottom;
+            sound.resumeRunning();
+            for (int i = 0; i < 100; i++)
+            {
+                await Task.Delay(10);
+                thicknessCharakter.Left = thicknessCharakter.Left - (differenceLeft / 100);
+                thicknessCharakter.Bottom = thicknessCharakter.Bottom - (differenceBottom / 100);
+                CharacterWalking.Margin = thicknessCharakter;
+                Charactername.Margin = thicknessCharakter;
+            }
+
+            Character.Margin = CharacterWalking.Margin;
+            Character.Visibility = Visibility.Visible;
+            CharacterWalking.Visibility = Visibility.Hidden;
+            animationCompleted = true;
+            sound.stopRunning();
+        }
+
+        private void arrowDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (!animationCompleted || goallvl < 1 || goallvl == 1 && currentlvl == 1) return;
+            if (goallvl > 1)
+            {
+                goallvl = goallvl - 1;
+            }
+            moveTo(currentlvl, goallvl);
 
         }
+
+        private void keyEvent(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                arrowUp_Click(sender, e);
+            }
+
+            if (e.Key == Key.Down)
+            {
+                arrowDown_Click(sender, e);
+            }
+        }
+
+
     }
 }
 

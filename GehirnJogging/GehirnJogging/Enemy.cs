@@ -20,7 +20,7 @@ namespace GehirnJogging
         /// wenn _enemy leer ist, wird hier ein neuer Enemy generiert
         /// </summary>
         /// <returns>_enemy</returns>
-        public static Enemy GetInstance()
+        public static Enemy getInstance()
         {
             if (_enemy == null)
             {

@@ -22,31 +22,31 @@ namespace GehirnJogging
     /// <summary>
     /// Interaktionslogik für Startpage.xaml
     /// </summary>
-    public partial class Startpage : Page
+    public partial class StartPage : Page
     {
-
-        private Player _player = Player.GetInstance();
+        private Music _music = new Music();
+        private Player _player = Player.getInstance();
         private int _scrollValue = 1;
         private int _maxButtons;
         private bool _spielstandLoaded = false;
         private int _anzahlSpielstand;
 
         /// <summary>
-        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode OnNavigated ausführt
+        /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt
         /// </summary>
-        public Startpage()
+        public StartPage()
         {
             InitializeComponent();
-            Start.GetNavigationService().Navigated += OnNavigated;
+            Start.getNavigationService().Navigated += onNavigated;
         }
 
-        private void OnNavigated(object sender, NavigationEventArgs e)
+        private void onNavigated(object sender, NavigationEventArgs e)
         {
             nameinputtext.Text = null;
             GridNewGame.Visibility = Visibility.Hidden;
         }
 
-        private void BtnNewPlayer_Click(object sender, RoutedEventArgs e)
+        private void btnNewPlayer_Click(object sender, RoutedEventArgs e)
         {
             lblusernameAlreadyGiven.Visibility = Visibility.Hidden;
             lblusernameCantBeEmpty.Visibility = Visibility.Hidden;
@@ -57,12 +57,12 @@ namespace GehirnJogging
                 lblusernameCantBeEmpty.Visibility = Visibility.Visible;
                 return;
             }
-            if (charakterRepository.CharacternameExists(nameinputtext.Text))
+            if (charakterRepository.characternameExists(nameinputtext.Text))
             {
                 lblusernameAlreadyGiven.Visibility = Visibility.Visible;
                 return;
             }
-            Player.GetInstance().PlayerName = nameinputtext.Text;
+            Player.getInstance().playerName = nameinputtext.Text;
 
             charakterRepository.createNewUser(nameinputtext.Text);
             navigateToWorldpage();
@@ -70,26 +70,26 @@ namespace GehirnJogging
 
         private void navigateToWorldpage()
         {
-            Start.NavigateTo("worldpage");
+            Start.navigateTo("worldpage");
             Start.resetPage("startpage");
         }
 
-        private void BtnnewGame_Click(object sender, RoutedEventArgs e)
+        private void btnNewGame_Click(object sender, RoutedEventArgs e)
         {
             GridNewGame.Visibility = Visibility.Visible;
         }
 
-        private void EndGame(object sender, RoutedEventArgs e)
+        private void endGame(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void ExitNewWorld_Click(object sender, RoutedEventArgs e)
+        private void exitNewWorld_Click(object sender, RoutedEventArgs e)
         {
             GridNewGame.Visibility = Visibility.Hidden;
         }
 
-        private void BtnloadGame_Click(object sender, RoutedEventArgs e)
+        private void btnLoadGame_Click(object sender, RoutedEventArgs e)
         {
             CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
             _maxButtons = ctx.countCharakters();
@@ -109,11 +109,11 @@ namespace GehirnJogging
                 playerStage = CharacterStages[i];
                 if (i > 4)
                 {
-                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name ="B" + playerName ,Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), Visibility = Visibility.Hidden, VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 };
+                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name = "B" + playerName, Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), Visibility = Visibility.Hidden, VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 };
                 }
                 else
                 {
-                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name = "B"+ playerName, Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74};
+                    btn = new Button { HorizontalAlignment = HorizontalAlignment.Left, TabIndex = playerStage, Name = "B" + playerName, Tag = i + 1, FontSize = 30, Content = playerName + " Stage " + playerStage, FontWeight = FontWeights.Bold, Background = Brushes.LightYellow, BorderBrush = Brushes.Black, BorderThickness = new Thickness(8), Margin = new Thickness(585, marginTop, 0, 0), VerticalAlignment = VerticalAlignment.Top, Width = 765, Height = 74 };
                 }
 
                 btn.Click += new RoutedEventHandler(loadGame);
@@ -126,19 +126,19 @@ namespace GehirnJogging
 
         private void loadGame(object sender, RoutedEventArgs e)
         {
-            Player.GetInstance().Level = (sender as Button).TabIndex -1;
+            Player.getInstance().level = (sender as Button).TabIndex - 1;
             string Charactername = (sender as Button).Name;
             Charactername = Charactername.Remove(0, 1);
-            Player.GetInstance().PlayerName = Charactername;
+            Player.getInstance().playerName = Charactername;
             navigateToWorldpage();
         }
 
-        private void ExitLoadGame_Click(object sender, RoutedEventArgs e)
+        private void exitLoadGame_Click(object sender, RoutedEventArgs e)
         {
             GridLoadGame.Visibility = Visibility.Hidden;
         }
 
-        private void ArrowUp_Click(object sender, RoutedEventArgs e)
+        private void arrowUp_Click(object sender, RoutedEventArgs e)
         {
             if (_scrollValue == 1 || _anzahlSpielstand < 6)
             {
@@ -161,7 +161,7 @@ namespace GehirnJogging
             _scrollValue--;
         }
 
-        private void ArrowDown_Click(object sender, RoutedEventArgs e)
+        private void arrowDown_Click(object sender, RoutedEventArgs e)
         {
 
             if (_scrollValue + 4 == _maxButtons || _anzahlSpielstand < 6)

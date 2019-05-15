@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace GehirnJogging
 {
     /// <summary>
-    /// Interaktionslogik für Start.xaml
+    /// Hier sind alle methoden die nötig sind das StartPage.xaml laufen kann d.h. hier ist fest gelegt was welche buttons machen usw.
     /// </summary>
     public partial class Start : Window
     {
@@ -32,8 +32,8 @@ namespace GehirnJogging
             InitializeComponent();
             _frame = MainFrame;
 
-            _pages.Add("startpage", new Startpage());
-            _pages.Add("levelpage",new LevelPage());
+            _pages.Add("startpage", new StartPage());
+            _pages.Add("levelpage", new LevelPage());
             _pages.Add("worldpage", new Worldpage());
 
             MainFrame.NavigationService.Navigate(_pages["startpage"]);
@@ -44,8 +44,8 @@ namespace GehirnJogging
         /// Diese Methode führt einen zu einer anderen Page wenn man den richtigen Parameter hat.
         /// </summary>
         /// <param name="destinationPage"></param>
-        public static void NavigateTo(string destinationPage)
-        { 
+        public static void navigateTo(string destinationPage)
+        {
             _frame.NavigationService.Navigate(_pages[destinationPage]);
         }
 
@@ -53,7 +53,7 @@ namespace GehirnJogging
         /// Gibt den NavigationService von _frame zurück.
         /// </summary>
         /// <returns>NavigationService von _frame</returns>
-        public static NavigationService GetNavigationService()
+        public static NavigationService getNavigationService()
         {
             return _frame.NavigationService;
         }
@@ -69,7 +69,7 @@ namespace GehirnJogging
             switch (destinationPage)
             {
                 case "startpage":
-                    _pages[destinationPage] = new Startpage();
+                    _pages[destinationPage] = new StartPage();
                     break;
                 case "levelpage":
                     _pages[destinationPage] = new LevelPage();
@@ -80,22 +80,5 @@ namespace GehirnJogging
             }
         }
 
-        public static void deletePage(string curentPage)
-        {
-            if (curentPage == "startpage")
-            {
-                
-            }
-
-            if (curentPage == "levelpage")
-            {
-
-            }
-
-            if (curentPage == "worldpage")
-            {
-
-            }
-        }
     }
 }

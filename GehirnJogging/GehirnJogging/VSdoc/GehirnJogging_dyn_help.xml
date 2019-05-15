@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DynamicHelp xmlns="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd" xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance" xsi:schemaLocation="http://msdn.microsoft.com/vsdata/xsd/vsdh.xsd">	
+   <LINKGROUP ID="GehirnJogging" Title="GehirnJogging Reference Help" Priority="2100">
+      <GLYPH Expanded="vs:/ctxhelp_show.gif" Collapsed="vs:/ctxhelp_hide.gif"/>
+   </LINKGROUP>
+
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.App" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000001.html" LinkGroup="GehirnJogging">App Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000000.html" LinkGroup="GehirnJogging">GehirnJogging Namespace</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging Reference" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000015.html" LinkGroup="GehirnJogging">GehirnJogging Reference</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Player.GetInstance" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000007.html" LinkGroup="GehirnJogging">GetInstance Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Start.GetNavigationService" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_000000000000000F.html" LinkGroup="GehirnJogging">GetNavigationService Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Player.Health" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000009.html" LinkGroup="GehirnJogging">Health Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Player.Level" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_000000000000000A.html" LinkGroup="GehirnJogging">Level Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.LevelPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000002.html" LinkGroup="GehirnJogging">LevelPage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.LevelPage.LevelPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000003.html" LinkGroup="GehirnJogging">LevelPage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Loadingpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000004.html" LinkGroup="GehirnJogging">Loadingpage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Loadingpage.Loadingpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000005.html" LinkGroup="GehirnJogging">Loadingpage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Start.NavigateTo" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_000000000000000E.html" LinkGroup="GehirnJogging">NavigateTo Method</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Player" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000006.html" LinkGroup="GehirnJogging">Player Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Player.PlayerName" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000008.html" LinkGroup="GehirnJogging">PlayerName Property</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_000000000000000C.html" LinkGroup="GehirnJogging">Start Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Start.Start" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_000000000000000D.html" LinkGroup="GehirnJogging">Start Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Startpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000011.html" LinkGroup="GehirnJogging">Startpage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Startpage.Startpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000012.html" LinkGroup="GehirnJogging">Startpage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Worldpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000013.html" LinkGroup="GehirnJogging">Worldpage Class</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Worldpage.Worldpage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000014.html" LinkGroup="GehirnJogging">Worldpage Constructor</LItem>
+      </Links>
+   </Context>
+   
+
+   <Context>
+      <Keywords>
+         <KItem Name="GehirnJogging.Start.resetPage" />
+      </Keywords>
+      <Links>
+         <LItem URL="ms-its:GehirnJogging.chm::/topic_0000000000000010.html" LinkGroup="GehirnJogging">resetPage Method</LItem>
+      </Links>
+   </Context>
+   
+
+</DynamicHelp>
+
