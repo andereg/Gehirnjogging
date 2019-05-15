@@ -132,7 +132,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Startscreen – 1.png" />

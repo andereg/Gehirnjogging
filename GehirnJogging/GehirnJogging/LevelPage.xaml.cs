@@ -32,7 +32,7 @@ namespace GehirnJogging
         {
             music.playTheme();
             sounds.loadRunning();
-            Player.GetInstance().Health = 50;
+            Player.GetInstance().Health = 100;
             PBarCharacterHealth.Value = Player.GetInstance().Health;
             PBarCharacterHealth.Maximum = Player.GetInstance().Health;
             _startTimeMillisecond = DateTime.Now.Millisecond;
@@ -282,16 +282,6 @@ namespace GehirnJogging
 
         private async void AttackEnemy()
         {
-            //int a = actualTime();
-            //if (a < 0)
-            //{
-            //    a = -(2 * a);
-            //}
-            //for (int i = a; i > 0; i--)
-            //{
-            //    await Task.Delay(1);
-            //}
-
             animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
@@ -423,13 +413,13 @@ namespace GehirnJogging
         private async void StartTimer()
         {
             sounds.playTimer();
-            while (PBarTimer.Value > 0)
+            while (PBarTimer.Value > 0 && Question.Visibility == Visibility.Visible)
             {
                 await Task.Delay(100);
                 PBarTimer.Value--;
                 if (_pauseOn)
                 {
-                    return;
+                    break;
                 }
                 if (_questionAnswered)
                 {
@@ -438,6 +428,10 @@ namespace GehirnJogging
                     sounds.stopTimer();
                     return;
                 }
+            }
+            if (_pauseOn)
+            {
+                return;
             }
             fadeImageIn(imageIconFalse);
             sounds.stopTimer();
