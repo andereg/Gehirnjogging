@@ -27,5 +27,6 @@ namespace DB_GehirnJogging.Repositories
                 return context.Questions.Select(s => s.Answer).ToList();
             }
         }
+
     }
 }
