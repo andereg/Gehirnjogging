@@ -10,7 +10,7 @@
       ShowsNavigationUI="False">
 
     <Grid>
-        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Startscreen – 1.png" Stretch="Fill"/>
+        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Backgrounds/Startscreen.png" Stretch="Fill"/>
         <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,316,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnNewGame_Click" />
         <Button x:Name="btnuserdefinedGame" Content="Benutzerdefiniertes Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,451,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold"/>
         <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,600,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnLoadGame_Click" />
@@ -31,12 +31,12 @@
             <Button x:Name="exitLoadGame" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1372,210,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="exitLoadGame_Click" />
             <Button x:Name="ArrowUp" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1372,383,0,0" VerticalAlignment="Top" Width="93" Height="93" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" RenderTransformOrigin="-0.932,-4.425" Click="arrowUp_Click" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Images\ArrowUp.png"/>
+                    <ImageBrush ImageSource="Images\ArrowKeys\ArrowUp.png"/>
                 </Button.Background>
             </Button>
             <Button x:Name="ArrowDown" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1372,571,0,0" VerticalAlignment="Top" Width="93" Height="94" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" RenderTransformOrigin="0.671,1.781" Click="arrowDown_Click" >
                 <Button.Background>
-                    <ImageBrush ImageSource="Images\ArrowDown.png"/>
+                    <ImageBrush ImageSource="Images\ArrowKeys\ArrowDown.png"/>
                 </Button.Background>
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>

@@ -54,7 +54,5 @@ namespace GehirnJogging
         {
             player.Volume = Value;
         }
-
-
     }
 }

@@ -65,6 +65,7 @@ namespace GehirnJogging
             Player.getInstance().playerName = nameinputtext.Text;
 
             charakterRepository.createNewUser(nameinputtext.Text);
+            Player.getInstance().level = 0;
             navigateToWorldpage();
         }
 
