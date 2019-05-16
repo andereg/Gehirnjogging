@@ -275,6 +275,7 @@
     <Resource Include="Images\Icons\falseIcon.png" />
     <Resource Include="Images\Icons\heart.png" />
     <Resource Include="Images\Icons\HolyCarrot.png" />
+    <Resource Include="Images\Icons\Nyoncat.png" />
     <Resource Include="Images\Icons\Pause.png" />
     <Resource Include="Images\Icons\Play.png" />
     <Resource Include="Images\Icons\rightIcon.png" />
