@@ -28,10 +28,10 @@ namespace GehirnJogging
             Start.getNavigationService().Navigated += onNavigated;
         }
 
-        private async void onNavigated(object sender, NavigationEventArgs e)
+        private void onNavigated(object sender, NavigationEventArgs e)
         {
-            music.playTheme();
-            sounds.loadRunning();
+            _music.playTheme();
+            _sounds.loadRunning();
 
             Player.getInstance().health = 100;
             PBarCharacterHealth.Value = Player.getInstance().health;
@@ -49,13 +49,13 @@ namespace GehirnJogging
             fadeLabelIn(lblLevelX);
         }
 
-        Music music = new Music();
-        Sound sounds = new Sound();
-        bool isMusicPlaying = true;
-        int moveAmount = 5;
-        bool animationCompleted = true;
-        bool enemyDefeated = true;
-        private Thickness MarginEnemy;
+        private Music _music = new Music();
+        private Sound _sounds = new Sound();
+        private bool _isMusicPlaying = true;
+        private int _moveAmount = 5;
+        private bool _animationCompleted = true;
+        private bool _enemyDefeated = true;
+        private Thickness _marginEnemy;
         private double _differenceEnemyToCharacter;
         private double _maxTime;
         private int _numberOfDefeatedEnemys;
@@ -73,7 +73,7 @@ namespace GehirnJogging
 
         private void sliderMusic_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            music.changeVolume(sliderMusic.Value / 10);
+            _music.changeVolume(sliderMusic.Value / 10);
 
         }
 
@@ -82,17 +82,17 @@ namespace GehirnJogging
             string on = "Music On";
             string off = "Music Off";
 
-            if (isMusicPlaying)
+            if (_isMusicPlaying)
             {
                 btnMusicOnOFf.Content = on;
-                music.stopTheme();
-                isMusicPlaying = false;
+                _music.stopTheme();
+                _isMusicPlaying = false;
             }
             else
             {
                 btnMusicOnOFf.Content = off;
-                music.resumeTheme();
-                isMusicPlaying = true;
+                _music.resumeTheme();
+                _isMusicPlaying = true;
             }
         }
 
@@ -106,28 +106,28 @@ namespace GehirnJogging
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            music.stopTheme();
-            sounds.stopRunning();
+            _music.stopTheme();
+            _sounds.stopRunning();
             Start.navigateTo("worldpage");
             Start.resetPage("levelpage");
         }
 
         private void keyRight_Click(object sender, RoutedEventArgs e)
         {
-            if (animationCompleted) moveRight();
+            if (_animationCompleted) moveRight();
         }
 
         private void keyLeft_Click(object sender, RoutedEventArgs e)
         {
-            if (animationCompleted) moveLeft();
+            if (_animationCompleted) moveLeft();
         }
 
         private async void moveBackground(int amount)
         {
             Thickness MarginBackground = Backgroundimage.Margin;
-            if (MarginBackground.Right < -200 && animationCompleted)
+            if (MarginBackground.Right < -200 && _animationCompleted)
             {
-                animationCompleted = false;
+                _animationCompleted = false;
                 for (int i = 0; i < 10; i++)
                 {
                     MarginBackground.Left = MarginBackground.Left - amount;
@@ -136,15 +136,15 @@ namespace GehirnJogging
                     switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
-                animationCompleted = true;
-                sounds.stopRunning();
+                _animationCompleted = true;
+                _sounds.stopRunning();
                 switchCharacterAnimationFromStandToRun(false);
             }
 
             if (MarginBackground.Left < -3700)
             {
                 completeLevel();
-                sounds.stopRunning();
+                _sounds.stopRunning();
             }
 
             Random random = new Random();
@@ -188,7 +188,7 @@ namespace GehirnJogging
                 LevelCompleted.Visibility = Visibility.Visible;
                 Backgroundimage.Visibility = Visibility.Hidden;
                 fadeImageIn(Background2);
-                sounds.playCompleteLevel();
+                _sounds.playCompleteLevel();
                 CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
                 if (Player.getInstance().level == Player.getInstance().playingLevel)
                 {
@@ -205,7 +205,7 @@ namespace GehirnJogging
 
             if (e.Key == Key.Right)
             {
-                if (animationCompleted)
+                if (_animationCompleted)
                 {
                     moveRight();
                 }
@@ -213,7 +213,7 @@ namespace GehirnJogging
 
             if (e.Key == Key.Left)
             {
-                if (animationCompleted)
+                if (_animationCompleted)
                 {
                     moveLeft();
                 }
@@ -222,22 +222,22 @@ namespace GehirnJogging
 
         private async void moveLeft()
         {
-            sounds.resumeRunning();
-            if (!enemyDefeated) return;
+            _sounds.resumeRunning();
+            if (!_enemyDefeated) return;
             Thickness MarginCharacter = Character.Margin;
-            if (MarginCharacter.Left > 180 && animationCompleted)
+            if (MarginCharacter.Left > 180 && _animationCompleted)
             {
-                animationCompleted = false;
+                _animationCompleted = false;
                 for (int i = 0; i < 10; i++)
                 {
-                    MarginCharacter.Left = MarginCharacter.Left - moveAmount;
-                    MarginCharacter.Right = MarginCharacter.Right + moveAmount;
+                    MarginCharacter.Left = MarginCharacter.Left - _moveAmount;
+                    MarginCharacter.Right = MarginCharacter.Right + _moveAmount;
                     Character.Margin = MarginCharacter;
                     switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
-                animationCompleted = true;
-                sounds.stopRunning();
+                _animationCompleted = true;
+                _sounds.stopRunning();
                 switchCharacterAnimationFromStandToRun(false);
             }
         }
@@ -260,30 +260,30 @@ namespace GehirnJogging
 
         private async void moveRight()
         {
-            if (!enemyDefeated) return;
-            sounds.resumeRunning();
+            if (!_enemyDefeated) return;
+            _sounds.resumeRunning();
             Thickness MarginCharacter = Character.Margin;
-            if (MarginCharacter.Left < 500 && animationCompleted)
+            if (MarginCharacter.Left < 500 && _animationCompleted)
             {
-                animationCompleted = false;
+                _animationCompleted = false;
                 for (int i = 0; i < 10; i++)
                 {
-                    MarginCharacter.Left = MarginCharacter.Left + moveAmount;
-                    MarginCharacter.Right = MarginCharacter.Right - moveAmount;
+                    MarginCharacter.Left = MarginCharacter.Left + _moveAmount;
+                    MarginCharacter.Right = MarginCharacter.Right - _moveAmount;
                     Character.Margin = MarginCharacter;
                     switchCharacterAnimationFromStandToRun(true);
                     await Task.Delay(10);
                 }
-                animationCompleted = true;
-                sounds.stopRunning();
+                _animationCompleted = true;
+                _sounds.stopRunning();
                 switchCharacterAnimationFromStandToRun(false);
             }
-            else moveBackground(moveAmount);
+            else moveBackground(_moveAmount);
         }
 
         private async void attackEnemy()
         {
-            animationCompleted = false;
+            _animationCompleted = false;
             Character.Visibility = Visibility.Hidden;
             CharacterAttack.Visibility = Visibility.Visible;
             Thickness MarginAttackAnimation = CharacterAttack.Margin;
@@ -302,7 +302,7 @@ namespace GehirnJogging
             await Task.Delay(600);
             AttackAnimation.Visibility = Visibility.Hidden;
             hurtEnemy();
-            animationCompleted = true;
+            _animationCompleted = true;
         }
         /// <summary>
         /// 
@@ -311,14 +311,14 @@ namespace GehirnJogging
         {
             KeyRight.Visibility = Visibility.Hidden;
             KeyLeft.Visibility = Visibility.Hidden;
-            enemyDefeated = false;
+            _enemyDefeated = false;
             EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
             BorderLifeEnemy.Visibility = Visibility.Visible;
-            sounds.stopRunning();
+            _sounds.stopRunning();
             PBarLifeEnemy.Value = Enemy.getInstance().Health;
             PBarLifeEnemy.Maximum = Enemy.getInstance().Health;
-            MarginEnemy = EnemyStanding.Margin;
+            _marginEnemy = EnemyStanding.Margin;
             await Task.Delay(1000);
             showQuestion();
 
@@ -412,7 +412,7 @@ namespace GehirnJogging
 
         private async void startTimer()
         {
-            sounds.playTimer();
+            _sounds.playTimer();
             for (int i = 0; i < PBarTimer.Maximum; i++)
             {
                 await Task.Delay(100);
@@ -420,13 +420,13 @@ namespace GehirnJogging
                 if (_questionAnswered)
                 {
                     await Task.Delay(1000);
-                    sounds.stopTimer();
+                    _sounds.stopTimer();
                     return;
                 }
             }
             fadeImageIn(imageIconFalse);
-            sounds.stopTimer();
-            sounds.playFalseAnswer();
+            _sounds.stopTimer();
+            _sounds.playFalseAnswer();
             await Task.Delay(1000);
             Question.Visibility = Visibility.Hidden;
             PBarTimer.Value = _maxTime;
@@ -449,7 +449,7 @@ namespace GehirnJogging
             EnemyDies.Visibility = Visibility.Hidden;
             EnemyDiesFrameOnly.Margin = EnemyStanding.Margin;
             EnemyDiesFrameOnly.Visibility = Visibility.Visible;
-            enemyDefeated = true;
+            _enemyDefeated = true;
             _numberOfDefeatedEnemys++;
 
             fadeImageOut(EnemyDiesFrameOnly);
@@ -476,19 +476,19 @@ namespace GehirnJogging
             do
             {
                 await Task.Delay(10);
-            } while (animationCompleted == false);
-            animationCompleted = false;
+            } while (_animationCompleted == false);
+            _animationCompleted = false;
             EnemyAttackAnimation.Visibility = Visibility.Visible;
             await Task.Delay(800);
             EnemyAttackAnimation.Visibility = Visibility.Hidden;
             hurtCharacter();
-            animationCompleted = true;
+            _animationCompleted = true;
             moveEnemy(false);
         }
 
         private async void moveEnemy(bool forward)
         {
-            animationCompleted = false;
+            _animationCompleted = false;
             EnemyWalking.Visibility = Visibility.Visible;
             Thickness thicknessCharakter = new Thickness();
             if (forward)
@@ -499,7 +499,7 @@ namespace GehirnJogging
             else _differenceEnemyToCharacter = -400;
             Thickness thicknessEnemy = EnemyWalking.Margin;
             Thickness thicknessEnemyHealthBar = PBarLifeEnemy.Margin;
-            sounds.resumeRunning();
+            _sounds.resumeRunning();
 
             for (int i = 0; i < 100; i++)
             {
@@ -512,8 +512,8 @@ namespace GehirnJogging
                 PBarLifeEnemy.Margin = thicknessEnemyHealthBar;
                 BorderLifeEnemy.Margin = thicknessEnemyHealthBar;
             }
-            sounds.stopRunning();
-            animationCompleted = true;
+            _sounds.stopRunning();
+            _animationCompleted = true;
             EnemyWalking.Visibility = Visibility.Hidden;
             if (!forward)
             {
@@ -523,8 +523,8 @@ namespace GehirnJogging
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            music.stopTheme();
-            sounds.stopRunning();
+            _music.stopTheme();
+            _sounds.stopRunning();
             Start.navigateTo("startpage");
         }
 
@@ -584,7 +584,7 @@ namespace GehirnJogging
             if (questionAnswer.Text.Equals(_questionAnswer.ToString()))
             {
                 fadeImageIn(imageIconRight);
-                sounds.playCorrectAnswer();
+                _sounds.playCorrectAnswer();
                 await Task.Delay(1000);
                 Question.Visibility = Visibility.Hidden;
                 imageIconRight.Visibility = Visibility.Hidden;
@@ -593,7 +593,7 @@ namespace GehirnJogging
             else
             {
                 fadeImageIn(imageIconFalse);
-                sounds.playFalseAnswer();
+                _sounds.playFalseAnswer();
                 await Task.Delay(1000);
                 Question.Visibility = Visibility.Hidden;
                 imageIconFalse.Visibility = Visibility.Hidden;
@@ -605,8 +605,8 @@ namespace GehirnJogging
 
         private void btnBackToWorldMap_Click(object sender, RoutedEventArgs e)
         {
-            music.stopTheme();
-            sounds.stopRunning();
+            _music.stopTheme();
+            _sounds.stopRunning();
             Start.navigateTo("worldpage");
             Start.resetPage("levelpage");
         }

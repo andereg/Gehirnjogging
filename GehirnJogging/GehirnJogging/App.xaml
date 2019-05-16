@@ -7,11 +7,6 @@
 
 >
 
-    <!--<x:Code>
-        <![CDATA[
-                    Sounds sound = new Sound();
-                    ]]>
-    </x:Code>-->
 
     <Application.Resources>
         <Style TargetType="Image">
@@ -21,19 +16,9 @@
             <Style.Triggers>
                 <EventTrigger RoutedEvent="MouseEnter">
                     <SoundPlayerAction Source="Sounds\Hoversound.wav" />
-                    <!--<x:Code>
-                        <![CDATA[
-                    sound.playHover();
-                    ]]>
-                        </x:Code>-->
                 </EventTrigger>
                 <EventTrigger RoutedEvent="PreviewMouseDown">
                     <SoundPlayerAction  Source="Sounds\Clicksound.wav" />
-                    <!--<x:Code>
-                    <![CDATA[
-                    sound.playClick();
-                    ]]>
-                    </x:Code>-->
                 </EventTrigger>
             </Style.Triggers>
         </Style>

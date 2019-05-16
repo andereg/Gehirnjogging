@@ -191,5 +191,15 @@ namespace GehirnJogging
 
             _scrollValue++;
         }
+
+        private void BtnExit_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            GridCredits.Visibility = Visibility.Visible;
+        }
+
+        private void ExitCredits_Click(object sender, RoutedEventArgs e)
+        {
+            GridCredits.Visibility = Visibility.Hidden;
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace GehirnJogging
     class Music
     {
         MediaPlayer player = new MediaPlayer();
-        private bool isMusicOn = false;
+        private bool _isMusicOn = false;
 
 
         /// <summary>
@@ -23,9 +23,9 @@ namespace GehirnJogging
         public void playTheme()
         {
 
-            if (isMusicOn == false)
+            if (_isMusicOn == false)
             {
-                isMusicOn = true;
+                _isMusicOn = true;
                 player.Open(new Uri(@"Sounds/Crow.mp3", UriKind.Relative));
                 player.Play();
             }

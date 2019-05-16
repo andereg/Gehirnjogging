@@ -142,7 +142,6 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Videos\OpeningSequence.mp4" />
     <Content Include="Sounds\CorrectAnswer.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -167,9 +166,6 @@
     </Content>
     <Content Include="Sounds\Runningsound.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Sounds\Tamilsong.wav">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -278,7 +274,7 @@
     <Resource Include="Images\Icons\Pause.png" />
     <Resource Include="Images\Icons\Play.png" />
     <Resource Include="Images\Icons\rightIcon.png" />
-    <Resource Include="Images\Icons\Shield.png" />
+    <Resource Include="Images\Icons\Portal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

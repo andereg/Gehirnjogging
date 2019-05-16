@@ -28,12 +28,18 @@ namespace GehirnJogging
             playerCompleteLevel.Play();
         }
 
+        /// <summary>
+        /// Spielt und Ladet den Sound CorrectAnswer ab
+        /// </summary>
         public void playCorrectAnswer()
         {
             playerEffect.Open(new Uri(@"Sounds/CorrectAnswer.wav", UriKind.Relative));
             playerEffect.Play();
         }
 
+        /// <summary>
+        /// Spielt und Ladet den Sound FalseAnswer ab
+        /// </summary>
         public void playFalseAnswer()
         {
             playerEffect.Open(new Uri(@"Sounds/FalseAnswer.wav", UriKind.Relative));
@@ -82,16 +88,14 @@ namespace GehirnJogging
             playerRunning.MediaEnded += new EventHandler(media_Ended);
 
         }
-        /// <summary>
-        /// Spielt den Sound nochmal von Anfang an ab
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
+
         private void media_Ended(object sender, EventArgs e)
         {
             playerRunning.Position = TimeSpan.Zero;
             playerRunning.Play();
         }
+
         private void mediaTimer_Ended(object sender, EventArgs e)
         {
             playerTimer.Position = TimeSpan.Zero;

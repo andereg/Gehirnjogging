@@ -25,7 +25,7 @@
         </Grid>
 
         <Grid Name="GridLoadGame" Visibility="Hidden">
-            <Frame x:Name="FrameLoadGame"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="646" Margin="388,171,0,0" VerticalAlignment="Top" Width="1122" RenderTransformOrigin="3.63,-1.54"/>
+            <Frame x:Name="FrameLoadGame"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="646" Margin="388,171,0,0" VerticalAlignment="Top" Width="1122" RenderTransformOrigin="3.63,-1.54" d:IsHidden="True"/>
             <Label x:Name="lblSpielstaende" Content="Spielstände:" Visibility="Visible" HorizontalAlignment="Left" Margin="752,188,0,0" VerticalAlignment="Top" Height="102" Width="414" FontSize="70" FontWeight="Bold"/>
             <Button x:Name="exitLoadGame" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1372,210,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="exitLoadGame_Click" />
             <Button x:Name="ArrowUp" Content="" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Margin="1372,383,0,0" VerticalAlignment="Top" Width="93" Height="93" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" RenderTransformOrigin="-0.932,-4.425" Click="arrowUp_Click" >
@@ -39,6 +39,16 @@
                 </Button.Background>
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>
+        </Grid>
+        <Button x:Name="btnExit_Copy" Content="Credits" Background="WhiteSmoke" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1147,828,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnExit_Copy_Click" />
+        <Grid Name="GridCredits" Visibility="Visible">
+            <Frame  x:Name="Creditsfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="448" Margin="646,410,575,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
+            <Label x:Name="labelCreditHeader" Content="Credits:" HorizontalAlignment="Left" Margin="890,434,0,0" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold" RenderTransformOrigin="0.516,-0.29"  />
+            <Label x:Name="labelCreditCAndE" Content="Character &amp; Enemies: &#xD;&#xA;Elthen's Pixel Art Shop (https://elthen.itch.io/)" HorizontalAlignment="Left" Margin="673,538,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="92" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
+            <Label x:Name="labelCreditBackgrounds" Content="Backgrounds:&#xA;edermunizz (https://edermunizz.itch.io/) &amp;&#xA;ansimuz (https://ansimuz.itch.io/)" HorizontalAlignment="Left" Margin="673,640,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="134" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
+            <Button x:Name="exitCredits" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1265,434,0,0" VerticalAlignment="Top" Width="60" Height="57" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitCredits_Click"/>
+            <Label x:Name="labelCreditSounds" Content="Sounds: &#x9;Splice.com" HorizontalAlignment="Left" Margin="673,792,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="48" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="582"  />
+
         </Grid>
     </Grid>
 

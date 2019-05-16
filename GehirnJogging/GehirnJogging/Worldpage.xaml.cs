@@ -21,10 +21,10 @@ namespace GehirnJogging
     public partial class Worldpage : Page
     {
 
-        private int currentlvl = 1;
-        private int goallvl = 1;
-        private bool animationCompleted = true;
-        Sound sound = new Sound();
+        private int _currentlvl = 1;
+        private int _goallvl = 1;
+        private bool _animationCompleted = true;
+        private Sound _sound = new Sound();
 
         /// <summary>
         /// Nach einem Navigieren auf diese Seite, löst es ein neues Event aus, welche die private Methode onNavigated ausführt 
@@ -38,7 +38,7 @@ namespace GehirnJogging
         private void onNavigated(object sender, NavigationEventArgs e)
         {
             Charactername.Content = Player.getInstance().playerName;
-            sound.loadRunning();            
+            _sound.loadRunning();            
         }
 
         private void btnBack(object sender, RoutedEventArgs e)
@@ -95,11 +95,11 @@ namespace GehirnJogging
 
         private void arrowUp_Click(object sender, RoutedEventArgs e)
         {
-            if (!animationCompleted || goallvl > Player.getInstance().level) return;
-            if (goallvl != 13)
+            if (!_animationCompleted || _goallvl > Player.getInstance().level) return;
+            if (_goallvl != 13)
             {
-                goallvl = goallvl + 1;
-                moveTo(currentlvl, goallvl);
+                _goallvl = _goallvl + 1;
+                moveTo(_currentlvl, _goallvl);
             }
         }
 
@@ -110,7 +110,7 @@ namespace GehirnJogging
         /// <param name="Goal"></param>
         private void moveTo(int target, int Goal)
         {
-            if (!animationCompleted) return;
+            if (!_animationCompleted) return;
 
             int maxLevel = Player.getInstance().level + 1;
 
@@ -119,24 +119,24 @@ namespace GehirnJogging
                 return;
             }
 
-            animationCompleted = false;
-            lbllevel.Content = goallvl;
-            if (goallvl < 4)
+            _animationCompleted = false;
+            lbllevel.Content = _goallvl;
+            if (_goallvl < 4)
             {
                 lblSchwierigkeit.Content = "Easy";
             }
-            if (goallvl < 10 && goallvl > 3)
+            if (_goallvl < 10 && _goallvl > 3)
             {
                 lblSchwierigkeit.Content = "Medium";
             }
-            if (goallvl > 9)
+            if (_goallvl > 9)
             {
                 lblSchwierigkeit.Content = "Hard";
             }
 
-            Player.getInstance().playingLevel = goallvl;
+            Player.getInstance().playingLevel = _goallvl;
 
-            switch (goallvl)
+            switch (_goallvl)
             {
                 case 1:
                     frameByFrame(lvl1);
@@ -189,7 +189,7 @@ namespace GehirnJogging
             Thickness thicknessLvl = Goallvl.Margin;
             double differenceLeft = thicknessCharakter.Left - thicknessLvl.Left;
             double differenceBottom = thicknessCharakter.Bottom - thicknessLvl.Bottom;
-            sound.resumeRunning();
+            _sound.resumeRunning();
             for (int i = 0; i < 100; i++)
             {
                 await Task.Delay(10);
@@ -202,18 +202,18 @@ namespace GehirnJogging
             Character.Margin = CharacterWalking.Margin;
             Character.Visibility = Visibility.Visible;
             CharacterWalking.Visibility = Visibility.Hidden;
-            animationCompleted = true;
-            sound.stopRunning();
+            _animationCompleted = true;
+            _sound.stopRunning();
         }
 
         private void arrowDown_Click(object sender, RoutedEventArgs e)
         {
-            if (!animationCompleted || goallvl < 1 || goallvl == 1 && currentlvl == 1) return;
-            if (goallvl > 1)
+            if (!_animationCompleted || _goallvl < 1 || _goallvl == 1 && _currentlvl == 1) return;
+            if (_goallvl > 1)
             {
-                goallvl = goallvl - 1;
+                _goallvl = _goallvl - 1;
             }
-            moveTo(currentlvl, goallvl);
+            moveTo(_currentlvl, _goallvl);
 
         }
 
