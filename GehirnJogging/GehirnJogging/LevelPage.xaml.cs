@@ -145,18 +145,22 @@ namespace GehirnJogging
                 sounds.stopRunning();
             }
 
-            //if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
-            //{
-            //    showEnemy();
-            //}
-            //if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
-            //{
-            //    showEnemy();
-            //}
-            //if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
-            //{
-            //    showEnemy();
-            //}
+            Random random = new Random();
+            if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
+            {
+                Enemy.getInstance().Health = 20 + Player.getInstance().playingLevel * 2 - random.Next(-10 , 10);
+                showEnemy();
+            }
+            if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
+            {
+                Enemy.getInstance().Health = 20 + Player.getInstance().playingLevel * 4 - -random.Next(-20, 10);
+                showEnemy();
+            }
+            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
+            {
+                Enemy.getInstance().Health = 50 + Player.getInstance().playingLevel * 4 - -random.Next(-20, 10);
+                showEnemy();
+            }
         }
 
         private async void completeLevelAnimation()
@@ -310,7 +314,6 @@ namespace GehirnJogging
             PBarLifeEnemy.Visibility = Visibility.Visible;
             BorderLifeEnemy.Visibility = Visibility.Visible;
             sounds.stopRunning();
-            Enemy.getInstance().Health = 20;
             PBarLifeEnemy.Value = Enemy.getInstance().Health;
             PBarLifeEnemy.Maximum = Enemy.getInstance().Health;
             MarginEnemy = EnemyStanding.Margin;

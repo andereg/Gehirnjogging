@@ -105,8 +105,8 @@ namespace DB_GehirnJogging.Repositories
                     Damage = 15,
                     HP = 100,
                     Luck = 0,
-                    SolveTime = 1,
-                    Assets = 1
+                    SolveTime = 0,
+                    Assets = 0
                 };
                 gehirnjoggingEntities.Charakters.Add(charakter);
                 gehirnjoggingEntities.SaveChanges();

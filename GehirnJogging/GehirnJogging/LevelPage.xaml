@@ -66,42 +66,42 @@
                                                    Duration="0:0:0.8">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe1.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe1.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe2.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe2.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe3.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe3.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe4.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe4.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe5.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe5.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe6.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe6.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.6">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe7.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe7.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0.7">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\santawalking\transparentframe8.png"/>
+                                        <BitmapImage UriSource="Images\Character\santawalking\transparentframe8.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
@@ -115,7 +115,7 @@
         </Border>
         <Button x:Name="btnPause" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="65" Height="65" Click="btnPause_Click">
             <Button.Background>
-                <ImageBrush ImageSource="Images\Pause.png"/>
+                <ImageBrush ImageSource="Images\Icons\Pause.png"/>
             </Button.Background>
         </Button>
         <Button x:Name="KeyLeft" HorizontalAlignment="Left" Margin="1380,81,0,0" VerticalAlignment="Top" Width="134" Height="134" BorderThickness="0" Click="keyLeft_Click">
@@ -136,27 +136,27 @@
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source" Duration="0:0:1">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Santathrowing\Frame1.png"/>
+                                        <BitmapImage UriSource="Images\Character\Santathrowing\Frame1.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Santathrowing\Frame2.png"/>
+                                        <BitmapImage UriSource="Images\Character\Santathrowing\Frame2.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Santathrowing\Frame3.png"/>
+                                        <BitmapImage UriSource="Images\Character\Santathrowing\Frame3.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.6">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Santathrowing\Frame4.png"/>
+                                        <BitmapImage UriSource="Images\Character\Santathrowing\Frame4.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.8">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\Santathrowing\Frame5.png"/>
+                                        <BitmapImage UriSource="Images\Character\Santathrowing\Frame5.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
@@ -216,27 +216,27 @@
                                                    Duration="0:0:0.5">
                                 <DiscreteObjectKeyFrame KeyTime="0:0:0">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame1.png"/>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusStanding\Frame1.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.1">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame2.png"/>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusStanding\Frame2.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.2">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame3.png"/>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusStanding\Frame3.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.3">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame4.png"/>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusStanding\Frame4.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                                 <DiscreteObjectKeyFrame KeyTime="0:0:00.4">
                                     <DiscreteObjectKeyFrame.Value>
-                                        <BitmapImage UriSource="Images\MinotaurusStanding\Frame5.png"/>
+                                        <BitmapImage UriSource="Images\Enemy\MinotaurusStanding\Frame5.png"/>
                                     </DiscreteObjectKeyFrame.Value>
                                 </DiscreteObjectKeyFrame>
                             </ObjectAnimationUsingKeyFrames>
@@ -464,7 +464,7 @@
                 <ProgressBar x:Name="PBarTimer" Maximum="70" Value="70" BorderThickness="0" Foreground="DarkOliveGreen" Background="DarkRed" HorizontalAlignment="Left" Height="13" VerticalAlignment="Top" Width="817"/>
             </Border>
         </Grid>
-        <Grid x:Name="GridPause" Visibility="Hidden">
+        <Grid x:Name="GridPause" Visibility="Visible">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="261" Margin="410,377,385,-279" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="264" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="440,515,0,-242" Click="btnMusicOnOFf_Click" />
             <Button x:Name="btnResume" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="726,515,0,-242" Click="btnResume_Click" />

@@ -38,7 +38,7 @@ namespace GehirnJogging
         private void onNavigated(object sender, NavigationEventArgs e)
         {
             Charactername.Content = Player.getInstance().playerName;
-            sound.loadRunning();
+            sound.loadRunning();            
         }
 
         private void btnBack(object sender, RoutedEventArgs e)

@@ -19,17 +19,6 @@ namespace GehirnJogging
         MediaPlayer playerEffect = new MediaPlayer();
 
 
-        //public void playHover()
-        //{
-        //    player.Open(new Uri(@"Sounds/Hoversound.wav", UriKind.Relative));
-        //    player.Play();
-        //}
-        //public void playClick()
-        //{
-        //    player.Open(new Uri(@"Sounds/Clicksound.wav", UriKind.Relative));
-        //    player.Play();
-        //}
-
         /// <summary>
         /// Öffnet den Sound und spielt ihn ab
         /// </summary>
@@ -51,6 +40,9 @@ namespace GehirnJogging
             playerEffect.Play();
         }
 
+        /// <summary>
+        /// Spielt und ladet den sound Timersound ab, falls dieser beendet ist, wird das Event mediaTimer_ended ausgelöst was den Sound wiederholt  
+        /// </summary>
         public void playTimer()
         {
             playerTimer.Open(new Uri(@"Sounds/Timersound.wav", UriKind.Relative));
@@ -58,6 +50,9 @@ namespace GehirnJogging
             playerTimer.MediaEnded += new EventHandler(mediaTimer_Ended);
         }
 
+        /// <summary>
+        /// Stoppt den playerTimer
+        /// </summary>
         public void stopTimer()
         {
             playerTimer.Pause();
