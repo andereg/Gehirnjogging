@@ -28,7 +28,7 @@ namespace GehirnJogging
             Start.getNavigationService().Navigated += onNavigated;
         }
 
-        private void onNavigated(object sender, NavigationEventArgs e)
+        private async void onNavigated(object sender, NavigationEventArgs e)
         {
             music.playTheme();
             sounds.loadRunning();
@@ -44,12 +44,14 @@ namespace GehirnJogging
             PBarTimer.Maximum = 200 - Player.getInstance().playingLevel * 10;
             _maxTime = PBarTimer.Maximum;
             PBarTimer.Value = _maxTime;
+            lblLevelX.Content = "Level " + Player.getInstance().playingLevel;
+
+            fadeLabelIn(lblLevelX);
         }
 
         Music music = new Music();
         Sound sounds = new Sound();
         bool isMusicPlaying = true;
-        bool isSoundOn = true;
         int moveAmount = 5;
         bool animationCompleted = true;
         bool enemyDefeated = true;
@@ -180,7 +182,7 @@ namespace GehirnJogging
             if (!_levelCompleted)
             {
                 completeLevelAnimation();
-                LevelCompletedLabel.Visibility = Visibility.Visible;
+                fadeLabelIn(lblLevelCompleted);
 
                 await Task.Delay(2000);
                 LevelCompleted.Visibility = Visibility.Visible;
@@ -350,7 +352,7 @@ namespace GehirnJogging
             attackDamage.Bottom = AttackDamageCharacter.Margin.Bottom - random.Next(-30, 30);
 
             await Task.Delay(400);
-            fadeLabel(AttackDamageCharacter);
+            fadeLabelOut(AttackDamageCharacter);
             if (Enemy.getInstance().Health > 0)
             {
                 await Task.Delay(1000);
@@ -382,7 +384,7 @@ namespace GehirnJogging
             attackDamage.Bottom = AttackDamageEnemy.Margin.Bottom - random.Next(-30, 30);
 
             await Task.Delay(400);
-            fadeLabel(AttackDamageEnemy);
+            fadeLabelOut(AttackDamageEnemy);
             if (Player.getInstance().health > 0)
             {
                 await Task.Delay(1500);
@@ -552,7 +554,7 @@ namespace GehirnJogging
         /// 
         /// </summary>
         /// <param name="label"></param>
-        private async void fadeLabel(Label label)
+        private async void fadeLabelOut(Label label)
         {
             for (int i = 0; i < 100; i++)
             {
@@ -561,6 +563,19 @@ namespace GehirnJogging
             }
             label.Visibility = Visibility.Hidden;
             label.Opacity = 1;
+        }
+
+        private async void fadeLabelIn(Label label)
+        {
+            label.Visibility = Visibility.Visible;
+            label.Opacity = 0;
+            for (int i = 0; i < 50; i++)
+            {
+                await Task.Delay(5);
+                label.Opacity = label.Opacity + 0.02;
+            }
+            await Task.Delay(6000);
+            fadeLabelOut(lblLevelX);
         }
 
         private async void submitAnswerButton_Click(object sender, RoutedEventArgs e)

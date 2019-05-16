@@ -48,9 +48,18 @@ namespace GehirnJogging
 
         }
 
-        private void btnStartLevel(object sender, RoutedEventArgs e)
+        private async void btnStartLevel_Click(object sender, RoutedEventArgs e)
         {
-            Start.resetPage("levelpage");
+            while(Character.Height > 0)
+            {
+                Thickness newCharacterMargin = Character.Margin;
+                newCharacterMargin.Left += 0.4;
+                newCharacterMargin.Bottom += 0.3;
+                Character.Height--;
+                Character.Margin = newCharacterMargin;
+                await Task.Delay(10);
+            }
+            Start.resetPage("worldpage");
             Start.navigateTo("levelpage");
         }
 

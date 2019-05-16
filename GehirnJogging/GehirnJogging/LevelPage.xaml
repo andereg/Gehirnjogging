@@ -464,7 +464,7 @@
                 <ProgressBar x:Name="PBarTimer" Maximum="70" Value="70" BorderThickness="0" Foreground="DarkOliveGreen" Background="DarkRed" HorizontalAlignment="Left" Height="13" VerticalAlignment="Top" Width="817"/>
             </Border>
         </Grid>
-        <Grid x:Name="GridPause" Visibility="Visible">
+        <Grid x:Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="261" Margin="410,377,385,-279" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="264" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="440,515,0,-242" Click="btnMusicOnOFf_Click" />
             <Button x:Name="btnResume" Content="Weiterspielen" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="726,515,0,-242" Click="btnResume_Click" />
@@ -476,7 +476,8 @@
             <Image x:Name="Background2" Source="Images/Backgrounds/winbackground.png" Margin="-44,-22,-21,-748"/>
             <Button x:Name="btnBackToWorldMap" Content="Zurück zur Worldmap" BorderBrush="Black" BorderThickness="8" Background="Transparent" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="btnBackToWorldMap_Click"/>
         </Grid>
-        <Label x:Name="LevelCompletedLabel" Visibility="Hidden" Foreground="Black" Content="level geschafft!" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
+        <Label x:Name="lblLevelCompleted" Visibility="Hidden" Foreground="Black" Content="level geschafft!" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
+        <Label x:Name="lblLevelX" Visibility="Hidden" Foreground="Black" Content="" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="616,295,0,0" Grid.RowSpan="2" />
 
     </Grid>
 </Page>

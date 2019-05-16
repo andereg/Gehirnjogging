@@ -61,21 +61,21 @@ namespace GehirnJogging
         /// <summary>
         /// Diese Methode setzt die mitgegebene Seite auf Standard zurück.
         /// </summary>
-        /// <param name="destinationPage"></param>
-        public static void resetPage(string destinationPage)
+        /// <param name="pageToReset"></param>
+        public static void resetPage(string pageToReset)
         {
-            _pages[destinationPage].DataContext = null;
+            _pages[pageToReset].DataContext = null;
 
-            switch (destinationPage)
+            switch (pageToReset)
             {
                 case "startpage":
-                    _pages[destinationPage] = new StartPage();
+                    _pages[pageToReset] = new StartPage();
                     break;
                 case "levelpage":
-                    _pages[destinationPage] = new LevelPage();
+                    _pages[pageToReset] = new LevelPage();
                     break;
                 case "worldpage":
-                    _pages[destinationPage] = new Worldpage();
+                    _pages[pageToReset] = new Worldpage();
                     break;
             }
         }

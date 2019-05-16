@@ -28,6 +28,7 @@ namespace GehirnJogging
             if (_player == null)
             {
                 _player = new Player();
+                _player.playingLevel = 1;
             }
             return _player;
         }
