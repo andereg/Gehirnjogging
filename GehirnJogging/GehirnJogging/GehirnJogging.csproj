@@ -142,6 +142,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Backgrounds\Manual.png" />
     <Content Include="Sounds\CorrectAnswer.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

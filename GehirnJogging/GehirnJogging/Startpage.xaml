@@ -40,8 +40,8 @@
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>
         </Grid>
-        <Button x:Name="btnExit_Copy" Content="Credits" Background="WhiteSmoke" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1147,828,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnExit_Copy_Click" />
-        <Grid Name="GridCredits" Visibility="Visible">
+        <Button x:Name="btnCredits" Content="Credits" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1147,828,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnCredits_Click" />
+        <Grid Name="GridCredits" Visibility="Hidden">
             <Frame  x:Name="Creditsfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="448" Margin="646,410,575,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Label x:Name="labelCreditHeader" Content="Credits:" HorizontalAlignment="Left" Margin="890,434,0,0" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold" RenderTransformOrigin="0.516,-0.29"  />
             <Label x:Name="labelCreditCAndE" Content="Character &amp; Enemies: &#xD;&#xA;Elthen's Pixel Art Shop (https://elthen.itch.io/)" HorizontalAlignment="Left" Margin="673,538,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="92" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />

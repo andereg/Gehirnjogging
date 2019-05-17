@@ -148,5 +148,10 @@
                 <ImageBrush ImageSource="Images/Icons/HolyCarrot.png" Stretch="Uniform"/>
             </Button.Background>
         </Button>
+        <Grid Name="GridManual" Visibility="Hidden">
+            <Image Source="Images/Backgrounds/Manual.png" Margin="42,129,-42,138" />
+            <Button x:Name="exitManual" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1265,150,0,0" VerticalAlignment="Top" Width="60" Height="57" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitManual_Click"/>
+            <Border BorderBrush="Black" BorderThickness="7" HorizontalAlignment="Left" Height="813" Margin="666,129,0,0" VerticalAlignment="Top" Width="677" RenderTransformOrigin="0.44,-0.03"/>
+        </Grid>
     </Grid>
 </Page>

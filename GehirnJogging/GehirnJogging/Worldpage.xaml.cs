@@ -38,7 +38,11 @@ namespace GehirnJogging
         private void onNavigated(object sender, NavigationEventArgs e)
         {
             Charactername.Content = Player.getInstance().playerName;
-            _sound.loadRunning();            
+            _sound.loadRunning();
+            if (Player.getInstance().level < 2)
+            {
+                GridManual.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnBack(object sender, RoutedEventArgs e)
@@ -230,7 +234,10 @@ namespace GehirnJogging
             }
         }
 
-
+        private void ExitManual_Click(object sender, RoutedEventArgs e)
+        {
+            GridManual.Visibility = Visibility.Hidden;
+        }
     }
 }
 

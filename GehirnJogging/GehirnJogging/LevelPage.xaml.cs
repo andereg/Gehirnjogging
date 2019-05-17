@@ -158,7 +158,7 @@ namespace GehirnJogging
                 Enemy.getInstance().Health = 20 + Player.getInstance().playingLevel * 4 - -random.Next(-20, 10);
                 showEnemy();
             }
-            if (MarginBackground.Left < -3500 && _numberOfDefeatedEnemys < 3)
+            if (MarginBackground.Left < -3400 && _numberOfDefeatedEnemys < 3)
             {
                 Enemy.getInstance().Health = 50 + Player.getInstance().playingLevel * 4 - -random.Next(-20, 10);
                 showEnemy();
@@ -525,7 +525,8 @@ namespace GehirnJogging
         {
             _music.stopTheme();
             _sounds.stopRunning();
-            Start.navigateTo("startpage");
+            Start.navigateTo("worldpage");
+            Start.resetPage("levelpage");
         }
 
         private async void fadeImageOut(Image image)
@@ -580,6 +581,10 @@ namespace GehirnJogging
 
         private async void submitAnswerButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_questionAnswered)
+            {
+                return;
+            }
             _questionAnswered = true;
             if (questionAnswer.Text.Equals(_questionAnswer.ToString()))
             {

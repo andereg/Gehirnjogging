@@ -450,8 +450,8 @@
         </Image>
         <Grid x:Name="GridGameOver" Visibility="Hidden">
             <Frame  x:Name="gameoverfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="299" Margin="708,388,752,-328" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Button x:Name="btnExit" Content="Hauptmenü" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="btnExit_Click" />
-            <Label x:Name="gameoverlabel" Content="Game Over!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
+            <Button x:Name="btnExit" Content="Levelauswahl" Background="IndianRed" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="321" Height="152" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="773,504,0,-297" Click="btnExit_Click" />
+            <Label x:Name="gameoverlabel" Content="Level failed!" HorizontalAlignment="Left" Margin="783,415,0,-125" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold"  />
         </Grid>
         <Grid x:Name="Question" Visibility="Hidden">
             <Frame  x:Name="questionfield"  Background="#FF211919" Visibility="Visible" BorderBrush="WhiteSmoke" BorderThickness="10" Height="348" Margin="467,256,502,-245" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
@@ -464,6 +464,7 @@
                 <ProgressBar x:Name="PBarTimer" Maximum="70" Value="70" BorderThickness="0" Foreground="DarkOliveGreen" Background="DarkRed" HorizontalAlignment="Left" Height="13" VerticalAlignment="Top" Width="817"/>
             </Border>
         </Grid>
+        <Label x:Name="lblLevelX" Visibility="Hidden" Foreground="Black" Content="" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="616,295,0,0" Grid.RowSpan="2" />
         <Grid x:Name="GridPause" Visibility="Hidden">
             <Frame  x:Name="newgamefield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="261" Margin="410,377,385,-279" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="btnMusicOnOFf"  Content="Music Off" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" VerticalAlignment="Top" Width="264" Height="86" FontSize="50" FontFamily="Microsoft Tai Le" FontWeight="Bold" Margin="440,515,0,-242" Click="btnMusicOnOFf_Click" />
@@ -476,8 +477,7 @@
             <Image x:Name="Background2" Source="Images/Backgrounds/winbackground.png" Margin="-44,-22,-21,-748"/>
             <Button x:Name="btnBackToWorldMap" Content="Zurück zur Worldmap" BorderBrush="Black" BorderThickness="8" Background="Transparent" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="btnBackToWorldMap_Click"/>
         </Grid>
-        <Label x:Name="lblLevelCompleted" Visibility="Hidden" Foreground="Black" Content="level geschafft!" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
-        <Label x:Name="lblLevelX" Visibility="Hidden" Foreground="Black" Content="" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="616,295,0,0" Grid.RowSpan="2" />
+        <Label x:Name="lblLevelCompleted" Visibility="Hidden" Foreground="Black" Content="Level geschafft!" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
 
     </Grid>
 </Page>
