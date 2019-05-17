@@ -62,6 +62,15 @@ namespace GehirnJogging
                 lblusernameAlreadyGiven.Visibility = Visibility.Visible;
                 return;
             }
+
+            for (int i = 0; i < nameinputtext.Text.Length; i++)
+            {
+                if (!Char.IsLetterOrDigit(nameinputtext.Text[i]))
+                {
+                    lblonlyLettersandFigures.Visibility = Visibility.Visible;
+                    return;
+                }
+            }
             Player.getInstance().playerName = nameinputtext.Text;
 
             charakterRepository.createNewUser(nameinputtext.Text);

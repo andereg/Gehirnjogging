@@ -39,6 +39,7 @@
             <Label x:Name="lblyourname" Content="Dein Name" Visibility="Visible" HorizontalAlignment="Left" Margin="769,392,0,0" VerticalAlignment="Top" Height="102" Width="396" FontSize="70" FontWeight="Bold"/>
             <Label x:Name="lblusernameAlreadyGiven" Content="Benutzername bereits vergeben" Visibility="Hidden" HorizontalAlignment="Left" Margin="741,577,0,0" VerticalAlignment="Top" Height="51" Width="482" FontSize="30" FontWeight="Bold" Foreground="DarkRed"/>
             <Label x:Name="lblusernameCantBeEmpty" Content="Benutzername kann nicht leer sein" Visibility="Hidden" HorizontalAlignment="Left" Margin="741,577,0,0" VerticalAlignment="Top" Height="51" Width="522" FontSize="30" FontWeight="Bold" Foreground="DarkRed"/>
+            <Label x:Name="lblonlyLettersandFigures" Content="      Bitte keine Sonderzeichen" Visibility="Hidden" HorizontalAlignment="Left" Margin="741,577,0,0" VerticalAlignment="Top" Height="51" Width="482" FontSize="30" FontWeight="Bold" Foreground="DarkRed"/>
         </Grid>
 
         <Grid Name="GridLoadGame" Visibility="Hidden" Grid.RowSpan="2">
