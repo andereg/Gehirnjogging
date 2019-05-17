@@ -10,11 +10,15 @@
       ShowsNavigationUI="False">
 
     <Grid>
-        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Backgrounds/Startscreen.png" Stretch="Fill"/>
-        <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,406,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnNewGame_Click" />
-        <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,545,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnLoadGame_Click" />
-        <Button x:Name="btnExit" Content="Spiel beenden" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="507,689,0,0" VerticalAlignment="Top" Width="897" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="endGame" />
-        <Grid Name="GridNewGame" Visibility="Hidden">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="113*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Backgrounds/Startscreen.png" Stretch="Fill" Grid.RowSpan="2"/>
+        <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,379,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnNewGame_Click" Grid.RowSpan="2" />
+        <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,103,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnLoadGame_Click" Grid.Row="1" />
+        <Button x:Name="btnExit" Content="Spiel beenden" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,230,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="endGame" Grid.Row="1" />
+        <Grid Name="GridNewGame" Visibility="Hidden" Grid.RowSpan="2">
             <Frame x:Name="NameInput"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="457" Margin="600,304,0,0" VerticalAlignment="Top" Width="706" RenderTransformOrigin="3.63,-1.54"/>
             <Button x:Name="exitNewWorld" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1170,352,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="exitNewWorld_Click" />
             <Button x:Name="btnok" Content="OK" Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="769,628,0,0" VerticalAlignment="Top" Width="417" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnNewPlayer_Click" />
@@ -24,7 +28,7 @@
             <Label x:Name="lblusernameCantBeEmpty" Content="Benutzername kann nicht leer sein" Visibility="Hidden" HorizontalAlignment="Left" Margin="741,577,0,0" VerticalAlignment="Top" Height="51" Width="522" FontSize="30" FontWeight="Bold" Foreground="DarkRed"/>
         </Grid>
 
-        <Grid Name="GridLoadGame" Visibility="Hidden">
+        <Grid Name="GridLoadGame" Visibility="Hidden" Grid.RowSpan="2">
             <Frame x:Name="FrameLoadGame"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" HorizontalAlignment="Left" Height="646" Margin="388,171,0,0" VerticalAlignment="Top" Width="1122" RenderTransformOrigin="3.63,-1.54" d:IsHidden="True"/>
             <Label x:Name="lblSpielstaende" Content="Spielstände:" Visibility="Visible" HorizontalAlignment="Left" Margin="752,188,0,0" VerticalAlignment="Top" Height="102" Width="414" FontSize="70" FontWeight="Bold"/>
             <Button x:Name="exitLoadGame" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1372,210,0,0" VerticalAlignment="Top" Width="93" Height="88" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="exitLoadGame_Click" />
@@ -40,8 +44,10 @@
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>
         </Grid>
-        <Button x:Name="btnCredits" Content="Credits" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1147,828,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnCredits_Click" />
-        <Grid Name="GridCredits" Visibility="Hidden">
+        <Frame  x:Name="gameoverfield"  Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="291" Margin="53,379,836,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54" Grid.RowSpan="2"/>
+        <Label x:Name="lblHEader" Visibility="Visible" Foreground="Black" Content="Gehirnjogging" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="140" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="909" Margin="114,398,0,0" Grid.RowSpan="2" />
+        <Button x:Name="btnCredits" Content="Credits" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="53,292,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnCredits_Click" Grid.Row="1" />
+        <Grid Name="GridCredits" Visibility="Hidden" Grid.RowSpan="2">
             <Frame  x:Name="Creditsfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="448" Margin="646,410,575,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
             <Label x:Name="labelCreditHeader" Content="Credits:" HorizontalAlignment="Left" Margin="890,434,0,0" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold" RenderTransformOrigin="0.516,-0.29"  />
             <Label x:Name="labelCreditCAndE" Content="Character &amp; Enemies: &#xD;&#xA;Elthen's Pixel Art Shop (https://elthen.itch.io/)" HorizontalAlignment="Left" Margin="673,538,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="92" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
@@ -50,6 +56,7 @@
             <Label x:Name="labelCreditSounds" Content="Sounds: &#x9;Splice.com" HorizontalAlignment="Left" Margin="673,792,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="48" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="582"  />
 
         </Grid>
+        <Label x:Name="lblDescription" Content="Verbessere spielerisch deine Mathefähigkeiten!" HorizontalAlignment="Left" Margin="114,169,0,0" VerticalAlignment="Top" Width="1114" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" Grid.Row="1"/>
     </Grid>
 
 </Page>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GehirnJogging", "GehirnJogg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB-GehirnJogging", "DB-GehirnJogging\DB-GehirnJogging.csproj", "{A00C543E-3097-4319-90B8-CDD5215BAC56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GehirnjoggingTest", "GehirnjoggingTest\GehirnjoggingTest.csproj", "{60691685-5E83-4AA5-A3A4-FCB46DCB3006}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A00C543E-3097-4319-90B8-CDD5215BAC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A00C543E-3097-4319-90B8-CDD5215BAC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A00C543E-3097-4319-90B8-CDD5215BAC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60691685-5E83-4AA5-A3A4-FCB46DCB3006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60691685-5E83-4AA5-A3A4-FCB46DCB3006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60691685-5E83-4AA5-A3A4-FCB46DCB3006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60691685-5E83-4AA5-A3A4-FCB46DCB3006}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

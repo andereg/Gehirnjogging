@@ -60,7 +60,7 @@ namespace GehirnJogging
         private double _maxTime;
         private int _numberOfDefeatedEnemys;
         private bool _levelCompleted = false;
-        private int _questionAnswer;
+        private int _answerToQuestion;
         private bool _questionAnswered = false;
 
 
@@ -405,7 +405,7 @@ namespace GehirnJogging
             questioncontent.Content = questions[questionnumber];
 
             List<int> answers = questionRepository.getAnswers();
-            _questionAnswer = answers[questionnumber];
+            _answerToQuestion = answers[questionnumber];
             startTimer();
 
         }
@@ -586,7 +586,7 @@ namespace GehirnJogging
                 return;
             }
             _questionAnswered = true;
-            if (questionAnswer.Text.Equals(_questionAnswer.ToString()))
+            if (questionAnswer.Text.Equals(_answerToQuestion.ToString()))
             {
                 fadeImageIn(imageIconRight);
                 _sounds.playCorrectAnswer();
