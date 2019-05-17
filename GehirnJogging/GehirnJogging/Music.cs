@@ -26,7 +26,7 @@ namespace GehirnJogging
             if (_isMusicOn == false)
             {
                 _isMusicOn = true;
-                player.Open(new Uri(@"Sounds/Crow.mp3", UriKind.Relative));
+                player.Open(new Uri(@"Sounds/Soundtrack.wav", UriKind.Relative));
                 player.Play();
             }
 

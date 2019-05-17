@@ -143,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\Manual.png" />
+    <Content Include="Sounds\Soundtrack.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Sounds\CorrectAnswer.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
