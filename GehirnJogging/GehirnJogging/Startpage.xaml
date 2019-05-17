@@ -15,6 +15,19 @@
             <RowDefinition Height="113*"/>
         </Grid.RowDefinitions>
         <Image x:Name="Startscreen___1_png" Margin="-8,0,0,-31" Source="Images/Backgrounds/Startscreen.png" Stretch="Fill" Grid.RowSpan="2"/>
+        <Frame  x:Name="gameoverfield"  Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="291" Margin="53,379,836,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54" Grid.RowSpan="2"/>
+        <Label x:Name="lblHEader" Visibility="Visible" Foreground="Black" Content="Gehirnjogging" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="140" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="909" Margin="114,398,0,0" Grid.RowSpan="2" />
+        <Button x:Name="btnCredits" Content="Credits" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="53,292,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnCredits_Click" Grid.Row="1" />
+        <Grid x:Name="GridCredits" Visibility="Hidden" Grid.RowSpan="2">
+            <Frame  x:Name="Creditsfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="448" Margin="646,410,575,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
+            <Label x:Name="labelCreditHeader" Content="Credits:" HorizontalAlignment="Left" Margin="890,434,0,0" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold" RenderTransformOrigin="0.516,-0.29"  />
+            <Label x:Name="labelCreditCAndE" Content="Character &amp; Enemies: &#xA;Elthen's Pixel Art Shop (https://elthen.itch.io/)" HorizontalAlignment="Left" Margin="673,538,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="92" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
+            <Label x:Name="labelCreditBackgrounds" Content="Backgrounds:&#xA;edermunizz (https://edermunizz.itch.io/) &amp;&#xA;ansimuz (https://ansimuz.itch.io/)" HorizontalAlignment="Left" Margin="673,640,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="134" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
+            <Button x:Name="exitCredits" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1265,434,0,0" VerticalAlignment="Top" Width="60" Height="57" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitCredits_Click"/>
+            <Label x:Name="labelCreditSounds" Content="Sounds: &#x9;Splice.com" HorizontalAlignment="Left" Margin="673,792,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="48" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="582"  />
+
+        </Grid>
+        <Label x:Name="lblDescription" Content="Verbessere spielerisch deine Mathefähigkeiten!" HorizontalAlignment="Left" Margin="114,169,0,0" VerticalAlignment="Top" Width="1114" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" Grid.Row="1"/>
         <Button x:Name="btnnewGame" Content="Neues Spiel" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,379,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnNewGame_Click" Grid.RowSpan="2" />
         <Button x:Name="btnloadGame" Content="Spiel laden" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,103,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="btnLoadGame_Click" Grid.Row="1" />
         <Button x:Name="btnExit" Content="Spiel beenden" Background="DarkViolet" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="1183,230,0,0" VerticalAlignment="Top" Width="552" Height="108" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="endGame" Grid.Row="1" />
@@ -44,19 +57,6 @@
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>
         </Grid>
-        <Frame  x:Name="gameoverfield"  Background="LightYellow" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="291" Margin="53,379,836,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54" Grid.RowSpan="2"/>
-        <Label x:Name="lblHEader" Visibility="Visible" Foreground="Black" Content="Gehirnjogging" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="140" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="909" Margin="114,398,0,0" Grid.RowSpan="2" />
-        <Button x:Name="btnCredits" Content="Credits" Background="LightYellow" BorderBrush="Black" BorderThickness="8" HorizontalAlignment="Left" Margin="53,292,0,0" VerticalAlignment="Top" Width="257" Height="59" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="BtnCredits_Click" Grid.Row="1" />
-        <Grid Name="GridCredits" Visibility="Hidden" Grid.RowSpan="2">
-            <Frame  x:Name="Creditsfield"  Background="WhiteSmoke" Visibility="Visible" BorderBrush="Black" BorderThickness="10" Height="448" Margin="646,410,575,0" VerticalAlignment="Top" RenderTransformOrigin="3.63,-1.54"/>
-            <Label x:Name="labelCreditHeader" Content="Credits:" HorizontalAlignment="Left" Margin="890,434,0,0" VerticalAlignment="Top"  FontSize="50" FontFamily="Microsoft Tai Le" Height="69" FontWeight="Bold" RenderTransformOrigin="0.516,-0.29"  />
-            <Label x:Name="labelCreditCAndE" Content="Character &amp; Enemies: &#xD;&#xA;Elthen's Pixel Art Shop (https://elthen.itch.io/)" HorizontalAlignment="Left" Margin="673,538,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="92" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
-            <Label x:Name="labelCreditBackgrounds" Content="Backgrounds:&#xA;edermunizz (https://edermunizz.itch.io/) &amp;&#xA;ansimuz (https://ansimuz.itch.io/)" HorizontalAlignment="Left" Margin="673,640,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="134" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="672"  />
-            <Button x:Name="exitCredits" Content="X" Background="DarkRed" Visibility="Visible" BorderBrush="Black" BorderThickness="6" HorizontalAlignment="Left" Margin="1265,434,0,0" VerticalAlignment="Top" Width="60" Height="57" FontSize="40" FontFamily="Microsoft Tai Le" FontWeight="Bold" Click="ExitCredits_Click"/>
-            <Label x:Name="labelCreditSounds" Content="Sounds: &#x9;Splice.com" HorizontalAlignment="Left" Margin="673,792,0,0" VerticalAlignment="Top"  FontSize="30" FontFamily="Microsoft Tai Le" Height="48" FontWeight="Bold"  RenderTransformOrigin="0.516,-0.29" Width="582"  />
-
-        </Grid>
-        <Label x:Name="lblDescription" Content="Verbessere spielerisch deine Mathefähigkeiten!" HorizontalAlignment="Left" Margin="114,169,0,0" VerticalAlignment="Top" Width="1114" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold" Grid.Row="1"/>
     </Grid>
 
 </Page>
