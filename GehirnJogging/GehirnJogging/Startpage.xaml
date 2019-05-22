@@ -58,6 +58,7 @@
             </Button>
             <Grid Name="GridSpielstandButtons"></Grid>
         </Grid>
+        <Label x:Name="lblDevelopedBy" Visibility="Visible" Foreground="Black" Content="Developed by Raphael and Alwin" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="40" FontFamily="Old English Text MT" Height="68"  Width="571" Margin="1339,619,0,-9" Grid.Row="1" />
     </Grid>
 
 </Page>

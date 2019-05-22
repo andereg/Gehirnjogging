@@ -13,10 +13,7 @@ namespace GehirnJogging
     /// </summary>
     class Sound
     {
-        private MediaPlayer _playerCompleteLevel = new MediaPlayer();
-        private MediaPlayer _playerRunning = new MediaPlayer();
-        private MediaPlayer _playerTimer = new MediaPlayer();
-        private MediaPlayer _playerEffect = new MediaPlayer();
+        private MediaPlayer _player = new MediaPlayer();
 
 
         /// <summary>
@@ -24,8 +21,8 @@ namespace GehirnJogging
         /// </summary>
         public void playCompleteLevel()
         {
-            _playerCompleteLevel.Open(new Uri(@"Sounds/CompleteLevel.wav", UriKind.Relative));
-            _playerCompleteLevel.Play();
+            _player.Open(new Uri(@"Sounds/CompleteLevel.wav", UriKind.Relative));
+            _player.Play();
         }
 
         /// <summary>
@@ -33,8 +30,8 @@ namespace GehirnJogging
         /// </summary>
         public void playCorrectAnswer()
         {
-            _playerEffect.Open(new Uri(@"Sounds/CorrectAnswer.wav", UriKind.Relative));
-            _playerEffect.Play();
+            _player.Open(new Uri(@"Sounds/CorrectAnswer.wav", UriKind.Relative));
+            _player.Play();
         }
 
         /// <summary>
@@ -42,8 +39,8 @@ namespace GehirnJogging
         /// </summary>
         public void playFalseAnswer()
         {
-            _playerEffect.Open(new Uri(@"Sounds/FalseAnswer.wav", UriKind.Relative));
-            _playerEffect.Play();
+            _player.Open(new Uri(@"Sounds/FalseAnswer.wav", UriKind.Relative));
+            _player.Play();
         }
 
         /// <summary>
@@ -51,24 +48,24 @@ namespace GehirnJogging
         /// </summary>
         public void playTimer()
         {
-            _playerTimer.Open(new Uri(@"Sounds/Timersound.wav", UriKind.Relative));
-            _playerTimer.Play();
-            _playerTimer.MediaEnded += new EventHandler(mediaTimer_Ended);
+            _player.Open(new Uri(@"Sounds/Timersound.wav", UriKind.Relative));
+            _player.Play();
+            _player.MediaEnded += new EventHandler(mediaTimer_Ended);
         }
 
         /// <summary>
-        /// Stoppt den _playerTimer
+        /// Stoppt den _player
         /// </summary>
         public void stopTimer()
         {
-            _playerTimer.Pause();
+            _player.Pause();
         }
         /// <summary>
         /// Ladet den Sound Runningsound
         /// </summary>
         public void loadRunning()
         {
-            _playerRunning.Open(new Uri(@"Sounds/Runningsound.wav", UriKind.Relative));
+            _player.Open(new Uri(@"Sounds/Runningsound.wav", UriKind.Relative));
         }
 
         /// <summary>
@@ -76,7 +73,7 @@ namespace GehirnJogging
         /// </summary>
         public void stopRunning()
         {
-            _playerRunning.Pause();
+            _player.Pause();
         }
 
         /// <summary>
@@ -84,22 +81,22 @@ namespace GehirnJogging
         /// </summary>
         public void resumeRunning()
         {
-            _playerRunning.Play();
-            _playerRunning.MediaEnded += new EventHandler(media_Ended);
+            _player.Play();
+            _player.MediaEnded += new EventHandler(media_Ended);
 
         }
 
 
         private void media_Ended(object sender, EventArgs e)
         {
-            _playerRunning.Position = TimeSpan.Zero;
-            _playerRunning.Play();
+            _player.Position = TimeSpan.Zero;
+            _player.Play();
         }
 
         private void mediaTimer_Ended(object sender, EventArgs e)
         {
-            _playerTimer.Position = TimeSpan.Zero;
-            _playerTimer.Play();
+            _player.Position = TimeSpan.Zero;
+            _player.Play();
         }
     }
 }

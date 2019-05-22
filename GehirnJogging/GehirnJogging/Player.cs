@@ -49,10 +49,9 @@ namespace GehirnJogging
         public int level { get; set; }
 
         /// <summary>
-        /// Der getter und settr von int damage sind hier
+        /// Der getter und setter vom int playingLevel sind hier
+        /// dieser int speichert das aktuelle Level, welches der Benutzer am spielen ist. 
         /// </summary>
-        public int damage { get; set; }
-
         public int playingLevel { get; set; }
 
 
