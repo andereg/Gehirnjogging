@@ -315,10 +315,10 @@ namespace GehirnJogging
         /// </summary>
         private async void showEnemy()
         {
+            fadeImageIn(EnemyStanding);
             KeyRight.Visibility = Visibility.Hidden;
             KeyLeft.Visibility = Visibility.Hidden;
             _enemyDefeated = false;
-            EnemyStanding.Visibility = Visibility.Visible;
             PBarLifeEnemy.Visibility = Visibility.Visible;
             BorderLifeEnemy.Visibility = Visibility.Visible;
             _sounds.stopRunning();
