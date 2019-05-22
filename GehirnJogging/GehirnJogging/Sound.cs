@@ -44,13 +44,13 @@ namespace GehirnJogging
         }
 
         /// <summary>
-        /// Spielt und ladet den sound Timersound ab, falls dieser beendet ist, wird das Event mediaTimer_ended ausgelöst was den Sound wiederholt  
+        /// Spielt und ladet den sound Timersound ab, falls dieser beendet ist, wird das Event media_ended ausgelöst was den Sound wiederholt  
         /// </summary>
         public void playTimer()
         {
             _player.Open(new Uri(@"Sounds/Timersound.wav", UriKind.Relative));
             _player.Play();
-            _player.MediaEnded += new EventHandler(mediaTimer_Ended);
+            _player.MediaEnded += new EventHandler(media_Ended);
         }
 
         /// <summary>
@@ -88,12 +88,6 @@ namespace GehirnJogging
 
 
         private void media_Ended(object sender, EventArgs e)
-        {
-            _player.Position = TimeSpan.Zero;
-            _player.Play();
-        }
-
-        private void mediaTimer_Ended(object sender, EventArgs e)
         {
             _player.Position = TimeSpan.Zero;
             _player.Play();

@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -150,7 +151,7 @@ namespace GehirnJogging
             Random random = new Random();
             if (MarginBackground.Left < -1000 && _numberOfDefeatedEnemys < 1)
             {
-                Enemy.getInstance().Health = 20 + Player.getInstance().playingLevel * 2 - random.Next(-10 , 10);
+                Enemy.getInstance().Health = 20 + Player.getInstance().playingLevel * 2 - random.Next(-10, 10);
                 showEnemy();
             }
             if (MarginBackground.Left < -2500 && _numberOfDefeatedEnemys < 2)
@@ -162,6 +163,11 @@ namespace GehirnJogging
             {
                 Enemy.getInstance().Health = 50 + Player.getInstance().playingLevel * 4 - -random.Next(-20, 10);
                 showEnemy();
+                EnemyStanding.Effect = GoldenShadow.Effect;
+                EnemyAttackAnimation.Effect = GoldenShadow.Effect;
+                EnemyDies.Effect = GoldenShadow.Effect;
+                EnemyDiesFrameOnly.Effect = GoldenShadow.Effect;
+                EnemyWalking.Effect = GoldenShadow.Effect;
             }
         }
 
@@ -617,4 +623,3 @@ namespace GehirnJogging
         }
     }
 }
-

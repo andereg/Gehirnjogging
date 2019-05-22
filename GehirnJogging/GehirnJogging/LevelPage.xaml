@@ -19,6 +19,9 @@
 
         <Image x:Name="Backgroundimage" Margin="-69,0,-3848,0" Source="Images\Backgrounds/Level1.png "  Grid.RowSpan="2"/>
         <Image x:Name="Character" Margin="193,352,1501,88" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -58,6 +61,9 @@
         </Image>
 
         <Image x:Name="CharacterRuns" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -129,6 +135,9 @@
             </Button.Background>
         </Button>
         <Image x:Name="CharacterAttack" Margin="193,281,1501,67" Grid.Row="1" Visibility="Hidden">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -166,9 +175,16 @@
             </Image.Triggers>
         </Image>
 
-        <Image x:Name="CharacterDiesFrameOnly" Margin="493,281,1201,67" Source="Images/Character/SantaDies/Frame7.png" Visibility="Hidden"  Grid.Row="1"/>
+        <Image x:Name="CharacterDiesFrameOnly" Margin="493,281,1201,67" Source="Images/Character/SantaDies/Frame7.png" Visibility="Hidden"  Grid.Row="1">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
+        </Image>
 
         <Image x:Name="AttackAnimation" Margin="525,198,429,150" Grid.Row="1" Visibility="Hidden">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -208,6 +224,9 @@
         </Image>
 
         <Image x:Name="EnemyStanding" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -247,6 +266,9 @@
         </Image>
 
         <Image x:Name="EnemyWalking" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -285,9 +307,16 @@
             </Image.Triggers>
         </Image>
 
-        <Image x:Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1"/>
+        <Image x:Name="EnemyDiesFrameOnly" Source="Images/Enemy/MinotaurusDies/Frame6.png" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
+        </Image>
 
         <Image x:Name="EnemyDies" Margin="1091,15,363,-1" Visibility="Hidden" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -332,9 +361,11 @@
         </Image>
 
         <Image x:Name="EnemyAttackAnimation" Margin="616,35,623,-23" Visibility="Hidden" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="DarkRed"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-
                     <BeginStoryboard>
                         <Storyboard RepeatBehavior="Forever">
                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Source"
@@ -394,13 +425,20 @@
         </Label>
         <ProgressBar x:Name="PBarLifeEnemy" Foreground="DarkGreen" Background="Transparent" Value="100" BorderBrush="Transparent"  Visibility="Hidden" Minimum="0" Maximum="100" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152"/>
         <Border x:Name="BorderLifeEnemy" BorderBrush="Black" BorderThickness="5" Visibility="Hidden" HorizontalAlignment="Left" Height="25" Margin="1291,254,0,0" Grid.Row="1" VerticalAlignment="Top" Width="152" />
-        <Image x:Name="hearticon" HorizontalAlignment="Left"  Height="92" Margin="20,108,0,0" VerticalAlignment="Top" Width="91"/>
         <Label x:Name="AttackDamageEnemy" Visibility="Hidden" Foreground="WhiteSmoke" Content="Zahl" FontSize="30"  HorizontalAlignment="Left" Margin="588,314,0,0" Grid.Row="1" VerticalAlignment="Top" Height="71" Width="184">
             <Label.RenderTransform>
                 <RotateTransform Angle="3"/>
             </Label.RenderTransform>
         </Label>
+        <Image Name="GoldenShadow">
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="40" ShadowDepth="15" Color="Gold"></DropShadowEffect>
+            </Image.Effect>
+        </Image>
         <Image x:Name="CharacterDies" Visibility="Hidden" Margin="193,352,1501,88" Grid.Row="1" >
+            <Image.Effect>
+                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+            </Image.Effect>
             <Image.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
@@ -477,7 +515,7 @@
             <Image x:Name="Background2" Source="Images/Backgrounds/winbackground.png" Margin="-44,-22,-21,-748"/>
             <Button x:Name="btnBackToWorldMap" Content="Zurück zur Worldmap" BorderBrush="Black" BorderThickness="8" Background="Transparent" HorizontalAlignment="Left" Margin="536,653,0,-478" FontSize="70" FontFamily="Microsoft Tai Le" FontWeight="Bold" VerticalAlignment="Top" Width="765" Height="184" Click="btnBackToWorldMap_Click"/>
         </Grid>
-        <Label x:Name="lblLevelCompleted" Visibility="Hidden" Foreground="Black" Content="Level geschafft!" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
+        <Label x:Name="lblLevelCompleted" Visibility="Hidden" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top"  FontSize="170" FontFamily="Old English Text MT" Height="215" FontWeight="Bold" Width="1173" Margin="408,295,0,0" Grid.RowSpan="2" />
 
     </Grid>
 </Page>

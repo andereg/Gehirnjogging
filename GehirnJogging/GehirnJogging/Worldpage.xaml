@@ -50,6 +50,9 @@
         <Label x:Name="lblSchwierigkeit" Content="Easy" HorizontalAlignment="Left" Margin="1708,725,0,0" VerticalAlignment="Top" Width="175" FontFamily="Microsoft Tai Le" FontSize="40" FontWeight="Bold"/>
         <Border BorderThickness="2, 0, 0, 5" d:IsHidden="True">
             <Image Name="Character" HorizontalAlignment="Left" Margin="1030,0,0,212" VerticalAlignment="Bottom"  Height="88" Width="70" >
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+                </Image.Effect>
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
@@ -90,6 +93,9 @@
         </Border>
         <Border BorderThickness="2, 0, 0, 5" d:IsHidden="True">
             <Image Name="CharacterWalking" HorizontalAlignment="Left" Margin="1030,0,0,212" VerticalAlignment="Bottom" Visibility="Hidden" Height="88" Width="70" >
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="Black"></DropShadowEffect>
+                </Image.Effect>
                 <Image.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>

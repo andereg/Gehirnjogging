@@ -24,8 +24,6 @@ namespace GehirnJogging
     /// </summary>
     public partial class StartPage : Page
     {
-        private Music _music = new Music();
-        private Player _player = Player.getInstance();
         private int _scrollValue = 1;
         private int _maxButtons;
         private bool _spielstandLoaded = false;
