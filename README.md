@@ -15,7 +15,7 @@ auslaufen lässt oder die Frage falsch beantwortet wird der Charakter vom Gegner
 Spieler keine HP mehr hat, wird das Level abgebrochen und der Spieler wird zurück auf die Levelpage geleitet. 
 
 # Dokumentation
-[Inhalt](https://git.bbcag.ch/inf-bl/be/2018/gehirn-jogging/wikis/Inhalt)
+[Inhalt](https://git.bbcag.ch/inf-bl/be/2018/gehirn-jogging/wikis/1.-Inhalt)
 
 # Daily Scrum
 
