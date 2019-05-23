@@ -196,7 +196,7 @@ namespace GehirnJogging
                 fadeImageIn(Background2);
                 _sounds.playCompleteLevel();
                 CharakterRepository ctx = new CharakterRepository(new GehirnjoggingEntities());
-                if (Player.getInstance().level == Player.getInstance().playingLevel)
+                if (Player.getInstance().level + 1 == Player.getInstance().playingLevel)
                 {
                     ctx.incrementStageByName(Player.getInstance().playerName);
                     Player.getInstance().level++;

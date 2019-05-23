@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -62,7 +63,7 @@ namespace GehirnJogging
             Player.getInstance().playerName = nameinputtext.Text;
 
             charakterRepository.createNewUser(nameinputtext.Text);
-            Player.getInstance().level = 0;
+            Player.getInstance().level = 1;
             navigateToWorldpage();
         }
 
@@ -197,6 +198,22 @@ namespace GehirnJogging
         private void ExitCredits_Click(object sender, RoutedEventArgs e)
         {
             GridCredits.Visibility = Visibility.Hidden;
+        }
+
+        private async void BtnEasterEgg_Click(object sender, RoutedEventArgs e)
+        {
+            yannPotter.Visibility = Visibility.Visible;
+            for (int i = 0; i < 100; i++)
+            {
+                Thickness newMargin = yannPotter.Margin;
+                newMargin.Left += 10;
+                newMargin.Top+= 3;
+                yannPotter.Height += 10;
+                yannPotter.Width += 10;
+                yannPotter.Margin = newMargin;
+                await Task.Delay(10);
+            }
+            yannPotter.Visibility = Visibility.Hidden;
         }
     }
 }

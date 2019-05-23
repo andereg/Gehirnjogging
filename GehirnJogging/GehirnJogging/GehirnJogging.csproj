@@ -144,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Backgrounds\Manual.png" />
+    <Resource Include="Images\Icons\YannPotter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Sounds\Soundtrack.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
