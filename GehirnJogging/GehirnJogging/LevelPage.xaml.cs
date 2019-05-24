@@ -42,6 +42,10 @@ namespace GehirnJogging
                 string imagenr = "Level" + Convert.ToString(Player.getInstance().playingLevel) + ".png";
                 Backgroundimage.Source = new BitmapImage(new Uri(@"\Images\Backgrounds\" + imagenr, UriKind.Relative));
             }
+            else
+            {
+                Backgroundimage.Source = new BitmapImage(new Uri(@"\Images\Backgrounds\Level1.png" , UriKind.Relative));
+            }
             PBarTimer.Maximum = 200 - Player.getInstance().playingLevel * 10;
             _maxTime = PBarTimer.Maximum;
             PBarTimer.Value = _maxTime;

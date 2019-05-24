@@ -63,6 +63,7 @@ namespace GehirnJogging
                 Character.Margin = newCharacterMargin;
                 await Task.Delay(10);
             }
+            Player.getInstance().playingLevel = _currentlvl;
             Start.resetPage("worldpage");
             Start.navigateTo("levelpage");
         }
@@ -208,6 +209,7 @@ namespace GehirnJogging
             CharacterWalking.Visibility = Visibility.Hidden;
             _animationCompleted = true;
             _sound.stopRunning();
+            _currentlvl = _goallvl;
         }
 
         private void arrowDown_Click(object sender, RoutedEventArgs e)
